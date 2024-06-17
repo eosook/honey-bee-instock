@@ -1,0 +1,25 @@
+.error-page {
+  font-family: "ave";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+  &__title {
+    font-size: 8rem;
+    font-weight: bold;
+    color: #343a40;
+  }
+  &__message {
+    font-size: 1.5rem;
+    color: black;
+  }
+  &__link {
+    font-size: 1.2rem;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

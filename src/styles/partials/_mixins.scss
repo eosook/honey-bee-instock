@@ -1,0 +1,165 @@
+@use "./typography" as *;
+@use "./variables" as *;
+
+//media queries
+@mixin tablet {
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+//mobile typography
+@mixin mobile-header {
+  font-family: $primary-font;
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  font-weight: 600;
+}
+
+@mixin mobile-subheader {
+  font-family: $primary-font;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+@mixin mobile-labels {
+  font-family: $primary-font;
+  font-size: 0.813rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+
+@mixin mobile-table-header {
+  font-family: $primary-font;
+  font-size: 0.688rem;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
+@mixin mobile-body-large {
+  font-family: $primary-font;
+  font-size: 0.938rem;
+  line-height: 1.625rem;
+  font-weight: 400;
+}
+
+@mixin mobile-body-medium {
+  font-family: $primary-font;
+  font-size: 0.813rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+
+@mixin mobile-body-small {
+  font-family: $primary-font;
+  font-size: 0.688rem;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
+//large-screen-typography
+@mixin large-header {
+  font-family: $primary-font;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-weight: 600;
+}
+
+@mixin large-subheader {
+  font-family: $primary-font;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+}
+
+@mixin large-labels {
+  font-family: $primary-font;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+}
+
+@mixin large-table-header {
+  font-family: $primary-font;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
+
+@mixin large-body-large {
+  font-family: $primary-font;
+  font-size: 1rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+}
+
+@mixin large-body-medium {
+  font-family: $primary-font;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 400;
+}
+
+@mixin large-body-small {
+  font-family: $primary-font;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
+
+//call to actions
+@mixin mobile-buttons-form-fields {
+  height: 36px;
+  width: 100%;
+  border-radius: 20px;
+}
+
+@mixin large-buttons-form-fields {
+  height: 38px;
+  width: auto;
+  padding: 0 16px;
+  border-radius: 20px;
+}
+
+//tags
+@mixin mobile-tags-stocked {
+  height: 24px;
+  width: auto;
+  padding: 0 8px;
+  border-radius: 20px;
+  color: $green;
+  background-color: rgba($color: #158463, $alpha: 0.7);
+}
+
+@mixin mobile-tags-not-stocked {
+  height: 24px;
+  width: auto;
+  padding: 0 8px;
+  border-radius: 20px;
+  color: $red;
+  background-color: rgba($color: #c94515, $alpha: 0.7);
+}
+
+@mixin large-tags-stocked {
+  height: 26px;
+  width: auto;
+  padding: 0 8px;
+  border-radius: 20px;
+  color: $green;
+  background-color: rgba($color: #158463, $alpha: 0.7);
+}
+@mixin large-tags-not-stocked {
+  height: 26px;
+  width: auto;
+  padding: 0 8px;
+  border-radius: 20px;
+  color: $red;
+  background-color: rgba($color: #c94515, $alpha: 0.7);
+}
