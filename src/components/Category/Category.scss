@@ -1,0 +1,145 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+.category {
+  &-containers {
+    padding-left: 1rem;
+    border-top: 1px solid $cloud;
+    position: relative;
+  }
+  &-container {
+    @include mobile-body-small;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4rem;
+    height: 200px;
+    &-one {
+      color: $slate;
+    }
+  }
+  &-item {
+    color: $slate;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    &-link {
+      width: 130%;
+      position: relative;
+      &-text {
+        color: $instock-indigo;
+        margin-top: 0;
+      }
+      &-chev {
+        position: absolute;
+        top: -0.25rem;
+        right: 0.5rem;
+      }
+    }
+    &-img {
+      display: none;
+    }
+    &-stock {
+      height: 24px;
+      width: auto;
+      padding: 0 8px;
+      border-radius: 20px;
+      color: $green;
+      background-color: rgba($color: #158463, $alpha: 0.1);
+      font-weight: 600;
+      padding-top: 0.25rem;
+      margin-top: 0;
+    }
+    &-cat {
+      margin-top: 0;
+      color: $instock-black;
+    }
+    &-warehouse-action {
+      display: none;
+    }
+  }
+  &-logo {
+    margin-top: 4.5rem;
+    &-edit {
+      position: absolute;
+      left: 15rem;
+    }
+  }
+}
+.list {
+  display: none;
+}
+@include tablet {
+  .category {
+    &-containers {
+      border: none;
+      padding-left: 0;
+    }
+    &-container {
+      display: flex;
+      font-size: 1rem;
+      gap: 3rem;
+      height: 5vh;
+      background-color: $light-grey;
+      width: 100%;
+      padding-left: 3rem;
+      margin-bottom: 1rem;
+      @include desktop {
+        gap: 5rem;
+      }
+      &-one {
+        width: 60%;
+        display: flex;
+        justify-content: space-around;
+        @include desktop {
+          display: flex;
+          gap: 7rem;
+          width: 58%;
+        }
+      }
+    }
+    &-item {
+      display: flex;
+      flex-direction: row;
+      width: 32%;
+      @include desktop {
+        width: 25%;
+      }
+      &-text {
+        width: 450%;
+      }
+      &-img {
+        display: block;
+        position: absolute;
+        top: 0.25rem;
+        color: $cloud;
+      }
+    }
+    &-warehouse-action {
+      display: inline;
+      @include desktop {
+        margin-left: 7rem;
+      }
+    }
+    &-mobile {
+      display: none;
+    }
+    &-sort-one {
+      margin-left: 5.5rem;
+    }
+    &-sort-two {
+      margin-left: 3.75rem;
+    }
+    &-sort-three {
+      margin-left: 2.5rem;
+    }
+    &-sort-four {
+      margin-left: 1.5rem;
+    }
+    &-sort-five {
+      margin-left: 4.5rem;
+    }
+    &-logo {
+      display: none;
+    }
+  }
+}

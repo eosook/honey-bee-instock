@@ -1,0 +1,87 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+.list {
+  &-containers {
+    &:hover {
+      cursor: pointer;
+      background-color: $light-grey;
+    }
+  }
+}
+@include tablet {
+  .list {
+    display: inline;
+    width: 80%;
+    &-containers {
+      display: flex;
+      font-size: 0.75rem;
+      gap: 3rem;
+      padding-left: 3rem;
+      border-bottom: 1px solid $cloud;
+      margin-top: 1rem;
+      @include desktop {
+        align-items: baseline;
+        padding-bottom: 0.5rem;
+      }
+    }
+    &-container {
+      @include desktop {
+        width: 120px;
+      }
+      &-link {
+        display: flex;
+      }
+      &-item {
+        color: $instock-indigo;
+      }
+    }
+    &-item {
+      &-category {
+        margin-left: 2.75rem;
+        @include desktop {
+          margin-left: 2.25rem;
+        }
+      }
+      &-status {
+        margin-left: 1.25rem;
+        height: 24px;
+        width: auto;
+        padding: 0 8px;
+        border-radius: 20px;
+        color: $green;
+        background-color: rgba($color: #158463, $alpha: 0.1);
+        font-weight: 600;
+        padding-top: 0.25rem;
+        margin-top: 0.25rem;
+        @include desktop {
+          margin-left: 1.75rem;
+        }
+      }
+      &-quantity {
+        margin-left: -0.5rem;
+        @include desktop {
+          margin-left: 3.25rem;
+        }
+      }
+      &-location {
+        margin-left: 0.5rem;
+        @include desktop {
+          margin-left: 4.25rem;
+        }
+      }
+    }
+    &-logo {
+      display: flex;
+      margin-bottom: 12px;
+      gap: 1rem;
+      height: 24px;
+      @include desktop {
+        margin-left: 11rem;
+      }
+    }
+  }
+}
+.list-item-status-notstock {
+  @include mobile-tags-not-stocked;
+}
