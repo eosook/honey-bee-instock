@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./AddWarehouse.scss";
+import FormInput from "../FormInput/FormInput";
 
 function AddWarehouse() {
   return (
@@ -17,66 +18,89 @@ function AddWarehouse() {
       <form className="form">
         <div className="form__details">
           <h2 className="form__subheading">Warehouse Details</h2>
-          <label className="form__label" htmlFor="warehouse-name">
-            Warehouse Name
-          </label>
-          <input
-            className="form__input"
+          <FormInput
+            labelClass="form__label"
+            htmlFor="warehouse-name"
+            label="Warehouse Name"
+            inputClass="form__input"
             id="warehouse-name"
-            type="text"
             name="warehouse-name"
+            type="text"
+            placeholder="Warehouse Name"
           />
-          <label className="form__label" htmlFor="address">
-            Street Address
-          </label>
-          <input
-            className="form__input"
+          <FormInput
+            labelClass="form__label"
+            htmlFor="address"
+            label="Street Address"
+            inputClass="form__input"
             id="address"
-            type="text"
             name="address"
-          />
-          <label className="form__label" htmlFor="city">
-            City
-          </label>
-          <input className="form__input" id="city" type="text" name="city" />
-          <label className="form__label" htmlFor="country">
-            Country
-          </label>
-          <input
-            className="form__input"
-            id="country"
             type="text"
+            placeholder="Street Address"
+          />
+          <FormInput
+            labelClass="form__label"
+            htmlFor="city"
+            label="City"
+            inputClass="form__input"
+            id="city"
+            name="city"
+            type="text"
+            placeholder="City"
+          />
+          <FormInput
+            labelClass="form__label"
+            htmlFor="country"
+            label="Country"
+            inputClass="form__input"
+            id="country"
             name="country"
+            type="text"
+            placeholder="Country"
           />
         </div>
         <div className="form__contact">
           <h2 className="form__subheading">Contact Details</h2>
-          <label className="form__label" htmlFor="contact-name">
-            Contact Name
-          </label>
-          <input
-            className="form__input"
+          <FormInput
+            labelClass="form__label"
+            htmlFor="contact-name"
+            label="Contact Name"
+            inputClass="form__input"
             id="contact-name"
-            type="text"
             name="contact-name"
-          />
-          <label className="form__label" htmlFor="position">
-            Position
-          </label>
-          <input
-            className="form__input"
-            id="position"
             type="text"
-            name="position"
+            placeholder="Contact Name"
           />
-          <label className="form__label" htmlFor="phone">
-            Phone Number
-          </label>
-          <input className="form__input" id="phone" type="text" name="phone" />
-          <label className="form__label" htmlFor="email">
-            Email
-          </label>
-          <input className="form__input" id="email" type="text" name="email" />
+          <FormInput
+            labelClass="form__label"
+            htmlFor="position"
+            label="Position"
+            inputClass="form__input"
+            id="position"
+            name="position"
+            type="text"
+            placeholder="Position"
+          />
+          <FormInput
+            labelClass="form__label"
+            htmlFor="phone"
+            label="Phone Number"
+            inputClass="form__input"
+            id="phone"
+            name="phone"
+            type="text"
+            placeholder="Phone Number"
+          />
+          <FormInput
+            labelClass="form__label"
+            htmlFor="email"
+            label="Email"
+            inputClass="form__input"
+            id="email"
+            name="email"
+            type="text"
+            placeholder="Email"
+          />
         </div>
         <div className="form__buttons">
           <button className="button__cancel">Cancel</button>
@@ -86,3 +110,5 @@ function AddWarehouse() {
     </section>
   );
 }
+
+export default AddWarehouse;
