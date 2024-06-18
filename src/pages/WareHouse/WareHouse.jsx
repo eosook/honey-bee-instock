@@ -1,10 +1,12 @@
 import "./Warehouse.scss";
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
+import WarehouseDetails from '../../components/WarehouseDetails/WarehouseDetails'
 
-const WareHouse = () => {
-  return <>
-    <WarehouseList/>
-  </>;
-};
-
-export default WareHouse;
+export default function Warehose() {
+  return (
+    <main className='main'>
+      <WarehouseList/>
+      <WarehouseDetails />
+    </main>
+  )
+}
