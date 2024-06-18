@@ -1,20 +1,20 @@
-import './App.scss'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './componenets/Header/Header'
-import Warehouses from './pages/Warehouses/Warehouses'
-import Inventory from './pages/Inventory/Inventory'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import WareHouse from "./pages/WareHouse/WareHouse";
+import Inventory from "./pages/Inventory/Inventory";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 function App() {
-
   return (
-    <Router>
-    <Header />
-    <Routes>
-      <Route path='/' element={<Warehouses />} />
-      <Route path="/warehouses" element={<Warehouses />} />
-      <Route path="/inventory" element={<Inventory />} />
-    </Routes>
-  </Router>
-  )
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<WareHouse />}></Route>
+          <Route path="/warehouse/:id" element={<WareHouse />}></Route>
+          <Route path="/inventory" element={<Inventory />}></Route>
+          <Route path="*" element={<ErrorPage />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
-export default App
+export default App;

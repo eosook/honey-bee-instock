@@ -1,8 +1,10 @@
-// this is only here temporairly, oce jenna is done the sass ticket this will be in globals 
-
-*, *:before, *:after {
-    -webkit-box-sizing: border-box; 
-    -moz-box-sizing: border-box; 
-    box-sizing: border-box;
-    margin: 0;
+//gloabl resets
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
