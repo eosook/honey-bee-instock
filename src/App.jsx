@@ -4,6 +4,7 @@ import Inventory from './pages/Inventory/Inventory'
 import ErrorPage from './pages/ErrorPage/ErrorPage'
 import Header from './components/Header/Header'
 import './App.scss'
+import Footer from './components/Footer/Footer'
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
           <Route path='/inventory' element={<Inventory />}></Route>
           <Route path='*' element={<ErrorPage />}></Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   )
