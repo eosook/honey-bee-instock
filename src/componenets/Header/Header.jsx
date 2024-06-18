@@ -15,7 +15,7 @@ export default function Header() {
     const location = useLocation()
 
     function warehouseClick() {
-        navigate('/warehouses');
+        navigate('/');
     };
     
     function inventoryClick() {
@@ -27,7 +27,7 @@ export default function Header() {
             <img className='header__logo' src={logo} alt='InStock logo' />
             </div>
             <nav className='header__nav'>
-                <Button text='Warehouses' onClick={warehouseClick} active={location.pathname === '/warehouses'} />
+                <Button text='Warehouses' onClick={warehouseClick} active={location.pathname === '/'} />
                 <Button text='Inventory' onClick={inventoryClick} active={location.pathname === '/inventory'} />
             </nav>
         </header>
