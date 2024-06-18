@@ -1,6 +1,10 @@
+import WarehouseDetails from "../../componenets/WarehouseDetails/WarehouseDetails";
 import "./WareHouse.scss";
-const WareHouse = () => {
-  return <div>Warehouse</div>;
-};
 
-export default WareHouse;
+export default function Warehose() {
+  return (
+    <main className="main">
+      <WarehouseDetails />
+    </main>
+  )
+}
