@@ -59,23 +59,23 @@ function WarehouseList() {
       </div>
       <div className="warehouse-data">
         <div className="warehouse-data__labels">
-          <h3 className="warehouse-data__label">
+          <h3 className="warehouse-data__label warehouse-data__warehouse">
             warehouse
             <img className="warehouse-data__sortIcon" src={sortIcon}></img>
           </h3>
-          <h3 className="warehouse-data__label">
+          <h3 className="warehouse-data__label warehouse-data__address">
             address
             <img className="warehouse-data__sortIcon" src={sortIcon}></img>
           </h3>
-          <h3 className="warehouse-data__label">
+          <h3 className="warehouse-data__label warehouse-data__contact-name">
             contact name
             <img className="warehouse-data__sortIcon" src={sortIcon}></img>
           </h3>
-          <h3 className="warehouse-data__label">
+          <h3 className="warehouse-data__label warehouse-data__contact-info">
             contact information
             <img className="warehouse-data__sortIcon" src={sortIcon}></img>
           </h3>
-          <h3 className="warehouse-data__label">actions</h3>
+          <h3 className="warehouse-data__label warehouse-data__actions">actions</h3>
         </div>
         {warehouses.map((warehouse, index) => {
           return (

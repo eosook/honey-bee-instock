@@ -82,7 +82,7 @@
 
     &__city{
         @include tablet{
-            margin-right: 1rem;
+            margin-right: 1.5rem;
         }
     }
 
@@ -94,7 +94,8 @@
 
     &__contact-name{
         @include tablet{
-            margin-right: 0.75rem;
+            margin-left: 0.25rem;
+            width: 80px;
         }
     }
 
@@ -109,7 +110,7 @@
         justify-content: space-between;
         @include tablet{
             gap: 1rem;
-            padding-left: 3.5rem;
+            padding-left: 4.25rem;
         }
 
         &__icon{
