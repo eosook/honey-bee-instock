@@ -1,0 +1,15 @@
+@font-face {
+  font-family: Titillium;
+  src: url("../../assets/fonts/TitilliumWeb-SemiBold.ttf");
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Titillium;
+  src: url("../../assets/fonts/TitilliumWeb-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+}
+
+$primary-font: Titillium;

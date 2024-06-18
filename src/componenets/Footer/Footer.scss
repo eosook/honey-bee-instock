@@ -1,0 +1,21 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+
+.footer {
+    background-color: $light-grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1.5rem;
+
+    &__text {
+        @include mobile-body-small;
+        color: $slate;
+    }
+
+    @include tablet {
+        @include large-body-small;
+    }
+}
