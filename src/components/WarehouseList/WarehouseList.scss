@@ -13,11 +13,14 @@
 .warehouse-list {
   width: 343px;
   box-shadow: 0 2px 5px rgba($instock-black, 0.1);
-  border-radius: 4px;
+  border-radius: 8px;
   margin: 0 auto;
 
   @include tablet {
     width: 704px;
+  }
+  @include desktop {
+    width: 1020px;
   }
   &__header {
     @include table-header-padding;
@@ -39,8 +42,16 @@
 
   &__search {
     @include mobile-buttons-form-fields;
+    background: url("../../assets/Icons/search-24px.svg") no-repeat 24px 24px;
+    background-position: right 5% bottom 50%;
     margin: 1rem 0;
     padding: 0 1rem;
+    @include tablet {
+      width: 185px;
+    }
+    @include desktop {
+      width: 274px;
+    }
   }
 
   &__button {
@@ -49,6 +60,10 @@
     background-color: $instock-indigo;
     color: $white;
     border: none;
+
+    @include tablet {
+      width: 168px;
+    }
   }
 
   &__form {
@@ -84,24 +99,36 @@
     }
   }
 
-  &__warehouse{
-    @include tablet{
-        margin-right: 61px;
+  &__warehouse {
+    @include tablet {
+      margin-right: 61px;
+    }
+    @include desktop {
+      margin-right: 132px;
     }
   }
-  &__address{
-    @include tablet{
-        margin-right: 51px;
+  &__address {
+    @include tablet {
+      margin-right: 51px;
+    }
+    @include desktop {
+      margin-right: 191px;
     }
   }
-  &__contact-name{
-    @include tablet{
-        margin-right: 17px;
+  &__contact-name {
+    @include tablet {
+      margin-right: 17px;
+    }
+    @include desktop {
+      margin-right: 70px;
     }
   }
-  &__contact-info{
-    @include tablet{
-        margin-right: 55px;
+  &__contact-info {
+    @include tablet {
+      margin-right: 55px;
+    }
+    @include desktop {
+      margin-right: 92px;
     }
   }
 

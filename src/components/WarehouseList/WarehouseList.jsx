@@ -75,7 +75,9 @@ function WarehouseList() {
             contact information
             <img className="warehouse-data__sortIcon" src={sortIcon}></img>
           </h3>
-          <h3 className="warehouse-data__label warehouse-data__actions">actions</h3>
+          <h3 className="warehouse-data__label warehouse-data__actions">
+            actions
+          </h3>
         </div>
         {warehouses.map((warehouse, index) => {
           return (

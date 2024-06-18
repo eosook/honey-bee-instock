@@ -1,7 +1,7 @@
 import "./SingleWarehouse.scss";
 import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
-import chevronIcon from '../../assets/Icons/chevron_right-24px.svg'
+import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
 
 function SingleWarehouse({ warehouse, address, contactName, contactInfo }) {
   return (
@@ -11,7 +11,10 @@ function SingleWarehouse({ warehouse, address, contactName, contactInfo }) {
           <div className="warehouse--section warehouse__city">
             <h3 className="warehouse--subheader">WAREHOUSE</h3>
             <p className="warehouse--body">
-              <a className="warehouse__details" href="">{warehouse}<img className="warehouse__icon" src={chevronIcon}></img></a>
+              <a className="warehouse__details" href="">
+                {warehouse}
+                <img className="warehouse__icon" src={chevronIcon}></img>
+              </a>
             </p>
           </div>
           <div className="warehouse--section">
@@ -26,7 +29,9 @@ function SingleWarehouse({ warehouse, address, contactName, contactInfo }) {
           </div>
           <div className="warehouse--section">
             <h3 className="warehouse--subheader">CONTACT INFORMATION</h3>
-            <p className="warehouse--body warehouse__contact-info">{contactInfo}</p>
+            <p className="warehouse--body warehouse__contact-info">
+              {contactInfo}
+            </p>
           </div>
         </div>
       </div>
