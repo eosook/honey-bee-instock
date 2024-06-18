@@ -1,0 +1,57 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@mixin mobile-label-margin{
+    margin-bottom: 0.25rem;
+}
+
+@mixin mobile-body-margin{
+    margin-bottom: 1rem;
+}
+
+.warehouse{
+    width: 100%;
+    padding: 1rem 1.5rem 1.5rem;
+    height: 12.25rem;
+    border-bottom: 1px solid $cloud;
+
+    &__info{
+        display: flex;
+        justify-content: space-between;
+        gap: 45px;
+    }
+
+    &--section{
+        min-width: 50%;
+    }
+
+    &--subheader{
+        @include mobile-table-header;
+        @include mobile-label-margin;
+        color: $slate;
+        font-weight: 600;
+
+        @include tablet{
+            display: none;
+        }
+    }
+
+    &--body{
+        @include mobile-body-small;
+        @include mobile-body-margin;
+        width: 111px;
+        text-wrap: wrap;
+    }
+
+    &__clickable{
+        display: flex;
+        justify-content: space-between;
+    }
+}
