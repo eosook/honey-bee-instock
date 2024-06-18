@@ -1,6 +1,6 @@
-@use "../../styles/partials/typography" as *;
-@use "../../styles/partials/variables" as *;
-@use "../../styles/partials/mixins" as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 .list {
   &-containers {
     &:hover {
@@ -20,10 +20,8 @@
       padding-left: 3rem;
       border-bottom: 1px solid $cloud;
       margin-top: 1rem;
-      @include desktop {
-        align-items: baseline;
-        padding-bottom: 0.5rem;
-      }
+      align-items: baseline;
+      padding-bottom: 0.5rem;
     }
     &-container {
       @include desktop {
@@ -34,6 +32,7 @@
       }
       &-item {
         color: $instock-indigo;
+        margin-top: 0.25rem;
       }
     }
     &-item {

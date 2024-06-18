@@ -1,6 +1,6 @@
-@use "../../styles/partials/typography" as *;
-@use "../../styles/partials/variables" as *;
-@use "../../styles/partials/mixins" as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 *,
 *::before,
 *::after {
@@ -35,12 +35,17 @@ button:hover {
 .inventory {
   width: 95%;
   margin: 0 auto;
+  position: absolute;
+  z-index: 1;
+  top: 8rem;
+  left: 0.75rem;
   &-containers {
     width: 95%;
     margin: 0 auto;
     background-color: $white;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding-top: 2rem;
     @include tablet {
       width: 700px;
       margin: 0 auto;
@@ -109,7 +114,7 @@ button:hover {
           right: 1rem;
         }
         @include desktop {
-          right: -5.5rem;
+          right: -4.5rem;
         }
       }
     }
