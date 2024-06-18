@@ -27,6 +27,14 @@
       color: $slate;
     }
 
+    &:active {
+      border: 1px solid $instock-indigo;
+    }
+
+    &:invalid {
+      border: 1px solid $red;
+    }
+
     @include tablet {
       @include large-buttons-form-fields;
     }
