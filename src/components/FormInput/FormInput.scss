@@ -3,9 +3,20 @@
 @use "../../styles/partials/variables" as *;
 
 .form {
+  &__field {
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
   &__label {
     @include mobile-labels;
     padding-bottom: 4px;
+
+    @include tablet {
+      @include large-labels;
+    }
   }
 
   &__input {
@@ -14,6 +25,10 @@
 
     &::placeholder {
       color: $slate;
+    }
+
+    @include tablet {
+      @include large-buttons-form-fields;
     }
   }
 }
