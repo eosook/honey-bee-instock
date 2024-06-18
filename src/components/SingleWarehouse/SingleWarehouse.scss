@@ -12,24 +12,48 @@
     margin-bottom: 0.25rem;
 }
 
-@mixin mobile-body-margin{
-    margin-bottom: 1rem;
+@mixin mobile-body-padding{
+    padding-bottom: 1rem;
+}
+
+@mixin table-row-padding{
+    padding: 1rem 1.5rem 1.5rem;
+
+    @include tablet{
+        padding: 1rem 2rem;
+    }
 }
 
 .warehouse{
+    @include table-row-padding;
     width: 100%;
-    padding: 1rem 1.5rem 1.5rem;
-    height: 12.25rem;
+    height: 196px;
     border-bottom: 1px solid $cloud;
+
+    @include tablet{
+        display: flex;
+        height: 100%;
+    }
 
     &__info{
         display: flex;
         justify-content: space-between;
         gap: 45px;
+
+        @include tablet{
+            justify-content: left;
+            gap: 1.25rem;
+        }
     }
 
     &--section{
         min-width: 50%;
+
+        @include tablet{
+            display: flex;
+            align-items: center;
+            vertical-align: middle;
+        }
     }
 
     &--subheader{
@@ -45,13 +69,73 @@
 
     &--body{
         @include mobile-body-small;
-        @include mobile-body-margin;
+        @include mobile-body-padding;
         width: 111px;
+        min-height: 20px;
         text-wrap: wrap;
+
+        @include tablet{
+            @include large-body-medium;
+            padding: 0;
+        }
     }
 
-    &__clickable{
+    &__city{
+        @include tablet{
+            margin-right: 1rem;
+        }
+    }
+
+    &__address{
+        @include tablet{
+            width: 105px;
+        }
+    }
+
+    &__contact-name{
+        @include tablet{
+            margin-right: 0.75rem;
+        }
+    }
+
+    &__contact-info{
+        @include tablet{
+            width: 150px;
+        }
+    }
+
+    &-actions{
         display: flex;
         justify-content: space-between;
+        @include tablet{
+            gap: 1rem;
+            padding-left: 3.5rem;
+        }
+
+        &__icon{
+            @include tablet{
+                width: 24px;
+            }
+        }
+    }
+
+    &--column{
+        @include tablet{
+            display: flex;
+        }
+    }
+
+    &__details{
+        display: flex;
+        text-decoration: none;
+        color: $instock-indigo;
+    }
+
+    p{
+        margin: auto 0;
+    }
+
+    &__icon{
+        width: 20px;
     }
 }

@@ -2,25 +2,34 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
 
-.warehouse-list {
-    width: 343px;
-    box-shadow: 0 2px 5px rgba($instock-black, 0.1);
-    border-radius: 4px;
-    margin: 0 auto;
+@mixin table-header-padding {
+  padding: 2rem 1.5rem 1.5rem;
 
-    @include tablet{
-        width: 704px;
-    }
+  @include tablet {
+    padding: 2rem 2rem 1.5rem;
+  }
+}
+
+.warehouse-list {
+  width: 343px;
+  box-shadow: 0 2px 5px rgba($instock-black, 0.1);
+  border-radius: 4px;
+  margin: 0 auto;
+
+  @include tablet {
+    width: 704px;
+  }
   &__header {
+    @include table-header-padding;
     height: 196px;
-    padding: 2rem 1.5rem 1.5rem;
     border-bottom: 1px solid $cloud;
     box-sizing: border-box;
 
-    @include tablet{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 94px;
     }
   }
   &__title {
@@ -40,5 +49,43 @@
     background-color: $instock-indigo;
     color: $white;
     border: none;
+  }
+
+  &__form {
+    @include tablet {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+  }
+}
+
+.warehouse-data {
+  &__labels {
+    display: none;
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: $light-grey;
+      color: $slate;
+      padding: 0 2rem;
+      height: 40px;
+    }
+  }
+
+  &__label {
+    @include large-table-header;
+    font-weight: 600;
+    display: flex;
+    text-transform: uppercase;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__sortIcon {
+    height: 16px;
   }
 }
