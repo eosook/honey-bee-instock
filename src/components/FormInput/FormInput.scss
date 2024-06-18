@@ -1,0 +1,19 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.form {
+  &__label {
+    @include mobile-labels;
+    padding-bottom: 4px;
+  }
+
+  &__input {
+    @include mobile-buttons-form-fields;
+    border: 1px solid $cloud;
+
+    &::placeholder {
+      color: $slate;
+    }
+  }
+}

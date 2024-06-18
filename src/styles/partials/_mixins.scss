@@ -118,6 +118,7 @@
 @mixin mobile-buttons-form-fields {
   height: 36px;
   width: 100%;
+  padding: 0 16px;
   border-radius: 20px;
 }
 
@@ -162,4 +163,13 @@
   border-radius: 20px;
   color: $red;
   background-color: rgba($color: #c94515, $alpha: 0.7);
+}
+
+//miscellaneous
+@mixin divider-horizontal {
+  border-bottom: 1px solid $cloud;
+}
+
+@mixin divider-vertical {
+  border-right: 1px solid $cloud;
 }

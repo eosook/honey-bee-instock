@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.scss";
 import WareHouse from "./pages/WareHouse/WareHouse";
 import Inventory from "./pages/Inventory/Inventory";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";

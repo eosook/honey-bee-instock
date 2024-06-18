@@ -1,25 +1,19 @@
-function FormInput({
-  labelClass,
-  htmlFor,
-  label,
-  inputClass,
-  id,
-  name,
-  placeholder,
-}) {
+import "./FormInput.scss";
+
+function FormInput({ htmlFor, label, id, name, placeholder }) {
   return (
-    <>
-      <label className={labelClass} htmlFor={htmlFor}>
+    <div className="form__field">
+      <label className="form__label" htmlFor={htmlFor}>
         {label}
       </label>
       <input
-        className={inputClass}
+        className="form__input"
         id={id}
         name={name}
         type="text"
         placeholder={placeholder}
       />
-    </>
+    </div>
   );
 }
 

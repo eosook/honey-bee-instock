@@ -1,3 +1,70 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
+
+.add-warehouse {
+  color: $instock-black;
+  background-color: $white;
+  width: 100%;
+
+  &__heading {
+    @include divider-horizontal;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0 1rem;
+  }
+
+  &__link {
+    align-self: center;
+  }
+
+  &__title {
+    @include mobile-header;
+    padding: 1rem 0;
+  }
+}
+
+.form {
+  &__details {
+    @include divider-horizontal;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  &__subheading {
+    @include mobile-subheader;
+  }
+
+  &__contact {
+    @extend .form__details;
+    border: none;
+  }
+
+  &__buttons {
+    background-color: $light-grey;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
+
+.button {
+  &__cancel {
+    @include mobile-buttons-form-fields;
+    @include mobile-labels;
+    background-color: $white;
+    color: $slate;
+    border: 1px solid $cloud;
+  }
+
+  &__add-warehouse {
+    @include mobile-buttons-form-fields;
+    @include mobile-labels;
+    background-color: $instock-indigo;
+    color: $white;
+    border: none;
+  }
+}
