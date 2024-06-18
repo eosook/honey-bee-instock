@@ -1,0 +1,25 @@
+.button {
+    padding: 1rem;
+    margin: 0 5px;
+    background-color: transparent;
+    color: #5C667E;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover {
+        color: white;
+        text-decoration: underline .0625rem white;
+    }
+  
+    &.active {
+      background-color: #13182C;
+      color: white;
+      border-radius: 2rem;
+    }
+  
+    &:not(.active) {
+      background-color: transparent;
+      border: none;
+    }
+  }
