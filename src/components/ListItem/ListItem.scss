@@ -1,6 +1,6 @@
-@use '../../styles/partials/typography' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/mixins' as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 .list {
   &-containers {
     &:hover {
@@ -37,13 +37,13 @@
     }
     &-item {
       &-category {
-        margin-left: 2.75rem;
+        // margin-left: 2.25rem;
         @include desktop {
           margin-left: 2.25rem;
         }
       }
       &-status {
-        margin-left: 1.25rem;
+        // margin-left: 1.25rem;
         height: 24px;
         width: auto;
         padding: 0 8px;
@@ -58,13 +58,13 @@
         }
       }
       &-quantity {
-        margin-left: -0.5rem;
+        // margin-left: -0.5rem;
         @include desktop {
           margin-left: 3.25rem;
         }
       }
       &-location {
-        margin-left: 0.5rem;
+        // margin-left: 0.5rem;
         @include desktop {
           margin-left: 4.25rem;
         }
