@@ -1,7 +1,23 @@
 import "./Inventory.scss";
 import search from "../../assets/images/search-24px.svg";
 import Category from "../../components/Category/Category";
+import { useState, useEffect } from "react";
+import axios from "axios";
 const Inventory = () => {
+  const [itemData, setItemData] = useState([]);
+  const base_URL = import.meta.env.VITE_API_URL;
+  useEffect(() => {
+    const getItem = async () => {
+      try {
+        const response = await axios.get(`${base_URL}/inventory/inventory`);
+        setItemData(response.data);
+      } catch (error) {
+        console.error("Error fetching items: 🚛🚛🚛", error);
+      }
+    };
+
+    getItem();
+  }, []);
   return (
     <>
       <main className="inventory">
@@ -30,7 +46,7 @@ const Inventory = () => {
               </div>
             </div>
           </div>
-          <Category />
+          <Category itemData={itemData} />
         </section>
       </main>
     </>

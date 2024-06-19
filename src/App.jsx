@@ -1,10 +1,10 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import WareHouse from './pages/Warehouse/WareHouse'
-import Inventory from './pages/Inventory/Inventory'
-import ErrorPage from './pages/ErrorPage/ErrorPage'
-import Header from './components/Header/Header'
-import './App.scss'
-import Footer from './components/Footer/Footer'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import WareHouse from "./pages/WareHouse/WareHouse";
+import Inventory from "./pages/Inventory/Inventory";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import Header from "./components/Header/Header";
+import "./App.scss";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Footer />
       </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
