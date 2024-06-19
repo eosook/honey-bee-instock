@@ -1,13 +1,10 @@
 import "./Inventory.scss";
 import search from "../../assets/images/search-24px.svg";
 import Category from "../../components/Category/Category";
-import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 const Inventory = () => {
-  const { id } = useParams();
   const [itemData, setItemData] = useState([]);
-  const [itemDetails, setItemDetails] = useState();
   const base_URL = import.meta.env.VITE_API_URL;
   useEffect(() => {
     const getItem = async () => {
@@ -20,7 +17,7 @@ const Inventory = () => {
     };
 
     getItem();
-  }, [id]);
+  }, []);
   return (
     <>
       <main className="inventory">

@@ -5,7 +5,6 @@ import chevron from "../../assets/images/chevron_right-24px.svg";
 import del from "../../assets/images/delete_outline-24px.svg";
 import edit from "../../assets/images/edit-24px.svg";
 import ListItem from "../ListItem/ListItem";
-
 const Category = ({ itemData }) => {
   return (
     <>
@@ -64,7 +63,13 @@ const Category = ({ itemData }) => {
                     src={sort}
                     alt="Sort logo"
                   />
-                  <p className="category-item-stock category-mobile">
+                  <p
+                    className={`category-item-stock ${
+                      item.status === "Out of Stock"
+                        ? "category-item-stock-notstock"
+                        : ""
+                    }`}
+                  >
                     {item.status}
                   </p>
                 </div>
@@ -93,10 +98,8 @@ const Category = ({ itemData }) => {
           </div>
         </div>
       ))}
-
       <ListItem itemData={itemData} />
     </>
   );
 };
-
 export default Category;
