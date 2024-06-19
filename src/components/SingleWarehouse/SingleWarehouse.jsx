@@ -6,39 +6,39 @@ import { Link } from "react-router-dom";
 
 function SingleWarehouse({ id, warehouse, address, contactName, contactInfo }) {
   return (
-    <div className="warehouse">
-      <div className="warehouse__info">
-        <div className="warehouse--column">
-          <div className="warehouse--section warehouse__city">
-            <h3 className="warehouse--subheader">WAREHOUSE</h3>
+    <div className="single-warehouse">
+      <div className="single-warehouse__info">
+        <div className="single-warehouse--column">
+          <div className="single-warehouse--section single-warehouse__city">
+            <h3 className="single-warehouse--subheader">WAREHOUSE</h3>
             <Link to={`/warehouse/${id}`}>
-            <p className="warehouse--body warehouse__details">
+            <p className="single-warehouse--body single-warehouse__details">
                 {warehouse}
-                <img className="warehouse__icon" src={chevronIcon}></img>
+                <img className="single-warehouse__icon" src={chevronIcon}></img>
             </p>
             </Link>
           </div>
-          <div className="warehouse--section">
-            <h3 className="warehouse--subheader">ADDRESS</h3>
-            <p className="warehouse--body warehouse__address">{address}</p>
+          <div className="single-warehouse--section">
+            <h3 className="single-warehouse--subheader">ADDRESS</h3>
+            <p className="single-warehouse--body single-warehouse__address">{address}</p>
           </div>
         </div>
-        <div className="warehouse--column">
-          <div className="warehouse--section warehouse__contact-name">
-            <h3 className="warehouse--subheader">CONTACT NAME</h3>
-            <p className="warehouse--body">{contactName}</p>
+        <div className="single-warehouse--column">
+          <div className="single-warehouse--section single-warehouse__contact-name">
+            <h3 className="single-warehouse--subheader">CONTACT NAME</h3>
+            <p className="single-warehouse--body">{contactName}</p>
           </div>
-          <div className="warehouse--section">
-            <h3 className="warehouse--subheader">CONTACT INFORMATION</h3>
-            <p className="warehouse--body warehouse__contact-info">
+          <div className="single-warehouse--section">
+            <h3 className="single-warehouse--subheader">CONTACT INFORMATION</h3>
+            <p className="single-warehouse--body single-warehouse__contact-info">
               {contactInfo}
             </p>
           </div>
         </div>
       </div>
-      <div className="warehouse-actions">
-        <img className="warehouse-actions__icon" src={deleteIcon}></img>
-        <img className="warehouse-actions__icon" src={editIcon}></img>
+      <div className="single-warehouse-actions">
+        <img className="single-warehouse-actions__icon" src={deleteIcon}></img>
+        <img className="single-warehouse-actions__icon" src={editIcon}></img>
       </div>
     </div>
   );
