@@ -6,7 +6,7 @@ export default function Warehose() {
   return (
     <main className='main'>
       <WarehouseList/>
-      {/* <WarehouseDetails /> */}
+      <WarehouseDetails />
     </main>
   )
 }
