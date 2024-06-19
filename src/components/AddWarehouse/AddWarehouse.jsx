@@ -33,17 +33,16 @@ function AddWarehouse() {
     }
     return true;
   };
-  //   const handleChangeEmail = (event) => {
-  //     setEmail(event.target.value);
-  //     console.log(email);
-  //     //TO DO: optimize regex email validation statement
-  //     // const emailAddress = /^[a-z0-9.]{1,64}@[a-z.]{1,64}$/i;
-  //     if (email.length > 1 && !email.match(emailAddress)) {
-  //       setIsEmailValid(false);
-  //       console.log("invalid email");
-  //     }
-  //     return true;
-  //   };
+
+  const isEmailValid = () => {
+    if (
+      values.email &&
+      !values.email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)
+    ) {
+      return false;
+    }
+    return true;
+  };
 
   const isFormValid = () => {
     if (
@@ -58,7 +57,7 @@ function AddWarehouse() {
     ) {
       return false;
     }
-    if (!isPhoneValid()) {
+    if (!isPhoneValid() || !isEmailValid()) {
       return false;
     }
 
@@ -73,7 +72,6 @@ function AddWarehouse() {
       console.log("unable to add warehouse");
     }
   };
-  console.log(isPhoneValid());
   return (
     <section className="add-warehouse">
       <div className="add-warehouse__heading">
@@ -100,6 +98,7 @@ function AddWarehouse() {
               placeholder="Warehouse Name"
               onChange={handleChangeInput}
               value={values.warehouse}
+              errorClass="form__error"
               errorMessage="This field is required"
             />
             <FormInput
@@ -112,6 +111,7 @@ function AddWarehouse() {
               placeholder="Street Address"
               onChange={handleChangeInput}
               value={values.address}
+              errorClass="form__error"
               errorMessage="This field is required"
             />
             <FormInput
@@ -124,6 +124,7 @@ function AddWarehouse() {
               placeholder="City"
               onChange={handleChangeInput}
               value={values.city}
+              errorClass="form__error"
               errorMessage="This field is required"
             />
             <FormInput
@@ -136,6 +137,7 @@ function AddWarehouse() {
               placeholder="Country"
               onChange={handleChangeInput}
               value={values.country}
+              errorClass="form__error"
               errorMessage="This field is required"
             />
           </div>
@@ -151,6 +153,7 @@ function AddWarehouse() {
               placeholder="Contact Name"
               onChange={handleChangeInput}
               value={values.contact}
+              errorClass="form__error"
               errorMessage="This field is required"
             />
             <FormInput
@@ -163,6 +166,7 @@ function AddWarehouse() {
               placeholder="Position"
               onChange={handleChangeInput}
               value={values.position}
+              errorClass="form__error"
               errorMessage="This field is required"
             />
             <FormInput
@@ -182,27 +186,34 @@ function AddWarehouse() {
               }`}
               errorMessage="Please enter a valid phone number"
             />
-            {/* <FormInput
+            <FormInput
               htmlFor="email"
               label="Email"
-              //   inputClass={`form__input ${
-              //     isEmailValid ? false : "form__input--invalid"
-              //   }`}
+              inputClass={`form__input ${
+                isEmailValid() ? "" : "form__input--invalid"
+              }`}
               id="email"
               name="email"
               type="text"
               placeholder="Email"
-              //   onChange={handleChangeEmail}
-              value={email}
+              onChange={handleChangeInput}
+              value={values.email}
+              errorClass={`form__error ${
+                isEmailValid() ? "" : "form__error--show"
+              }`}
               errorMessage="Please enter a valid email address"
-            /> */}
+            />
           </div>
         </div>
         <div className="form__buttons">
           <button className="button button--cancel" type="button">
             Cancel
           </button>
-          <button className="button button--add" type="submit">
+          <button
+            className="button button--add"
+            type="submit"
+            disabled={!isFormValid()}
+          >
             + Add Warehouse
           </button>
         </div>
