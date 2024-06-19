@@ -1,6 +1,6 @@
-@use '../../styles/partials/typography' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/mixins' as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 .category {
   &-containers {
     padding-left: 1rem;
@@ -28,8 +28,6 @@
         color: $instock-indigo;
         margin-top: 0.2rem;
       }
-      &-chev {
-      }
     }
     &-img {
       display: none;
@@ -44,13 +42,13 @@
       font-weight: 600;
       padding-top: 0.25rem;
       margin-top: 0;
+      &-notstock {
+        @include mobile-tags-not-stocked;
+      }
     }
     &-cat {
       margin-top: 0;
       color: $instock-black;
-    }
-    &-warehouse-action {
-      display: none;
     }
   }
   &-logo {
@@ -137,5 +135,10 @@
     &-logo {
       display: none;
     }
+  }
+}
+@include tablet {
+  .category {
+    display: none;
   }
 }
