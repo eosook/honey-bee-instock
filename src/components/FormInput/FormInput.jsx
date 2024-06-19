@@ -28,7 +28,14 @@ function FormInput(props) {
         onChange={onChange}
         value={value}
       />
-      <span className={errorClass}>{errorMessage}</span>
+      <span className={errorClass}>
+        <img
+          className="form__error-icon"
+          src="src/assets/icons/error-24px.svg"
+          alt="White exclamation mark on red circle background"
+        />
+        {` ${errorMessage}`}
+      </span>
     </div>
   );
 }

@@ -43,13 +43,15 @@
   &__error {
     @include mobile-body-small;
     color: $red;
-
-    // &--hidden {
     display: none;
-    // }
 
     &--show {
       display: initial;
     }
+  }
+
+  &__error-icon {
+    height: 0.875rem;
+    vertical-align: text-bottom;
   }
 }
