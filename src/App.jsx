@@ -13,7 +13,7 @@ function App() {
         <Header />
         <Routes>
           <Route path='/' element={<WareHouse />}></Route>
-          <Route path='/warehouse/:id' element={<WareHouse />}></Route>
+          <Route path='/warehouse/:warehouseId' element={<WareHouse />}></Route>
           <Route path='/inventory' element={<Inventory />}></Route>
           <Route path='*' element={<ErrorPage />}></Route>
         </Routes>

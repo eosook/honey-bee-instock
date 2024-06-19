@@ -2,20 +2,21 @@ import "./SingleWarehouse.scss";
 import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
 import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
+import { Link } from "react-router-dom";
 
-function SingleWarehouse({ warehouse, address, contactName, contactInfo }) {
+function SingleWarehouse({ id, warehouse, address, contactName, contactInfo }) {
   return (
     <div className="warehouse">
       <div className="warehouse__info">
         <div className="warehouse--column">
           <div className="warehouse--section warehouse__city">
             <h3 className="warehouse--subheader">WAREHOUSE</h3>
-            <p className="warehouse--body">
-              <a className="warehouse__details" href="">
+            <Link to={`/warehouse/${id}`}>
+            <p className="warehouse--body warehouse__details">
                 {warehouse}
                 <img className="warehouse__icon" src={chevronIcon}></img>
-              </a>
             </p>
+            </Link>
           </div>
           <div className="warehouse--section">
             <h3 className="warehouse--subheader">ADDRESS</h3>

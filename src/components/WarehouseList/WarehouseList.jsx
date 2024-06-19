@@ -1,33 +1,8 @@
 import "./WarehouseList.scss";
-import axios from 'axios';
-import { useState, useEffect } from "react";
 import SingleWarehouse from "../SingleWarehouse/SingleWarehouse";
 import sortIcon from "../../assets/Icons/sort-24px.svg";
 
-function WarehouseList() {
-  const [warehouses, setWarehouses] = useState([
-    {
-        id: 1,
-        warehouse_name: "",
-        address: "",
-        city: "",
-        country: "",
-        contact_name: "",
-        contact_position: "",
-        contact_phone: "",
-        contact_email: "",
-      }
-  ]);
-
-  useEffect(() => {
-    const getWarehouseList = async () => {
-        const response = await axios.get(
-            `http://localhost:8080/`
-        )
-        setWarehouses(response.data);
-    }
-    getWarehouseList();
-  })
+function WarehouseList({warehouses}) {
   return (
     <div className="warehouse-list">
       <div className="warehouse-list__header">
@@ -69,6 +44,7 @@ function WarehouseList() {
           return (
             <SingleWarehouse
               key={index}
+              id = {warehouse.id}
               warehouse={warehouse.warehouse_name}
               address={warehouse.address + ', ' + warehouse.city + ', ' + warehouse.country}
               contactName={warehouse.contact_name}
