@@ -24,20 +24,26 @@ function AddWarehouse() {
     });
   };
 
-  const isEmailValid = () => {
-    if (!values.email.includes("@") || !values.email.includes(".com")) {
+  const isPhoneValid = () => {
+    if (
+      values.phone &&
+      !values.phone.match(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/)
+    ) {
       return false;
     }
     return true;
   };
-
-  const isPhoneValid = () => {
-    const phonenum = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-    if (values.phone.match(phonenum)) {
-      return true;
-    }
-    return false;
-  };
+  //   const handleChangeEmail = (event) => {
+  //     setEmail(event.target.value);
+  //     console.log(email);
+  //     //TO DO: optimize regex email validation statement
+  //     // const emailAddress = /^[a-z0-9.]{1,64}@[a-z.]{1,64}$/i;
+  //     if (email.length > 1 && !email.match(emailAddress)) {
+  //       setIsEmailValid(false);
+  //       console.log("invalid email");
+  //     }
+  //     return true;
+  //   };
 
   const isFormValid = () => {
     if (
@@ -52,21 +58,22 @@ function AddWarehouse() {
     ) {
       return false;
     }
-    if (!isEmailValid() || !isPhoneValid()) {
+    if (!isPhoneValid()) {
       return false;
     }
+
     return true;
   };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
     if (isFormValid()) {
-      console.log("valid form submission");
+      console.log("warehouse added");
     } else {
-      console.log("that's invalid");
+      console.log("unable to add warehouse");
     }
   };
-
+  console.log(isPhoneValid());
   return (
     <section className="add-warehouse">
       <div className="add-warehouse__heading">
@@ -86,42 +93,50 @@ function AddWarehouse() {
             <FormInput
               htmlFor="warehouse-name"
               label="Warehouse Name"
+              inputClass="form__input"
               id="warehouse-name"
               name="warehouse"
               type="text"
               placeholder="Warehouse Name"
               onChange={handleChangeInput}
               value={values.warehouse}
+              errorMessage="This field is required"
             />
             <FormInput
               htmlFor="address"
               label="Street Address"
+              inputClass="form__input"
               id="address"
               name="address"
               type="text"
               placeholder="Street Address"
               onChange={handleChangeInput}
               value={values.address}
+              errorMessage="This field is required"
             />
             <FormInput
               htmlFor="city"
               label="City"
+              inputClass="form__input"
               id="city"
               name="city"
               type="text"
               placeholder="City"
               onChange={handleChangeInput}
               value={values.city}
+              errorMessage="This field is required"
             />
             <FormInput
               htmlFor="country"
               label="Country"
+              inputClass="form__input"
               id="country"
               name="country"
               type="text"
               placeholder="Country"
               onChange={handleChangeInput}
               value={values.country}
+              errorMessage="This field is required"
             />
           </div>
           <div className="form__contact">
@@ -129,43 +144,58 @@ function AddWarehouse() {
             <FormInput
               htmlFor="contact-name"
               label="Contact Name"
+              inputClass="form__input"
               id="contact-name"
               name="contact"
               type="text"
               placeholder="Contact Name"
               onChange={handleChangeInput}
               value={values.contact}
+              errorMessage="This field is required"
             />
             <FormInput
               htmlFor="position"
               label="Position"
+              inputClass="form__input"
               id="position"
               name="position"
               type="text"
               placeholder="Position"
               onChange={handleChangeInput}
               value={values.position}
+              errorMessage="This field is required"
             />
             <FormInput
               htmlFor="phone"
               label="Phone Number"
+              inputClass={`form__input ${
+                isPhoneValid() ? "" : "form__input--invalid"
+              }`}
               id="phone"
               name="phone"
               type="text"
               placeholder="Phone Number"
               onChange={handleChangeInput}
               value={values.phone}
+              errorClass={`form__error ${
+                isPhoneValid() ? "" : "form__error--show"
+              }`}
+              errorMessage="Please enter a valid phone number"
             />
-            <FormInput
+            {/* <FormInput
               htmlFor="email"
               label="Email"
+              //   inputClass={`form__input ${
+              //     isEmailValid ? false : "form__input--invalid"
+              //   }`}
               id="email"
               name="email"
               type="text"
               placeholder="Email"
-              onChange={handleChangeInput}
-              value={values.email}
-            />
+              //   onChange={handleChangeEmail}
+              value={email}
+              errorMessage="Please enter a valid email address"
+            /> */}
           </div>
         </div>
         <div className="form__buttons">

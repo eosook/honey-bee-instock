@@ -31,12 +31,25 @@
       border: 1px solid $instock-indigo;
     }
 
-    &:invalid {
+    &--invalid {
       border: 1px solid $red;
     }
 
     @include tablet {
       @include large-buttons-form-fields;
+    }
+  }
+
+  &__error {
+    @include mobile-body-small;
+    color: $red;
+
+    // &--hidden {
+    display: none;
+    // }
+
+    &--show {
+      display: initial;
     }
   }
 }
