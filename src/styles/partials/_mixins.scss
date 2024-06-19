@@ -165,3 +165,12 @@
   color: $red;
   background-color: rgba($color: #c94515, $alpha: 0.7);
 }
+@mixin sort {
+  height: 15px;
+  position: absolute;
+  top: 0.35rem;
+}
+@mixin position {
+  position: absolute;
+  margin-top: 0.25rem;
+}

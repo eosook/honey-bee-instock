@@ -1,6 +1,6 @@
-@use '../../styles/partials/typography' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/mixins' as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 .category {
   &-containers {
     padding-left: 1rem;
@@ -48,9 +48,6 @@
     &-cat {
       margin-top: 0;
       color: $instock-black;
-    }
-    &-warehouse-action {
-      display: none;
     }
   }
   &-logo {
@@ -137,5 +134,10 @@
     &-logo {
       display: none;
     }
+  }
+}
+@include tablet {
+  .category {
+    display: none;
   }
 }
