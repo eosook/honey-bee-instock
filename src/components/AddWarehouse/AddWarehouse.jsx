@@ -7,17 +7,19 @@ import FormInput from "../FormInput/FormInput";
 function AddWarehouse() {
   const baseUrl = import.meta.env.VITE_API_URL;
 
+  // const initialFormData = new FormData();
   const initialValues = {
-    warehouse: "",
+    warehouse_name: "",
     address: "",
     city: "",
     country: "",
-    contact: "",
-    position: "",
-    phone: "",
-    email: "",
+    contact_name: "",
+    contact_position: "",
+    contact_phone: "",
+    contact_email: "",
   };
   const [values, setValues] = useState(initialValues);
+  // const [formData, setFormData] = useState(initialFormData);
 
   const handleChangeInput = (event) => {
     const { name, value } = event.target;
@@ -29,8 +31,10 @@ function AddWarehouse() {
 
   const isPhoneValid = () => {
     if (
-      values.phone &&
-      !values.phone.match(/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/)
+      values.contact_phone &&
+      !values.contact_phone.match(
+        /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/
+      )
     ) {
       return false;
     }
@@ -39,8 +43,10 @@ function AddWarehouse() {
 
   const isEmailValid = () => {
     if (
-      values.email &&
-      !values.email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)
+      values.contact_email &&
+      !values.contact_email.match(
+        /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+      )
     ) {
       return false;
     }
@@ -49,14 +55,14 @@ function AddWarehouse() {
 
   const isFormValid = () => {
     if (
-      !values.warehouse ||
+      !values.warehouse_name ||
       !values.address ||
       !values.city ||
       !values.country ||
-      !values.contact ||
-      !values.position ||
-      !values.phone ||
-      !values.email
+      !values.contact_name ||
+      !values.contact_position ||
+      !values.contact_phone ||
+      !values.contact_email
     ) {
       return false;
     }
@@ -78,15 +84,26 @@ function AddWarehouse() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    const formData = { ...values };
+    const warehouseData = {
+      warehouse_name: values.warehouse_name,
+      address: values.address,
+      city: values.city,
+      country: values.country,
+      contact_name: values.contact_name,
+      contact_position: values.contact_position,
+      contact_phone: values.contact_phone,
+      contact_email: values.contact_email,
+    };
+    console.log(warehouseData);
 
     if (isFormValid()) {
-      sendFormData(formData);
-      console.log("warehouse added", formData);
+      sendFormData(warehouseData);
+      console.log("warehouse added", warehouseData);
     } else {
       console.log("unable to add warehouse");
     }
   };
+  // };
   return (
     <section className="add-warehouse">
       <div className="add-warehouse__heading">
@@ -99,20 +116,20 @@ function AddWarehouse() {
         </Link>
         <h1 className="add-warehouse__title">Add New Warehouse</h1>
       </div>
-      <form className="form" onSubmit={handleFormSubmit}>
+      <form className="form" id="warehouse-form" onSubmit={handleFormSubmit}>
         <div className="form__inputs">
           <div className="form__details">
             <h2 className="form__subheading">Warehouse Details</h2>
             <FormInput
-              htmlFor="warehouse-name"
+              htmlFor="warehouse_name"
               label="Warehouse Name"
               inputClass="form__input"
-              id="warehouse"
-              name="warehouse"
+              id="warehouse_name"
+              name="warehouse_name"
               type="text"
               placeholder="Warehouse Name"
               onChange={handleChangeInput}
-              value={values.warehouse}
+              value={values.warehouse_name}
               errorClass="form__error"
               errorMessage="This field is required"
             />
@@ -159,60 +176,60 @@ function AddWarehouse() {
           <div className="form__contact">
             <h2 className="form__subheading">Contact Details</h2>
             <FormInput
-              htmlFor="contact-name"
+              htmlFor="contact_name"
               label="Contact Name"
               inputClass="form__input"
-              id="contact"
-              name="contact"
+              id="contact_name"
+              name="contact_name"
               type="text"
               placeholder="Contact Name"
               onChange={handleChangeInput}
-              value={values.contact}
+              value={values.contact_name}
               errorClass="form__error"
               errorMessage="This field is required"
             />
             <FormInput
-              htmlFor="position"
+              htmlFor="contact_position"
               label="Position"
               inputClass="form__input"
-              id="position"
-              name="position"
+              id="contact_position"
+              name="contact_position"
               type="text"
               placeholder="Position"
               onChange={handleChangeInput}
-              value={values.position}
+              value={values.contact_position}
               errorClass="form__error"
               errorMessage="This field is required"
             />
             <FormInput
-              htmlFor="phone"
+              htmlFor="contact_phone"
               label="Phone Number"
               inputClass={`form__input ${
                 isPhoneValid() ? "" : "form__input--invalid"
               }`}
-              id="phone"
-              name="phone"
+              id="contact_phone"
+              name="contact_phone"
               type="text"
               placeholder="Phone Number"
               onChange={handleChangeInput}
-              value={values.phone}
+              value={values.contact_phone}
               errorClass={`form__error ${
                 isPhoneValid() ? "" : "form__error--show"
               }`}
               errorMessage="Please enter a valid phone number"
             />
             <FormInput
-              htmlFor="email"
+              htmlFor="contact_email"
               label="Email"
               inputClass={`form__input ${
                 isEmailValid() ? "" : "form__input--invalid"
               }`}
-              id="email"
-              name="email"
+              id="contact_email"
+              name="contact_email"
               type="text"
               placeholder="Email"
               onChange={handleChangeInput}
-              value={values.email}
+              value={values.contact_email}
               errorClass={`form__error ${
                 isEmailValid() ? "" : "form__error--show"
               }`}
