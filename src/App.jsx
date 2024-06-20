@@ -5,6 +5,7 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Header from "./components/Header/Header";
 import "./App.scss";
 import Footer from "./components/Footer/Footer";
+import AddWarehouse from "./components/AddWarehouse/AddWarehouse";
 
 function App() {
   return (
@@ -12,10 +13,11 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path='/' element={<WareHouse />}></Route>
-          <Route path='/warehouse/:warehouseId' element={<WareHouse />}></Route>
-          <Route path='/inventory' element={<Inventory />}></Route>
-          <Route path='*' element={<ErrorPage />}></Route>
+          <Route path="/" element={<WareHouse />}></Route>
+          <Route path="/warehouse/:warehouseId" element={<WareHouse />}></Route>
+          <Route path="/add" element={<AddWarehouse />}></Route>
+          <Route path="/inventory" element={<Inventory />}></Route>
+          <Route path="*" element={<ErrorPage />}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>

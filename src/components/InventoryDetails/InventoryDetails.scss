@@ -1,0 +1,80 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/reset" as *;
+.inventories {
+  margin: 0 auto;
+  width: 300px;
+  margin: 0 auto;
+  background-color: $white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  margin-bottom: 8rem;
+  @include tablet {
+    width: 700px;
+    margin: 0 auto;
+    margin-bottom: 11rem;
+  }
+  @include desktop {
+    width: 1100px;
+  }
+  &-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid $cloud;
+    padding: 0.5rem 1rem 1rem 1rem;
+    @include tablet {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    &-arrow {
+      width: 20px;
+      height: 20px;
+    }
+    &-header {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    &-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    &-edit {
+      border-radius: 50%;
+      background-color: $instock-indigo;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include tablet {
+        width: 80px;
+        border-radius: 20px;
+        height: 35px;
+        gap: 0.25rem;
+      }
+      &-img {
+        width: 20px;
+        height: 20px;
+        filter: invert(100%) sepia(10%) saturate(0%) hue-rotate(238deg)
+          brightness(200%) contrast(100%);
+      }
+      &-text {
+        display: none;
+        @include tablet {
+          display: inline;
+          font-size: 1rem;
+          font-weight: 400;
+          color: white;
+        }
+      }
+    }
+  }
+}

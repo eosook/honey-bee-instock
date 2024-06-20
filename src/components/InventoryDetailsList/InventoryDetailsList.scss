@@ -1,0 +1,132 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/reset" as *;
+.item {
+  padding: 0 1rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-wrap: wrap;
+    height: 20vh;
+    padding-left: 2rem;
+    padding-top: 1rem;
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    @include tablet {
+      gap: 2.5rem;
+      width: 45%;
+    }
+    &-one {
+      &-title {
+        font-size: 0.65rem;
+        font-weight: 400;
+        @include tablet {
+          font-weight: 500;
+          margin-top: 0;
+          margin-bottom: 0.25rem;
+        }
+      }
+    }
+    &-two {
+      &-category {
+        font-size: 0.65rem;
+        font-weight: 400;
+        @include tablet {
+          font-weight: 500;
+          margin-top: 0;
+          margin-bottom: 0.25rem;
+        }
+      }
+    }
+    &-right {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      height: 15vh;
+
+      @include tablet {
+        border-left: 1px solid $cloud;
+        height: 20vh;
+        width: 50%;
+        padding-left: 2.5rem;
+        gap: 1.25rem;
+      }
+      &-one {
+        &-status {
+          font-size: 0.65rem;
+          font-weight: 400;
+          @include tablet {
+            font-weight: 500;
+            margin-top: 0;
+            margin-bottom: 0.25rem;
+          }
+        }
+        &-stock {
+          height: 24px;
+          width: 50%;
+          padding: 0 8px;
+          border-radius: 20px;
+          color: $green;
+          background-color: rgba($color: #158463, $alpha: 0.1);
+          font-weight: 600;
+          margin-top: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          @include tablet {
+            @include large-tags-stocked;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 550;
+          }
+          @include desktop {
+            width: 30%;
+          }
+        }
+        &-notstock {
+          @include mobile-tags-not-stocked;
+          width: 60%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          @include desktop {
+            width: 38%;
+          }
+        }
+      }
+      &-two {
+        &-warehouse {
+          font-size: 0.65rem;
+          font-weight: 400;
+          @include tablet {
+            font-weight: 500;
+            margin-top: 0;
+            margin-bottom: 0.25rem;
+          }
+        }
+      }
+      &-three {
+        &-quantity {
+          font-size: 0.65rem;
+          font-weight: 400;
+          @include tablet {
+            font-weight: 500;
+            margin-top: 0;
+            margin-bottom: 0.25rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -46,7 +46,39 @@
     &-item {
       display: flex;
       justify-content: baseline;
-
+      &-one {
+        @include position;
+        left: 12.25rem;
+        @include desktop {
+          left: 17.5rem;
+        }
+      }
+      &-two {
+        position: absolute;
+        left: 19rem;
+        @include desktop {
+          left: 32.5rem;
+        }
+      }
+      &-three {
+        left: 25.5rem;
+        @include position;
+        @include desktop {
+          left: 39.75rem;
+        }
+      }
+      &-four {
+        @include position;
+        right: 9.75rem;
+        @include desktop {
+          right: 17rem;
+        }
+      }
+      &-category {
+        @include desktop {
+          margin-left: 2.25rem;
+        }
+      }
       &-status {
         height: 26px;
         width: auto;

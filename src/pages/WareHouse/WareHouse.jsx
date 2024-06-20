@@ -5,7 +5,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-export default function Warehose() {
+export default function Warehouse() {
   const [warehouses, setWarehouses] = useState([
     {
       id: null,
@@ -40,7 +40,7 @@ export default function Warehose() {
       setWarehouses(response.data);
     };
     getWarehouseList();
-  }, []);
+  }, []); //added an empty dependency array to terminate an infinite loop
   useEffect(() => {
     if (warehouseId) {
       const getSingleWarehouse = async () => {

@@ -1,0 +1,117 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.add-warehouse {
+  color: $instock-black;
+  background-color: $white;
+  width: 100%;
+
+  &__heading {
+    @include divider-horizontal;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0 1rem;
+
+    @include tablet {
+      justify-content: flex-start;
+      padding: 0 1.5rem;
+    }
+  }
+
+  &__link {
+    align-self: center;
+  }
+
+  &__title {
+    @include mobile-header;
+    padding: 1rem 0;
+
+    @include tablet {
+      @include large-header;
+      padding: 1.5rem 0;
+    }
+  }
+}
+
+.form {
+  &__inputs {
+    @include tablet {
+      display: flex;
+      padding: 1.5rem 0;
+      width: 100%;
+    }
+  }
+
+  &__details {
+    @include divider-horizontal;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+
+    @include tablet {
+      @include divider-vertical;
+      border-bottom: none;
+      width: 100%;
+      padding: 0 1.5rem;
+    }
+  }
+
+  &__subheading {
+    @include mobile-subheader;
+
+    @include tablet {
+      @include large-subheader;
+    }
+  }
+
+  &__contact {
+    @extend .form__details;
+    border: none;
+  }
+
+  &__buttons {
+    background-color: $light-grey;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+
+    @include tablet {
+      justify-content: flex-end;
+      padding: 1.5rem;
+    }
+  }
+}
+
+.button {
+  @include mobile-buttons-form-fields;
+  @include mobile-labels;
+
+  @include tablet {
+    @include large-buttons-form-fields;
+    @include large-labels;
+  }
+
+  &--cancel {
+    background-color: $white;
+    color: $slate;
+    border: 1px solid $cloud;
+
+    &:hover {
+      color: $instock-indigo;
+      border: 1px solid $instock-indigo;
+    }
+  }
+
+  &--add {
+    background-color: $instock-indigo;
+    color: $white;
+    border: none;
+
+    &:hover {
+      background-color: $graphite;
+    }
+  }
+}

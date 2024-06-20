@@ -1,8 +1,8 @@
 import "./WarehouseDetails.scss";
-import backArrow from "../../assets/Icons/arrow_back-24px.svg";
-import edit from "../../assets/Icons/edit-24px.svg";
+import backArrow from "../../assets/icons/arrow_back-24px.svg";
+import edit from "../../assets/icons/edit-24px.svg";
 import Category from "../Category/Category";
-import sortIcon from "../../assets/Icons/sort-24px.svg";
+import sortIcon from "../../assets/icons/sort-24px.svg";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";

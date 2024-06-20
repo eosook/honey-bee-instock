@@ -1,10 +1,22 @@
 import "./SingleWarehouse.scss";
-import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
-import editIcon from "../../assets/Icons/edit-24px.svg";
-import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
+import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
+import editIcon from "../../assets/icons/edit-24px.svg";
+import chevronIcon from "../../assets/icons/chevron_right-24px.svg";
+import DeleteWarehouseModal from "../DeleteWarehouseModal/DeleteWarehouseModal";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function SingleWarehouse({ id, warehouse, address, contactName, contactInfo }) {
+function SingleWarehouse({
+  warehouse,
+  address,
+  contactName,
+  contactInfo,
+  id,
+  setWarehouses,
+  warehouses,
+}) {
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+
   return (
     <div className="single-warehouse">
       <div className="single-warehouse__info">
@@ -12,15 +24,17 @@ function SingleWarehouse({ id, warehouse, address, contactName, contactInfo }) {
           <div className="single-warehouse--section single-warehouse__city">
             <h3 className="single-warehouse--subheader">WAREHOUSE</h3>
             <Link to={`/warehouse/${id}`}>
-            <p className="single-warehouse--body single-warehouse__details">
+              <p className="single-warehouse--body single-warehouse__details">
                 {warehouse}
                 <img className="single-warehouse__icon" src={chevronIcon}></img>
-            </p>
+              </p>
             </Link>
           </div>
           <div className="single-warehouse--section">
             <h3 className="single-warehouse--subheader">ADDRESS</h3>
-            <p className="single-warehouse--body single-warehouse__address">{address}</p>
+            <p className="single-warehouse--body single-warehouse__address">
+              {address}
+            </p>
           </div>
         </div>
         <div className="single-warehouse--column">
@@ -36,9 +50,23 @@ function SingleWarehouse({ id, warehouse, address, contactName, contactInfo }) {
           </div>
         </div>
       </div>
-      <div className="single-warehouse-actions">
-        <img className="single-warehouse-actions__icon" src={deleteIcon}></img>
-        <img className="single-warehouse-actions__icon" src={editIcon}></img>
+      <div className="warehouse-actions">
+        <a href="#top">
+          <img
+            onClick={() => setOpenDeleteModal(true)}
+            className="warehouse-actions__icon"
+            src={deleteIcon}
+          ></img>
+        </a>
+        <DeleteWarehouseModal
+          warehouses={warehouses}
+          setWarehouses={setWarehouses}
+          id={id}
+          warehouse={warehouse}
+          open={openDeleteModal}
+          onClose={() => setOpenDeleteModal(false)}
+        />
+        <img className="warehouse-actions__icon" src={editIcon}></img>
       </div>
     </div>
   );
