@@ -6,9 +6,16 @@ import DeleteWarehouseModal from "../DeleteWarehouseModal/DeleteWarehouseModal";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function SingleWarehouse({ warehouse, address, contactName, contactInfo, id, setWarehouses, warehouses }) {
-
-  const [openDeleteModal, setOpenDeleteModal] = useState(false)
+function SingleWarehouse({
+  warehouse,
+  address,
+  contactName,
+  contactInfo,
+  id,
+  setWarehouses,
+  warehouses,
+}) {
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
   return (
     <div className="single-warehouse">
@@ -45,9 +52,20 @@ function SingleWarehouse({ warehouse, address, contactName, contactInfo, id, set
       </div>
       <div className="warehouse-actions">
         <a href="#top">
-          <img onClick={() => setOpenDeleteModal(true)} className="warehouse-actions__icon" src={deleteIcon}></img>
+          <img
+            onClick={() => setOpenDeleteModal(true)}
+            className="warehouse-actions__icon"
+            src={deleteIcon}
+          ></img>
         </a>
-        <DeleteWarehouseModal warehouses={warehouses} setWarehouses={setWarehouses} id={id} warehouse={warehouse} open={openDeleteModal} onClose={() => setOpenDeleteModal(false) } />
+        <DeleteWarehouseModal
+          warehouses={warehouses}
+          setWarehouses={setWarehouses}
+          id={id}
+          warehouse={warehouse}
+          open={openDeleteModal}
+          onClose={() => setOpenDeleteModal(false)}
+        />
         <img className="warehouse-actions__icon" src={editIcon}></img>
       </div>
     </div>

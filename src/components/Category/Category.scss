@@ -9,12 +9,16 @@
   }
   &-container {
     @include mobile-body-small;
-    display: inline-flex;
-    align-items: baseline;
-    gap: 4rem;
+    display: flex;
     height: 200px;
     &-one {
       color: $slate;
+      position: absolute;
+      left: 9rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 22vh;
     }
   }
   &-item {
@@ -44,6 +48,9 @@
       margin-top: 0;
       &-notstock {
         @include mobile-tags-not-stocked;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
     &-cat {
