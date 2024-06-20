@@ -5,7 +5,6 @@ import chevron from "../../assets/icons/chevron_right-24px.svg";
 import del from "../../assets/icons/delete_outline-24px.svg";
 import edit from "../../assets/icons/edit-24px.svg";
 import ListItem from "../ListItem/ListItem";
-
 const Category = ({ itemData, warehouseData }) => {
   return (
     <>
