@@ -1,3 +1,4 @@
+
 import InventoryDetails from "../../components/InventoryDetails/InventoryDetails";
 import { useState, useEffect } from "react";
 import axios from "axios";

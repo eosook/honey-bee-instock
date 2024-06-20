@@ -120,6 +120,7 @@
 @mixin mobile-buttons-form-fields {
   height: 36px;
   width: 100%;
+  padding: 0 16px;
   border-radius: 20px;
 }
 
@@ -137,7 +138,7 @@
   padding: 0 8px;
   border-radius: 20px;
   color: $green;
-  background-color: rgba($color: #158463, $alpha: 0.7);
+  background-color: rgba($color: $green, $alpha: 0.7);
 }
 
 @mixin mobile-tags-not-stocked {
@@ -146,7 +147,7 @@
   padding: 0 8px;
   border-radius: 20px;
   color: $red;
-  background-color: rgba($color: #c94515, $alpha: 0.1);
+  background-color: rgba($color: $red, $alpha: 0.7);
 }
 
 @mixin large-tags-stocked {
@@ -173,4 +174,13 @@
 @mixin position {
   position: absolute;
   margin-top: 0.25rem;
+}
+
+//miscellaneous
+@mixin divider-horizontal {
+  border-bottom: 1px solid $cloud;
+}
+
+@mixin divider-vertical {
+  border-right: 1px solid $cloud;
 }

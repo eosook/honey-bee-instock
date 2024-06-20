@@ -1,7 +1,7 @@
-import { useNavigate, useLocation } from 'react-router-dom'
-import logo from '../../assets/Logo/InStock-Logo.svg'
-import './Header.scss'
-import Button from '../Button/Button'
+import { useNavigate, useLocation } from "react-router-dom";
+import logo from "../../assets/logo/InStock-Logo.svg";
+import "./Header.scss";
+import Button from "../Button/Button";
 
 // created routes for warehouse and inventory,
 // not sure if these will be final routes so not adding them to app.
@@ -10,33 +10,33 @@ import Button from '../Button/Button'
 //button takes active as a prop which is equal to the pathname that we are setting using useLocation
 
 export default function Header() {
-  const navigate = useNavigate()
-  const location = useLocation()
+  const navigate = useNavigate();
+  const location = useLocation();
 
   function warehouseClick() {
-    navigate('/')
+    navigate("/");
   }
 
   function inventoryClick() {
-    navigate('/inventory')
+    navigate("/inventory");
   }
   return (
-    <header className='header'>
-      <div className='header__logo-container'>
-        <img className='header__logo' src={logo} alt='InStock logo' />
+    <header className="header">
+      <div className="header__logo-container">
+        <img className="header__logo" src={logo} alt="InStock logo" />
       </div>
-      <nav className='header__nav'>
+      <nav className="header__nav">
         <Button
-          text='Warehouses'
+          text="Warehouses"
           onClick={warehouseClick}
-          active={location.pathname === '/'}
+          active={location.pathname === "/"}
         />
         <Button
-          text='Inventory'
+          text="Inventory"
           onClick={inventoryClick}
-          active={location.pathname === '/inventory'}
+          active={location.pathname === "/inventory"}
         />
       </nav>
     </header>
-  )
+  );
 }

@@ -1,6 +1,6 @@
 import "./InventoryDetails.scss";
-import arrowBack from "../../assets/images/arrow_back-24px.svg";
-import edit from "../../assets/images/edit-24px.svg";
+import arrowBack from "../../assets/icons/arrow_back-24px.svg";
+import edit from "../../assets/icons/edit-24px.svg";
 import InventoryDetailsList from "../InventoryDetailsList/InventoryDetailsList";
 import { Link } from "react-router-dom";
 const InventoryDetails = ({ itemDataDetails, warehouseDetails }) => {
