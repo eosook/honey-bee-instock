@@ -5,8 +5,6 @@ import "./WarehouseList.scss";
 import SingleWarehouse from "../SingleWarehouse/SingleWarehouse";
 // import AddWarehouse from "../AddWarehouse/AddWarehouse.jsx";
 import sortIcon from "../../assets/icons/sort-24px.svg";
-import { useState, useEffect } from "react";
-import axios from "axios";
 function WarehouseList() {
   const [warehouses, setWarehouses] = useState([
     {
