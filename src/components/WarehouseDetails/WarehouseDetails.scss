@@ -120,4 +120,18 @@
     &__contact {
         @include large-body-medium;
     }
+
+    &__list{
+        max-width: 343px;
+        box-shadow: 0 2px 5px rgba($instock-black, 0.1);
+        border-radius: 8px;
+        margin: 0 auto;
+      
+        @include tablet {
+          max-width: 704px;
+        }
+        @include desktop {
+          max-width: 1020px;
+        }
+    }
 }

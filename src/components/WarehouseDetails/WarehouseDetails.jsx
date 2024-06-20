@@ -1,9 +1,25 @@
 import "./WarehouseDetails.scss";
 import backArrow from "../../assets/Icons/arrow_back-24px.svg";
 import edit from "../../assets/Icons/edit-24px.svg";
+import Category from "../Category/Category";
+import sortIcon from "../../assets/Icons/sort-24px.svg";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import ListItem from "../ListItem/ListItem";
 
 export default function WarehouseDetails({ warehouse }) {
+  const [warehouseInventory, setWarehouseInventory] = useState([]);
+
+  useEffect(() => {
+    const getInventory = async () => {
+      const response = await axios.get(
+        `http://localhost:8080/warehouse/${warehouse.id}/inventories`
+      );
+      setWarehouseInventory(response.data);
+    };
+    getInventory();
+  });
   return (
     <section className="warehouse-details">
       <div className="warehouse-details__title-container">
@@ -54,6 +70,9 @@ export default function WarehouseDetails({ warehouse }) {
             </p>
           </div>
         </div>
+      </div>
+      <div className="warehouse-details__list">
+        <Category itemData={warehouseInventory} isWarehouse={true}/>
       </div>
     </section>
   );

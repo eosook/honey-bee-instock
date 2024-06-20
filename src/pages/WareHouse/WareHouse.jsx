@@ -40,7 +40,7 @@ export default function Warehose() {
       setWarehouses(response.data);
     };
     getWarehouseList();
-  });
+  }, []);
   useEffect(() => {
     if (warehouseId) {
       const getSingleWarehouse = async () => {

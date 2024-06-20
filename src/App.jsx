@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import WareHouse from "./pages/WareHouse/WareHouse";
+import WareHouse from "./pages/Warehouse/WareHouse";
 import Inventory from "./pages/Inventory/Inventory";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import Header from "./components/Header/Header";

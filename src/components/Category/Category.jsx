@@ -5,10 +5,10 @@ import chevron from "../../assets/images/chevron_right-24px.svg";
 import del from "../../assets/images/delete_outline-24px.svg";
 import edit from "../../assets/images/edit-24px.svg";
 import ListItem from "../ListItem/ListItem";
-const Category = ({ itemData }) => {
+const Category = ({ itemData, isWarehouse }) => {
   return (
     <>
-      {itemData.slice(0, 8).map((item) => (
+      {itemData.map((item) => (
         <div className="category" key={item.id}>
           <div className="category-containers">
             <div className="category-container">
@@ -84,7 +84,11 @@ const Category = ({ itemData }) => {
                     {item.quantity}
                   </p>
                 </div>
-                <div className="category-warehouse">
+                <div
+                  className={`category-warehouse ${
+                    isWarehouse ? "category-warehouse__remove" : ""
+                  }`}
+                >
                   <h6 className="category-warehouse-text">WAREHOUSE</h6>
                   <img
                     className="category-item-img category-sort-five"
@@ -98,7 +102,38 @@ const Category = ({ itemData }) => {
           </div>
         </div>
       ))}
-      <ListItem itemData={itemData} />
+      <nav>
+        <div className="nav">
+          <div className="nav-inv nav-inv__inventory">
+            <h6 className="nav-inv__label">INVENTORY ITEM</h6>
+            <img className="nav__sort-logo" src={sort} alt="Sort logo" />
+          </div>
+          <div className="nav-inv nav-inv__category">
+            <h6 className="nav-inv__label">CATEGORY</h6>
+            <img className="nav__sort-logo" src={sort} alt="Sort logo" />
+          </div>
+          <div className={`nav-inv ${isWarehouse ? "nav-inv__status-warehouse" : "nav-inv__status"}`}>
+            <h6 className="nav-inv__label">STATUS</h6>
+            <img className="nav__sort-logo" src={sort} alt="Sort logo" />
+          </div>
+          <div className="nav-inv nav-inv__quantity">
+            <h6 className="nav-inv__label">{isWarehouse ? "QUANTITY" : "QTY"}</h6>
+            <img className="nav__sort-logo" src={sort} alt="Sort logo" />
+          </div>
+          <div className={`nav-inv ${isWarehouse ? "nav-inv__remove" : ""}`}>
+            <h6  className="nav-inv__label">WAREHOUSE</h6>
+            <img
+              className="nav__sort-logo"
+              src={sort}
+              alt="Sort logo"
+            />
+          </div>
+          <div className="nav-inv nav-inv__actions">
+            <h6 className="nav-inv__label">ACTIONS</h6>
+          </div>
+        </div>
+      </nav>
+      <ListItem itemData={itemData} isWarehouse={isWarehouse} />
     </>
   );
 };

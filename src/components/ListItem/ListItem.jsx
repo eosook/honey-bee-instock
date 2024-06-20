@@ -4,11 +4,11 @@ import del from "../../assets/images/delete_outline-24px.svg";
 import edit from "../../assets/images/edit-24px.svg";
 import { Link } from "react-router-dom";
 import Labels from "../Labels/Labels";
-const ListItem = ({ itemData }) => {
+const ListItem = ({ itemData, isWarehouse }) => {
   return (
     <>
-      <Labels />
-      {itemData.slice(0, 8).map((item) => (
+      {/* <Labels /> */}
+      {itemData.map((item) => (
         <div className="list" key={item.id}>
           <div className="list-containers">
             <div className="list-container">
@@ -38,7 +38,11 @@ const ListItem = ({ itemData }) => {
             <div className="list-item-three">
               <p className="list-item-quantity">{item.quantity}</p>
             </div>
-            <div className="list-item-four">
+            <div
+              className={`list-item-four ${
+                isWarehouse ? "list-item-remove" : ""
+              }`}
+            >
               <p className="list-item-location">Manhattan</p>
             </div>
             <div className="list-logo">
