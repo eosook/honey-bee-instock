@@ -1,4 +1,4 @@
-import sort from "../../assets/images/sort-24px.svg";
+import sort from "../../assets/icons/sort-24px.svg";
 import "./Labels.scss";
 const Labels = () => {
   return (

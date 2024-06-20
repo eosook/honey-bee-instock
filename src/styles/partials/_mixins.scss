@@ -120,6 +120,7 @@
 @mixin mobile-buttons-form-fields {
   height: 36px;
   width: 100%;
+  padding: 0 16px;
   border-radius: 20px;
 }
 
@@ -173,4 +174,13 @@
 @mixin position {
   position: absolute;
   margin-top: 0.25rem;
+}
+
+//miscellaneous
+@mixin divider-horizontal {
+  border-bottom: 1px solid $cloud;
+}
+
+@mixin divider-vertical {
+  border-right: 1px solid $cloud;
 }
