@@ -78,8 +78,10 @@
           color: $green;
           background-color: rgba($color: #158463, $alpha: 0.1);
           font-weight: 600;
-          padding-top: 0.25rem;
           margin-top: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           @include tablet {
             @include large-tags-stocked;
             width: 50%;
@@ -91,6 +93,13 @@
           @include desktop {
             width: 30%;
           }
+        }
+        &-notstock {
+          @include mobile-tags-not-stocked;
+          width: 60%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
       }
       &-two {
