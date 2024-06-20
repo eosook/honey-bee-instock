@@ -35,7 +35,9 @@ const ListItem = ({ itemData, isWarehouse }) => {
                 {item.status}
               </p>
             </div>
-            <div className="list-item-three">
+            <div className={` list-item-three ${
+                  isWarehouse ? "list-item-quantity-warehouse" : ""
+                }`}>
               <p className="list-item-quantity">{item.quantity}</p>
             </div>
             <div

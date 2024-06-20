@@ -13,7 +13,7 @@ const Category = ({ itemData, isWarehouse }) => {
           <div className="category-containers">
             <div className="category-container">
               <div className="category-item">
-                <h6 className="category-item-text">INVENTORY ITEM</h6>
+                <h6 className="category__label">INVENTORY ITEM</h6>
                 <img
                   className="category-item-img category-sort-one"
                   src={sort}
@@ -32,7 +32,7 @@ const Category = ({ itemData, isWarehouse }) => {
                   </Link>
                 </div>
                 <div className="category-item-container">
-                  <h6 className="category-item-container--text">CATEGORY</h6>
+                  <h6 className="category__label">CATEGORY</h6>
                   <img
                     className="category-item-img category-sort-two"
                     src={sort}
@@ -57,7 +57,7 @@ const Category = ({ itemData, isWarehouse }) => {
               </div>
               <div className="category-container-one">
                 <div className="category-status">
-                  <h6 className="category-status-text">STATUS</h6>
+                  <h6 className="category__label">STATUS</h6>
                   <img
                     className="category-item-img category-sort-three"
                     src={sort}
@@ -74,7 +74,7 @@ const Category = ({ itemData, isWarehouse }) => {
                   </p>
                 </div>
                 <div className="category-quantity">
-                  <h6 className="category-quantity-text">QTY</h6>
+                  <h6 className="category__label">QTY</h6>
                   <img
                     className="category-item-img category-sort-four"
                     src={sort}
@@ -89,7 +89,7 @@ const Category = ({ itemData, isWarehouse }) => {
                     isWarehouse ? "category-warehouse__remove" : ""
                   }`}
                 >
-                  <h6 className="category-warehouse-text">WAREHOUSE</h6>
+                  <h6 className="category__label">WAREHOUSE</h6>
                   <img
                     className="category-item-img category-sort-five"
                     src={sort}

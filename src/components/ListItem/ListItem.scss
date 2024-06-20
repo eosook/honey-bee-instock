@@ -84,6 +84,12 @@
         @include desktop{
           width: 90px;
         }
+        &-warehouse{
+          margin-left: 3.7rem;
+          @include desktop{
+            margin-left: 5.3rem;
+          }
+        }
       }
       &-remove{
         display: none;
