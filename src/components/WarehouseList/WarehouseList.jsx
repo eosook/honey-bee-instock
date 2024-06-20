@@ -1,8 +1,8 @@
 import "./WarehouseList.scss";
 import SingleWarehouse from "../SingleWarehouse/SingleWarehouse";
-import sortIcon from "../../assets/Icons/sort-24px.svg";
+import sortIcon from "../../assets/icons/sort-24px.svg";
 
-function WarehouseList({warehouses}) {
+function WarehouseList({ warehouses }) {
   return (
     <div className="warehouse-list">
       <div className="warehouse-list__header">
@@ -44,11 +44,19 @@ function WarehouseList({warehouses}) {
           return (
             <SingleWarehouse
               key={index}
-              id = {warehouse.id}
+              id={warehouse.id}
               warehouse={warehouse.warehouse_name}
-              address={warehouse.address + ', ' + warehouse.city + ', ' + warehouse.country}
+              address={
+                warehouse.address +
+                ", " +
+                warehouse.city +
+                ", " +
+                warehouse.country
+              }
               contactName={warehouse.contact_name}
-              contactInfo={warehouse.contact_phone + " " + warehouse.contact_email}
+              contactInfo={
+                warehouse.contact_phone + " " + warehouse.contact_email
+              }
             />
           );
         })}

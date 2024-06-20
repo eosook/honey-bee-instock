@@ -1,5 +1,5 @@
 import "./Inventory.scss";
-import search from "../../assets/images/search-24px.svg";
+import search from "../../assets/icons/search-24px.svg";
 import Category from "../../components/Category/Category";
 import { useState, useEffect } from "react";
 import axios from "axios";

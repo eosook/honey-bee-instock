@@ -40,7 +40,7 @@ export default function Warehose() {
       setWarehouses(response.data);
     };
     getWarehouseList();
-  });
+  }, []); //dependency array was missing -- added an empty one to stop the infinite loop
   useEffect(() => {
     if (warehouseId) {
       const getSingleWarehouse = async () => {
