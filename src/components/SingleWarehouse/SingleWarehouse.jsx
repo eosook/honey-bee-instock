@@ -4,37 +4,40 @@ import editIcon from "../../assets/Icons/edit-24px.svg";
 import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
 import DeleteWarehouseModal from "../DeleteWarehouseModal/DeleteWarehouseModal";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function SingleWarehouse({ warehouse, address, contactName, contactInfo, id, setWarehouses, warehouses }) {
 
   const [openDeleteModal, setOpenDeleteModal] = useState(false)
 
   return (
-    <div className="warehouse">
-      <div className="warehouse__info">
-        <div className="warehouse--column">
-          <div className="warehouse--section warehouse__city">
-            <h3 className="warehouse--subheader">WAREHOUSE</h3>
-            <p className="warehouse--body">
-              <a className="warehouse__details" href="">
+    <div className="single-warehouse">
+      <div className="single-warehouse__info">
+        <div className="single-warehouse--column">
+          <div className="single-warehouse--section single-warehouse__city">
+            <h3 className="single-warehouse--subheader">WAREHOUSE</h3>
+            <Link to={`/warehouse/${id}`}>
+              <p className="single-warehouse--body single-warehouse__details">
                 {warehouse}
-                <img className="warehouse__icon" src={chevronIcon}></img>
-              </a>
+                <img className="single-warehouse__icon" src={chevronIcon}></img>
+              </p>
+            </Link>
+          </div>
+          <div className="single-warehouse--section">
+            <h3 className="single-warehouse--subheader">ADDRESS</h3>
+            <p className="single-warehouse--body single-warehouse__address">
+              {address}
             </p>
           </div>
-          <div className="warehouse--section">
-            <h3 className="warehouse--subheader">ADDRESS</h3>
-            <p className="warehouse--body warehouse__address">{address}</p>
-          </div>
         </div>
-        <div className="warehouse--column">
-          <div className="warehouse--section warehouse__contact-name">
-            <h3 className="warehouse--subheader">CONTACT NAME</h3>
-            <p className="warehouse--body">{contactName}</p>
+        <div className="single-warehouse--column">
+          <div className="single-warehouse--section single-warehouse__contact-name">
+            <h3 className="single-warehouse--subheader">CONTACT NAME</h3>
+            <p className="single-warehouse--body">{contactName}</p>
           </div>
-          <div className="warehouse--section">
-            <h3 className="warehouse--subheader">CONTACT INFORMATION</h3>
-            <p className="warehouse--body warehouse__contact-info">
+          <div className="single-warehouse--section">
+            <h3 className="single-warehouse--subheader">CONTACT INFORMATION</h3>
+            <p className="single-warehouse--body single-warehouse__contact-info">
               {contactInfo}
             </p>
           </div>
