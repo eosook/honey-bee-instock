@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 import "./WarehouseList.scss";
 import SingleWarehouse from "../SingleWarehouse/SingleWarehouse";
+// import AddWarehouse from "../AddWarehouse/AddWarehouse.jsx";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 
 function WarehouseList({ warehouses }) {
@@ -13,9 +15,11 @@ function WarehouseList({ warehouses }) {
             type="text"
             placeholder="Search..."
           ></input>
-          <button className="warehouse-list__button" type="submit">
-            + Add New Warehouse
-          </button>
+          <Link to={"/add"}>
+            <button className="warehouse-list__button" type="submit">
+              + Add New Warehouse
+            </button>
+          </Link>
         </form>
       </div>
       <div className="warehouse-data">

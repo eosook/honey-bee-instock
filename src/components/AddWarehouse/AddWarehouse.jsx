@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./AddWarehouse.scss";
 import FormInput from "../FormInput/FormInput";
 
 function AddWarehouse() {
+  const baseUrl = import.meta.env.VITE_API_URL;
+
   const initialValues = {
     warehouse: "",
     address: "",
@@ -64,10 +67,22 @@ function AddWarehouse() {
     return true;
   };
 
+  const sendFormData = async (warehouseObj) => {
+    try {
+      const sendResponse = await axios.post(`${baseUrl}/`, warehouseObj);
+      return sendResponse;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    const formData = { ...values };
+
     if (isFormValid()) {
-      console.log("warehouse added");
+      sendFormData(formData);
+      console.log("warehouse added", formData);
     } else {
       console.log("unable to add warehouse");
     }
@@ -92,7 +107,7 @@ function AddWarehouse() {
               htmlFor="warehouse-name"
               label="Warehouse Name"
               inputClass="form__input"
-              id="warehouse-name"
+              id="warehouse"
               name="warehouse"
               type="text"
               placeholder="Warehouse Name"
@@ -147,7 +162,7 @@ function AddWarehouse() {
               htmlFor="contact-name"
               label="Contact Name"
               inputClass="form__input"
-              id="contact-name"
+              id="contact"
               name="contact"
               type="text"
               placeholder="Contact Name"
