@@ -3,6 +3,7 @@ import search from "../../assets/icons/search-24px.svg";
 import Category from "../../components/Category/Category";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import InventoryDetails from "../../components/InventoryDetails/InventoryDetails";
 const Inventory = () => {
   const [itemData, setItemData] = useState([]);
   const base_URL = import.meta.env.VITE_API_URL;
@@ -20,7 +21,7 @@ const Inventory = () => {
   }, []);
   return (
     <>
-      <main className="inventory">
+      <main className="inventory" style={{ display: "none" }}>
         <section className="inventory-containers">
           <div className="inventory-container">
             <div className="inventory-container-one">
@@ -49,6 +50,7 @@ const Inventory = () => {
           <Category itemData={itemData} />
         </section>
       </main>
+      <InventoryDetails />
     </>
   );
 };
