@@ -1,4 +1,3 @@
-
 import InventoryDetails from "../../components/InventoryDetails/InventoryDetails";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -7,7 +6,7 @@ import InventoryList from "../../components/InventoryList/InventoryList";
 const Inventory = () => {
   const { id } = useParams();
   const [itemData, setItemData] = useState([]);
-  const [itemDataDetails, setItemDataDetails] = useState(null);
+  const [itemDataDetails, setItemDataDetails] = useState([]);
   const [warehouseData, setWarehouseData] = useState([]);
   const [warehouseDetails, setWarehouseDetails] = useState([]);
   const base_URL = import.meta.env.VITE_API_URL;
@@ -32,6 +31,7 @@ const Inventory = () => {
       try {
         const response = await axios.get(`${base_URL}/inventory/${id}`);
         setItemDataDetails(response.data);
+        console.log(`${base_URL}/inventory/${id}`);
       } catch (error) {
         console.error("Error fetching item details: 🚛🚛🚛", error);
       }
@@ -46,13 +46,14 @@ const Inventory = () => {
     };
 
     if (id) {
-      getItemDetails(id);
-      getWarehouseDetails(id);
+      getItemDetails();
+      getWarehouseDetails();
     } else {
       getWarehouse();
       getItem();
     }
   }, [id, base_URL]);
+  console.log(itemDataDetails);
   return (
     <>
       {id ? (
