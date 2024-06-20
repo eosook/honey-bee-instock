@@ -2,8 +2,13 @@ import "./SingleWarehouse.scss";
 import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
 import editIcon from "../../assets/Icons/edit-24px.svg";
 import chevronIcon from "../../assets/Icons/chevron_right-24px.svg";
+import DeleteWarehouseModal from "../DeleteWarehouseModal/DeleteWarehouseModal";
+import { useState } from "react";
 
-function SingleWarehouse({ warehouse, address, contactName, contactInfo }) {
+function SingleWarehouse({ warehouse, address, contactName, contactInfo, id, setWarehouses, warehouses }) {
+
+  const [openDeleteModal, setOpenDeleteModal] = useState(false)
+
   return (
     <div className="warehouse">
       <div className="warehouse__info">
@@ -36,7 +41,10 @@ function SingleWarehouse({ warehouse, address, contactName, contactInfo }) {
         </div>
       </div>
       <div className="warehouse-actions">
-        <img className="warehouse-actions__icon" src={deleteIcon}></img>
+        <a href="#top">
+          <img onClick={() => setOpenDeleteModal(true)} className="warehouse-actions__icon" src={deleteIcon}></img>
+        </a>
+        <DeleteWarehouseModal warehouses={warehouses} setWarehouses={setWarehouses} id={id} warehouse={warehouse} open={openDeleteModal} onClose={() => setOpenDeleteModal(false) } />
         <img className="warehouse-actions__icon" src={editIcon}></img>
       </div>
     </div>

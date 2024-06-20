@@ -27,7 +27,7 @@ function WarehouseList() {
         setWarehouses(response.data);
     }
     getWarehouseList();
-  })
+  },[])
   return (
     <div className="warehouse-list">
       <div className="warehouse-list__header">
@@ -66,13 +66,17 @@ function WarehouseList() {
           </h3>
         </div>
         {warehouses.map((warehouse, index) => {
+          console.log(warehouse)
           return (
             <SingleWarehouse
               key={index}
+              id={warehouse.id}
               warehouse={warehouse.warehouse_name}
               address={warehouse.address + ', ' + warehouse.city + ', ' + warehouse.country}
               contactName={warehouse.contact_name}
               contactInfo={warehouse.contact_phone + " " + warehouse.contact_email}
+              setWarehouses={setWarehouses}
+              warehouses={warehouses}
             />
           );
         })}
