@@ -1,0 +1,131 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-color: $light-grey;
+}
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+h6 {
+  margin-bottom: 0;
+  margin-top: 0.5rem;
+}
+a {
+  text-decoration: none;
+}
+address {
+  font-style: normal;
+}
+*:focus {
+  outline: none;
+}
+button:hover {
+  cursor: pointer;
+  background-color: #0065ad;
+}
+.inventory {
+  width: 95%;
+  margin: 0 auto;
+  &-containers {
+    width: 300px;
+    margin: 0 auto;
+    background-color: $white;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding-top: 2rem;
+    @include tablet {
+      width: 700px;
+      margin: 0 auto;
+    }
+    @include desktop {
+      width: 1100px;
+    }
+  }
+  &-container {
+    padding: 0 1rem;
+    @include tablet {
+      display: flex;
+      gap: 11rem;
+      align-items: baseline;
+      padding-left: 3rem;
+    }
+    @include desktop {
+      gap: 0;
+      justify-content: space-between;
+    }
+    &-one {
+      &--text {
+        @include mobile-header;
+        margin-bottom: 0;
+        @include desktop {
+          @include large-header;
+        }
+      }
+    }
+    &-two {
+      @include tablet {
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+      }
+      @include desktop {
+        width: 43%;
+        margin-right: 1rem;
+        justify-content: space-between;
+      }
+    }
+    &-three {
+      position: relative;
+      &--search {
+        font-family: $primary-font;
+        @include mobile-buttons-form-fields;
+        padding: 0 16px;
+        border: 1px solid $cloud;
+        margin: 1rem 0;
+        @include tablet {
+          @include large-buttons-form-fields;
+        }
+        @include desktop {
+          width: 150%;
+        }
+        &::placeholder {
+          color: $slate;
+        }
+      }
+      &-img {
+        position: absolute;
+        top: 1.5rem;
+        right: 1rem;
+        @include tablet {
+          top: 1.5rem;
+          right: 1rem;
+        }
+        @include desktop {
+          right: -4.5rem;
+        }
+      }
+    }
+    &-four {
+      &--btn {
+        @include mobile-buttons-form-fields;
+        border: none;
+        background-color: $instock-indigo;
+        color: white;
+        @include mobile-body-medium;
+        margin-bottom: 1rem;
+        @include tablet {
+          @include large-buttons-form-fields;
+        }
+      }
+    }
+  }
+}
