@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import "./WarehouseList.scss";
 import SingleWarehouse from "../SingleWarehouse/SingleWarehouse";
 // import AddWarehouse from "../AddWarehouse/AddWarehouse.jsx";
@@ -68,7 +70,6 @@ function WarehouseList() {
           </h3>
         </div>
         {warehouses.map((warehouse, index) => {
-          console.log(warehouse)
           return (
             <SingleWarehouse
               key={index}
