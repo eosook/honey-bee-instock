@@ -1,5 +1,5 @@
 import "./InventoryList.scss";
-import search from "../../assets/images/search-24px.svg";
+import search from "../../assets/icons/search-24px.svg";
 import Category from "../../components/Category/Category";
 const InventoryList = ({ itemData, warehouseData }) => {
   return (
