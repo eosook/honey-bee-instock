@@ -6,7 +6,7 @@ import InventoryList from "../../components/InventoryList/InventoryList";
 const Inventory = () => {
   const { id } = useParams();
   const [itemData, setItemData] = useState([]);
-  const [itemDataDetails, setItemDataDetails] = useState([]);
+  const [itemDataDetails, setItemDataDetails] = useState(null);
   const [warehouseData, setWarehouseData] = useState([]);
   const [warehouseDetails, setWarehouseDetails] = useState([]);
   const base_URL = import.meta.env.VITE_API_URL;
