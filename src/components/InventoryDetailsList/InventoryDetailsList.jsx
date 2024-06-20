@@ -1,9 +1,10 @@
 import "./InventoryDetailsList.scss";
 const InventoryDetailsList = ({ itemDataDetails, warehouseDetails }) => {
   const { description, category, status, quantity } = itemDataDetails;
-  const warehouseName = warehouseDetails.find(
+  const filterWarehouse = warehouseDetails?.filter(
     (warehouse) => warehouse.id === itemDataDetails.id
   );
+  const warehouseName = filterWarehouse?.length > 0 ? filterWarehouse[0] : {};
   return (
     <div className="item">
       <div className="item-container">

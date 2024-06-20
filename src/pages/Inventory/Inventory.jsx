@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import InventoryList from "../../components/InventoryList/InventoryList";
+import EditInventory from "../../components/EditInventory/EditInventory";
 const Inventory = () => {
   const { id } = useParams();
   const [itemData, setItemData] = useState([]);
@@ -53,20 +54,24 @@ const Inventory = () => {
       getItem();
     }
   }, [id, base_URL]);
-  console.log(itemDataDetails);
   return (
-    <>
-      {id ? (
-        itemDataDetails && (
-          <InventoryDetails
-            itemDataDetails={itemDataDetails}
-            warehouseDetails={warehouseDetails}
-          />
-        )
-      ) : (
-        <InventoryList itemData={itemData} warehouseData={warehouseData} />
-      )}
-    </>
+    <EditInventory />
+    // <>
+    //   {id ? (
+    //     itemDataDetails && (
+    //       <InventoryDetails
+    //         itemDataDetails={itemDataDetails}
+    //         warehouseDetails={warehouseDetails}
+    //       />
+    //     )
+    //   ) : (
+    //     // <InventoryList
+    //     //   itemData={itemData}
+    //     //   warehouseData={warehouseData}
+    //     //   style={{ display: "none" }}
+    //     // />
+    //   )}
+    // </>
   );
 };
 
