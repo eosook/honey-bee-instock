@@ -1,11 +1,8 @@
-import "./Inventory.scss";
-import search from "../../assets/images/search-24px.svg";
-import Category from "../../components/Category/Category";
 import InventoryDetails from "../../components/InventoryDetails/InventoryDetails";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-
+import InventoryList from "../../components/InventoryList/InventoryList";
 const Inventory = () => {
   const { id } = useParams();
   const [itemData, setItemData] = useState([]);
@@ -65,37 +62,7 @@ const Inventory = () => {
           />
         )
       ) : (
-        <>
-          <main className="inventory">
-            <section className="inventory-containers">
-              <div className="inventory-container">
-                <div className="inventory-container-one">
-                  <h1 className="inventory-container-one--text">Inventory</h1>
-                </div>
-                <div className="inventory-container-two">
-                  <div className="inventory-container-three">
-                    <input
-                      className="inventory-container-three--search"
-                      type="text"
-                      placeholder="Search..."
-                    />
-                    <img
-                      className="inventory-container-three-img"
-                      src={search}
-                      alt="Search logo"
-                    />
-                  </div>
-                  <div className="inventory-container-four">
-                    <button className="inventory-container-four--btn">
-                      + Add New Item
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <Category itemData={itemData} warehouseData={warehouseData} />
-            </section>
-          </main>
-        </>
+        <InventoryList itemData={itemData} warehouseData={warehouseData} />
       )}
     </>
   );

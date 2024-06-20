@@ -20,7 +20,7 @@
       gap: 3rem;
       padding-left: 3rem;
       border-bottom: 1px solid $cloud;
-      margin-top: 1rem;
+      padding-top: 1rem;
       align-items: baseline;
       padding-bottom: 0.75rem;
     }
@@ -62,7 +62,7 @@
       }
       &-four {
         @include position;
-        right: 9.75rem;
+        left: 30.5rem;
         @include desktop {
           left: 44rem;
         }

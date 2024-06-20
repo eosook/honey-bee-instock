@@ -16,7 +16,10 @@ const ListItem = ({ itemData, warehouseData }) => {
           <div className="list" key={item.id}>
             <div className="list-containers">
               <div className="list-container">
-                <Link className="list-container-link" to="/">
+                <Link
+                  className="list-container-link"
+                  to={`/inventory/${item.id}`}
+                >
                   <p className="list-container-item">{item.item_name}</p>
                   <img
                     className="list-container-chev"
