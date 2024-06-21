@@ -12,10 +12,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding-top: 1rem;
   margin-bottom: 1.5rem;
-  margin-top: -4rem;
+  margin-top: -4.85rem;
   @include tablet {
     width: 700px;
-    margin: 0 auto;
+    margin: -5.55rem auto;
     margin-bottom: 11rem;
   }
   @include desktop {
@@ -32,6 +32,7 @@
       padding-right: 2rem;
     }
     &-title {
+      font-size: 1.5rem;
       @include tablet {
         font-size: 2rem;
       }
@@ -46,7 +47,7 @@
     padding: 1rem 0;
     gap: 0.5rem;
     @include tablet {
-      height: 55vh;
+      height: 53vh;
       gap: 5rem;
     }
   }
@@ -94,6 +95,9 @@
     &-category {
       @include fontWeight;
     }
+    &-one {
+      position: relative;
+    }
     &-dropdown {
       border-radius: 20px;
       border: 1px solid $cloud;
@@ -108,17 +112,14 @@
     }
     &-drop {
       position: absolute;
-      top: 17.75rem;
-      left: 15.5rem;
-      @include tablet {
-        top: 18.4rem;
-        left: 17.5rem;
-      }
+      top: 1.5rem;
+      right: 1rem;
     }
   }
   &-wrapper {
     border-top: 1px solid $cloud;
     padding-top: 1rem;
+    height: 100%;
     @include tablet {
       border-top: none;
       padding-left: 1.5rem;
@@ -127,7 +128,6 @@
   }
   &-wrap {
     padding: 0 1rem;
-    height: 20vh;
     &-avaibility {
       @include fontWeight;
       margin-bottom: 1.5rem;
@@ -142,6 +142,9 @@
       gap: 5rem;
       font-size: 0.815rem;
       margin-bottom: 1rem;
+      @include desktop {
+        gap: 3rem;
+      }
       &-one {
         display: flex;
         align-items: center;
@@ -153,9 +156,30 @@
         gap: 0.25rem;
       }
     }
+    &-three {
+      //   display: none;
+    }
+    &-quantity {
+      display: block;
+      @include fontWeight;
+    }
+    &-quantities {
+      border-radius: 20px;
+      border: 1px solid $cloud;
+      padding: 0 1rem;
+      height: 36px;
+      width: 100%;
+      margin-bottom: 1rem;
+      @include desktop {
+        width: 20%;
+      }
+    }
     &-warehouse {
       display: block;
       @include fontWeight;
+    }
+    &-four {
+      position: relative;
     }
     &-dropdown {
       border-radius: 20px;
@@ -171,11 +195,8 @@
     }
     &-drop {
       position: absolute;
-      top: 32rem;
-      right: 2rem;
-      @include tablet {
-        top: 10rem;
-      }
+      top: 1.75rem;
+      right: 1rem;
     }
   }
   &-btn {
@@ -185,7 +206,7 @@
     align-items: center;
     background-color: $light-grey;
     height: 70px;
-    margin-top: 2rem;
+    margin-top: auto;
     @include tablet {
       margin-top: 0;
       justify-content: flex-end;

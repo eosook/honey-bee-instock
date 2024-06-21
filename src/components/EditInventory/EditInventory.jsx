@@ -3,7 +3,7 @@ import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 import drop from "../../assets/icons/arrow_drop_down-24px.svg";
 const EditInventory = () => {
   return (
-    <section className="editinventory ">
+    <form className="editinventory ">
       <div className="editinventory-header">
         <img
           className="editinventory-header-img"
@@ -29,19 +29,24 @@ const EditInventory = () => {
             name="description"
             placeholder="Television infor"
           ></textarea>
-          <label className="editinventory-container-category">Category</label>
-          <select className="editinventory-container-dropdown" name="category">
-            <option value="television">Electronics</option>
-            <option value="computer">Gear</option>
-            <option value="phone">Apparel</option>
-            <option value="laptop">Accessories</option>
-            <option value="other">Health</option>
-          </select>
-          <img
-            className="editinventory-container-drop"
-            src={drop}
-            alt={`${drop} image`}
-          />
+          <div className="editinventory-container-one">
+            <label className="editinventory-container-category">Category</label>
+            <select
+              className="editinventory-container-dropdown"
+              name="category"
+            >
+              <option value="television">Electronics</option>
+              <option value="computer">Gear</option>
+              <option value="phone">Apparel</option>
+              <option value="laptop">Accessories</option>
+              <option value="other">Health</option>
+            </select>
+            <img
+              className="editinventory-container-drop"
+              src={drop}
+              alt={`${drop} image`}
+            />
+          </div>
         </div>
         <div className="editinventory-wrapper">
           <div className="editinventory-wrap">
@@ -65,22 +70,39 @@ const EditInventory = () => {
                 Out of stock
               </div>
             </div>
-            <label className="editinventory-wrap-warehouse">Warehouse</label>
-            <select className="editinventory-wrap-dropdown" name="warehouse">
-              <option value="location">Manhattan</option>
-              <option value="location">Washington</option>
-              <option value="location">Jersey</option>
-              <option value="location">SF</option>
-              <option value="location">Santa Monica</option>
-              <option value="location">Seattle</option>
-              <option value="location">Miami</option>
-              <option value="location">Boston</option>
-            </select>
-            <img
-              className="editinventory-wrap-drop"
-              src={drop}
-              alt={`${drop} image`}
-            />
+            <div className="editinventory-wrap-three">
+              <label className="editinventory-wrap-quantity">Quantity</label>
+              <input
+                className="editinventory-wrap-quantities"
+                type="text"
+                name="quantity"
+                placeholder="1"
+              />
+            </div>
+            <div className="editinventory-wrap-four">
+              <label className="editinventory-wrap-warehouse">Warehouse</label>
+              <select className="editinventory-wrap-dropdown" name="warehouse">
+                <option
+                  className="editinventory-wrap-dropdown-select"
+                  value="location"
+                >
+                  Please Select
+                </option>
+                <option value="location">Manhattan</option>
+                <option value="location">Washington</option>
+                <option value="location">Jersey</option>
+                <option value="location">SF</option>
+                <option value="location">Santa Monica</option>
+                <option value="location">Seattle</option>
+                <option value="location">Miami</option>
+                <option value="location">Boston</option>
+              </select>
+              <img
+                className="editinventory-wrap-drop"
+                src={drop}
+                alt={`${drop} image`}
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -88,8 +110,7 @@ const EditInventory = () => {
         <button className="editinventory-btn-cancel">Cancel</button>
         <button className="editinventory-btn-save">Save</button>
       </div>
-    </section>
+    </form>
   );
 };
-
 export default EditInventory;
