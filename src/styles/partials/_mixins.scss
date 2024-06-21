@@ -27,6 +27,7 @@
 @mixin fontWeight {
   font-weight: 550;
   margin-bottom: 0.25rem;
+  font-size: 0.813rem;
 }
 @mixin mobile-subheader {
   font-family: $primary-font;
