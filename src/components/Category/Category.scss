@@ -130,21 +130,6 @@
     &-mobile {
       display: none;
     }
-    &-sort-one {
-      margin-left: 5.5rem;
-    }
-    &-sort-two {
-      margin-left: 3.75rem;
-    }
-    &-sort-three {
-      margin-left: 2.5rem;
-    }
-    &-sort-four {
-      margin-left: 1.5rem;
-    }
-    &-sort-five {
-      margin-left: 4.5rem;
-    }
     &-logo {
       display: none;
     }
@@ -161,12 +146,12 @@
   @include tablet {
     display: flex;
     align-items: center;
-    padding: 1.1875rem 2rem;
+    padding: 0.6875rem 2rem;
     background-color: $light-grey;
   }
 
   @include desktop {
-    padding: 1.1875rem 2.5rem;
+    padding: 0.6875rem 2.5rem;
   }
   &-inv {
     display: flex;
@@ -222,7 +207,7 @@
   }
 
   &__sort-logo {
-    width: 20px;
+    width: 16px;
     margin-left: 4px;
   }
 }
