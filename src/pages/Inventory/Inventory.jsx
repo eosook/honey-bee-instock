@@ -55,7 +55,7 @@ const Inventory = () => {
           />
         )
       ) : (
-        <InventoryList itemData={itemData} />
+        <InventoryList itemData={itemData} setItemData={setItemData} />
       )}
     </>
   );

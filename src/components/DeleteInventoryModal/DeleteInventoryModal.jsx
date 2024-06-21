@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom'
-import '../DeleteWarehouseModal/DeleteWarehouseModal.scss'
+import '../DeleteInventoryModal/DeleteInventoryModal.scss'
 import axios from "axios"
 
 
-export default function DeleteWarehouseModal({open, onClose, warehouse, id, warehouses, setWarehouses }) {
+export default function DeleteInventoryModal({open, onClose, item, id, itemData, setItemData }) {
     const navigate = useNavigate()
 
     if(!open) return null
@@ -16,14 +16,14 @@ export default function DeleteWarehouseModal({open, onClose, warehouse, id, ware
     }
 
     function resetState(){
-        const newWarehouses = warehouses.filter((warehouse) => {
-            return warehouse.id !== id })
-        setWarehouses(newWarehouses)   
+        const newItemsList = itemData.filter((items) => {
+            return items.id !== id })
+        setItemData(newItemsList)   
     }
 
     async function deleteWarehouse() {
         
-        await axios.delete(`http://localhost:8080/warehouse/${id}`)
+        await axios.delete(`http://localhost:8080/inventory/${id}`)
             .then(response => console.log('Delete successful'))
             .then(navigate('/'))
             .catch(error => {
@@ -39,8 +39,8 @@ export default function DeleteWarehouseModal({open, onClose, warehouse, id, ware
                     <p onClick={onClose} className="delete-warehouse-modal__close">X</p>
                 </div>
                 <div className='delete-warehouse-modal__text-container'>
-                    <h2 className='delete-warehouse-modal__header'>Delete {warehouse} warehouse?</h2>
-                    <p className="delete-warehouse-modal__text">Please confirm that you’d like to delete the {warehouse} from the list of warehouses. You won’t be able to undo this action.</p>
+                    <h2 className='delete-warehouse-modal__header'>Delete {item} inventory?</h2>
+                    <p className="delete-warehouse-modal__text">Please confirm that you’d like to delete {item} from the inventory list. You won’t be able to undo this action.</p>
                 </div>                
                 <div className='delete-warehouse-modal__button-container'>
                     <button onClick={onClose} className='delete-warehouse-modal__button delete-warehouse-modal__button--cancel'>Cancel</button>
