@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useState, useEffect } from "react";
+import axios from "axios";
 import "./WarehouseList.scss";
 import SingleWarehouse from "../SingleWarehouse/SingleWarehouse";
 // import AddWarehouse from "../AddWarehouse/AddWarehouse.jsx";
 import sortIcon from "../../assets/icons/sort-24px.svg";
+
 function WarehouseList() {
   const [warehouses, setWarehouses] = useState([
     {
@@ -32,11 +33,13 @@ function WarehouseList() {
       <div className="warehouse-list__header">
         <h1 className="warehouse-list__title">Warehouses</h1>
         <form className="warehouse-list__form">
-          <input
-            className="warehouse-list__search"
-            type="text"
-            placeholder="Search..."
-          ></input>
+          <div>
+            <input
+              className="warehouse-list__search"
+              type="text"
+              placeholder="Search..."
+            ></input>
+          </div>
           <Link to={"/add"}>
             <button className="warehouse-list__button" type="submit">
               + Add New Warehouse
@@ -67,7 +70,6 @@ function WarehouseList() {
           </h3>
         </div>
         {warehouses.map((warehouse, index) => {
-
           return (
             <SingleWarehouse
               key={index}

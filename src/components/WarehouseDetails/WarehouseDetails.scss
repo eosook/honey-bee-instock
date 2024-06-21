@@ -93,13 +93,19 @@
   }
 
   &__address {
-    @include mobile-body-large;
+    @include mobile-body-medium;
     color: $instock-black;
+    @include tablet{
+      @include large-body-large;
+    }
   }
 
   &__contact {
     @include mobile-body-medium;
     color: $instock-black;
+    @include tablet{
+      @include large-body-medium;
+    }
   }
 
   @include tablet {
@@ -137,14 +143,6 @@
 
     &__label {
       @include large-table-header;
-    }
-
-    &__address {
-      @include large-body-large;
-    }
-
-    &__contact {
-      @include large-body-medium;
     }
 
     &__list {

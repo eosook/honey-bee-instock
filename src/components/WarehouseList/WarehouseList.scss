@@ -43,10 +43,11 @@
 
   &__search {
     @include mobile-buttons-form-fields;
-    background: url("../../assets/Icons/search-24px.svg") no-repeat 24px 24px;
+    background: url("../../assets/icons/search-24px.svg") no-repeat 24px 24px;
     background-position: right 5% bottom 50%;
     margin: 1rem 0;
     padding: 0 1rem;
+    border: 1px solid $cloud;
     @include tablet {
       width: 185px;
     }
@@ -73,6 +74,9 @@
       align-items: center;
       gap: 16px;
     }
+  }
+  &__searchIcon{
+    position: absolute;
   }
 }
 

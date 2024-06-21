@@ -57,16 +57,18 @@ function SingleWarehouse({
             className="warehouse-actions__icon"
             src={deleteIcon}
           ></img>
+          <DeleteWarehouseModal
+            warehouses={warehouses}
+            setWarehouses={setWarehouses}
+            id={id}
+            warehouse={warehouse}
+            open={openDeleteModal}
+            onClose={() => setOpenDeleteModal(false)}
+          />
         </a>
-        <DeleteWarehouseModal
-          warehouses={warehouses}
-          setWarehouses={setWarehouses}
-          id={id}
-          warehouse={warehouse}
-          open={openDeleteModal}
-          onClose={() => setOpenDeleteModal(false)}
-        />
-        <img className="warehouse-actions__icon" src={editIcon}></img>
+        <a href="">
+          <img className="warehouse-actions__icon" src={editIcon}></img>
+        </a>
       </div>
     </div>
   );
