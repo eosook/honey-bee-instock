@@ -13,11 +13,12 @@
 .warehouse-list {
   max-width: 343px;
   box-shadow: 0 2px 5px rgba($instock-black, 0.1);
-  border-radius: 8px;
-  margin: 0 auto;
-
+  border-radius: 4px;
+  margin: -4rem auto 0;
+  background-color: $white;
   @include tablet {
     max-width: 704px;
+    margin-top: -5.825rem;
   }
   @include desktop {
     max-width: 1020px;

@@ -2,16 +2,109 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 .list {
+
+  &-logo {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2.7rem;
+  }
+
+  &-item-location {
+    @include mobile-body-small;
+    color: $instock-black;
+  }
+
+  &-item-status {
+    height: 26px;
+    width: auto;
+    padding: 0 8px;
+    border-radius: 20px;
+    color: $green;
+    background-color: rgba($color: #158463, $alpha: 0.1);
+    font-weight: 600;
+    padding-top: 0.25rem;
+  }
+      
+  &-item-notstock {
+    @include mobile-body-small;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 8px;
+  }
+
+
+
+
+  &-container-item {
+    color: $instock-indigo;
+    @include mobile-body-small;
+  }
+  &__item-category {
+    color: $instock-black;
+    @include mobile-body-small;
+  }
+
+  &-container-link {
+    text-decoration: none;
+    color: $instock-black;
+  }
+
+  &__sub-basement {
+    display: flex;
+    flex-direction: row;
+
+  }
+
+  &__ogitest-div1 {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &__ogitest-1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__ogitest-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20%;
+  }
+  &__ogitest-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 60%;
+
+  }
+
   &-containers {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border-top: solid 1px $cloud;
+    border-bottom: solid 1px $cloud;
     &:hover {
       cursor: pointer;
       background-color: $light-grey;
     }
   }
+
+  &__title--mobile { 
+    @include mobile-body-small;
+
+    @include tablet{
+      display: none;
+    }
+  }
 }
 @include tablet {
   .list {
-    @include large-body-medium;
     display: inline;
     width: 80%;
     position: relative;
@@ -23,6 +116,7 @@
       justify-content: left;
 
       @include tablet{
+        @include large-body-medium;
         padding: 1.1875rem 2rem;
       }
 
@@ -41,6 +135,7 @@
       }
       &-item {
         color: $instock-indigo;
+        @include mobile-body-small;
       }
     }
     &-item {
@@ -56,9 +151,9 @@
         background-color: rgba($color: #158463, $alpha: 0.1);
         font-weight: 600;
         padding-top: 0.25rem;
-        margin-right: 4.5rem;
+        margin-right: 4rem;
         @include desktop{
-          margin-right: 7.75rem;
+          margin-right: 7.25rem;
         }
         
         &-notstock {
@@ -67,9 +162,9 @@
           justify-content: center;
           align-items: center;
           padding: 0 8px;
-          margin-right: 3.125rem;
+          margin-right: 2.375rem;
           @include desktop{
-            margin-right: 6.5rem;
+            margin-right: 5.625rem;
           }
         }
       }
@@ -105,3 +200,7 @@
     }
   }
 }
+
+
+
+
