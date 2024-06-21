@@ -45,6 +45,7 @@ const Inventory = () => {
     }
   }, [id, base_URL]);
   return (
+    //  <EditInventory />
     <>
       {id ? (
         itemDataDetails && (
@@ -54,7 +55,7 @@ const Inventory = () => {
           />
         )
       ) : (
-        <InventoryList itemData={itemData}/>
+        <InventoryList itemData={itemData} />
       )}
     </>
   );
