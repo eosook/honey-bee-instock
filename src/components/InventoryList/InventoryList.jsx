@@ -29,7 +29,7 @@ const InventoryList = ({ itemData }) => {
             </div>
           </div>
         </div>
-        <Category itemData={itemData}/>
+        <Category itemData={itemData} isWarehouse={false}/>
       </section>
     </main>
   );
