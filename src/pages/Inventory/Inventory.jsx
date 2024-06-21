@@ -8,7 +8,6 @@ const Inventory = () => {
   const { id } = useParams();
   const [itemData, setItemData] = useState([]);
   const [itemDataDetails, setItemDataDetails] = useState(null);
-  const [warehouseData, setWarehouseData] = useState([]);
   const [warehouseDetails, setWarehouseDetails] = useState([]);
   const base_URL = import.meta.env.VITE_API_URL;
   useEffect(() => {
@@ -18,14 +17,6 @@ const Inventory = () => {
         setItemData(response.data);
       } catch (error) {
         console.error("Error fetching items: 🚛🚛🚛", error);
-      }
-    };
-    const getWarehouse = async () => {
-      try {
-        const res = await axios.get(`${base_URL}/warehouse`);
-        setWarehouseData(res.data);
-      } catch (error) {
-        console.error("Error fetching warehouses: 🚛🚛🚛", error);
       }
     };
     const getItemDetails = async () => {
@@ -50,7 +41,6 @@ const Inventory = () => {
       getItemDetails();
       getWarehouseDetails();
     } else {
-      getWarehouse();
       getItem();
     }
   }, [id, base_URL]);
@@ -65,11 +55,7 @@ const Inventory = () => {
           />
         )
       ) : (
-        <InventoryList
-          itemData={itemData}
-          warehouseData={warehouseData}
-          style={{ display: "none" }}
-        />
+        <InventoryList itemData={itemData} />
       )}
     </>
   );

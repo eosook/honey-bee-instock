@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import "./WarehouseList.scss";
 import SingleWarehouse from "../SingleWarehouse/SingleWarehouse";
 // import AddWarehouse from "../AddWarehouse/AddWarehouse.jsx";
 import sortIcon from "../../assets/icons/sort-24px.svg";
-import { useState, useEffect } from "react";
-import axios from "axios";
 function WarehouseList() {
   const [warehouses, setWarehouses] = useState([
     {
@@ -22,7 +22,7 @@ function WarehouseList() {
 
   useEffect(() => {
     const getWarehouseList = async () => {
-      const response = await axios.get(`http://localhost:8080/`);
+      const response = await axios.get(`http://localhost:8080/warehouse`);
       setWarehouses(response.data);
     };
     getWarehouseList();
@@ -67,7 +67,7 @@ function WarehouseList() {
           </h3>
         </div>
         {warehouses.map((warehouse, index) => {
-          console.log(warehouse);
+
           return (
             <SingleWarehouse
               key={index}
