@@ -3,34 +3,44 @@ import chevron from "../../assets/icons/chevron_right-24px.svg";
 import del from "../../assets/icons/delete_outline-24px.svg";
 import edit from "../../assets/icons/edit-24px.svg";
 import { Link } from "react-router-dom";
+import Labels from "../Labels/Labels";
+import { useState } from "react";
+import DeleteInventoryModal from "../DeleteInventoryModal/DeleteInventoryModal";
 
-const ListItem = ({ itemData, warehouseData, isWarehouse }) => {
+const ListItem = ({ item, itemData, warehouseName, setItemData, isWarehouse }) => {
+
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+
   return (
     <>
-      {itemData.map((item) => {
-        const warehouseName = warehouseData.find(
-          (warehouse) => warehouse.id === item.warehouse_id
-        );
-        return (
-          <div className="list" key={item.id}>
-            <div className="list-containers">
+      <div className="list">
+        <div className="list-containers">
+          <div className="list__ogitest-div1">
+            <div className="list__ogitest-1">
               <div className="list-container">
                 <Link
                   className="list-container-link"
                   to={`/inventory/${item.id}`}
                 >
-                  <p className="list-container-item">{item.item_name}</p>
-                  <img
-                    className="list-container-chev"
-                    src={chevron}
-                    alt="Chevron logo"
-                  />
+                  <h3 className="list__title--mobile">INVENTORY ITEM</h3>
+                  <div className="list__sub-basement">
+                    <p className="list-container-item">{item.item_name}</p>
+                    <img
+                      className="list-container-chev"
+                      src={chevron}
+                      alt="Chevron logo"
+                    />
+                  </div>
                 </Link>
               </div>
               <div className="list-item-one">
-                <p className="list-item-category">{item.category}</p>
+                <h3 className="list__title--mobile">CATEGORY</h3>
+                <p className="list__item-category">{item.category}</p>
               </div>
+            </div>
+            <div className="list__ogitest-2">
               <div className="list-item-two">
+                <h3 className="list__title--mobile">STATUS</h3>
                 <p
                   className={`list-item-status ${
                     item.status === "Out of Stock"
@@ -44,23 +54,34 @@ const ListItem = ({ itemData, warehouseData, isWarehouse }) => {
               <div className={` list-item-three ${
                   isWarehouse ? "list-item-quantity-warehouse" : ""
                 }`}>
+                <h3 className="list__title--mobile">QTY</h3>
                 <p className="list-item-quantity">{item.quantity}</p>
-              </div>
-              <div className={`list-item-four ${
-                isWarehouse ? "list-item-remove" : ""
-              }`}>
-                <p className="list-item-location">
-                  {warehouseName.warehouse_name}
-                </p>
-              </div>
-              <div className="list-logo">
-                <img className="list-logo-del" src={del} alt="Delete logo" />
-                <img className="list-logo-edit" src={edit} alt="Edit logo" />
               </div>
             </div>
           </div>
-        );
-      })}
+
+          <div className={`list__ogitest-3 ${
+            isWarehouse ? "list-item-remove" : ""
+          }`}>
+            <h3 className="list__title--mobile">WAREHOUSE</h3>
+            <p className="list-item-location">
+              {warehouseName.warehouse_name}
+            </p>
+          </div>
+          <div className="list-logo">
+            <a href="#top" ><img onClick={() => setOpenDeleteModal(true)} className="list-logo-del" src={del} alt="Delete logo" /></a>
+            <DeleteInventoryModal
+              itemData={itemData}
+              setItemData={setItemData}
+              id={item.id}
+              item={item.item_name}
+              open={openDeleteModal}
+              onClose={() => setOpenDeleteModal(false)}
+            />
+            <img className="list-logo-edit" src={edit} alt="Edit logo" />
+          </div>
+        </div>
+      </div>
     </>
   );
 };
