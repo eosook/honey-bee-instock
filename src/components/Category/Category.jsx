@@ -5,8 +5,23 @@ import chevron from "../../assets/icons/chevron_right-24px.svg";
 import del from "../../assets/icons/delete_outline-24px.svg";
 import edit from "../../assets/icons/edit-24px.svg";
 import ListItem from "../ListItem/ListItem";
+import { useState, useEffect } from 'react';
+import axios from "axios";
 
-const Category = ({ itemData, warehouseData }) => {
+const Category = ({ itemData }) => {
+  const [warehouseData, setWarehouseData] = useState([])
+  const base_URL = import.meta.env.VITE_API_URL;
+  useEffect(() => {
+    const getWarehouse = async () => {
+      try {
+        const res = await axios.get(`${base_URL}/warehouse`);
+        setWarehouseData(res.data);
+      } catch (error) {
+        console.error("Error fetching warehouses: 🚛🚛🚛", error);
+      }
+    };
+    getWarehouse();
+  })
   return (
     <>
       {itemData.map((item) => {
