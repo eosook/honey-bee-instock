@@ -13,6 +13,17 @@
   position: relative;
   top: -3.125rem;
 
+  @include tablet {
+    margin: 0 2rem;
+    width: calc(100% - 4rem);
+    top: -5.6rem;
+  }
+
+  @include desktop {
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+
   &__heading {
     @include divider-horizontal;
     display: flex;
@@ -90,35 +101,44 @@
       padding: 1.5rem;
     }
   }
-}
 
-.button {
-  @include mobile-buttons-form-fields;
-  @include mobile-labels;
+  &__button-link {
+    width: 100%;
 
-  @include tablet {
-    @include large-buttons-form-fields;
-    @include large-labels;
-  }
-
-  &--cancel {
-    background-color: $white;
-    color: $slate;
-    border: 1px solid $cloud;
-
-    &:hover {
-      color: $instock-indigo;
-      border: 1px solid $instock-indigo;
+    @include tablet {
+      width: fit-content;
     }
   }
 
-  &--add {
-    background-color: $instock-indigo;
-    color: $white;
-    border: none;
+  &__button {
+    @include mobile-buttons-form-fields;
+    @include mobile-labels;
 
-    &:hover {
-      background-color: $graphite;
+    @include tablet {
+      @include large-buttons-form-fields;
+      @include large-labels;
+    }
+
+    &--cancel {
+      background-color: $white;
+      color: $slate;
+      border: 1px solid $cloud;
+
+      &:hover {
+        color: $instock-indigo;
+        border: 1px solid $instock-indigo;
+      }
+    }
+
+    &--add {
+      background-color: $instock-indigo;
+      color: $white;
+      font-size: 0.75rem;
+      border: none;
+
+      &:hover {
+        background-color: $graphite;
+      }
     }
   }
 }

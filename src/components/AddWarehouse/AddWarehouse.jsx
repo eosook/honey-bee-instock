@@ -226,13 +226,13 @@ function AddWarehouse() {
           </div>
         </div>
         <div className="form__buttons">
-          <Link to={"/"}>
-            <button className="button button--cancel" type="button">
+          <Link className="form__button-link" to={"/"}>
+            <button className="form__button form__button--cancel" type="button">
               Cancel
             </button>
           </Link>
           <button
-            className="button button--add"
+            className="form__button form__button--add"
             type="submit"
             disabled={!isFormValid()}
           >
