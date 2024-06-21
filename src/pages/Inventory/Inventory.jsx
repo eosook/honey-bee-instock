@@ -3,13 +3,36 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import InventoryList from "../../components/InventoryList/InventoryList";
-import EditInventory from "../../components/EditInventory/EditInventory";
 const Inventory = () => {
   const { id } = useParams();
   const [itemData, setItemData] = useState([]);
   const [itemDataDetails, setItemDataDetails] = useState(null);
   const [warehouseDetails, setWarehouseDetails] = useState([]);
   const base_URL = import.meta.env.VITE_API_URL;
+  const editItemDetails = async (
+    id,
+    item_name,
+    description,
+    category,
+    status,
+    quantity,
+    warehouse_name
+  ) => {
+    try {
+      const response = await axios.get(`${base_URL}/inventory/edit/${id}`, {
+        id,
+        item_name: item_name,
+        description: description,
+        category: category,
+        status: status,
+        quantity: quantity,
+        warehouse_name: warehouse_name,
+      });
+      setItemDataDetails(response.data);
+    } catch (error) {
+      console.error("Error editing item details: 🚛🚛🚛", error);
+    }
+  };
   useEffect(() => {
     const getItem = async () => {
       try {
@@ -28,6 +51,7 @@ const Inventory = () => {
         console.error("Error fetching item details: 🚛🚛🚛", error);
       }
     };
+
     const getWarehouseDetails = async () => {
       try {
         const response = await axios.get(`${base_URL}/warehouse/${id}`);
@@ -45,7 +69,6 @@ const Inventory = () => {
     }
   }, [id, base_URL]);
   return (
-    //  <EditInventory />
     <>
       {id ? (
         itemDataDetails && (

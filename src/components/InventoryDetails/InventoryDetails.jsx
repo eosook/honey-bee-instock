@@ -3,7 +3,11 @@ import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 import edit from "../../assets/icons/edit-24px.svg";
 import InventoryDetailsList from "../InventoryDetailsList/InventoryDetailsList";
 import { Link } from "react-router-dom";
-const InventoryDetails = ({ itemDataDetails, warehouseDetails }) => {
+const InventoryDetails = ({
+  itemDataDetails,
+  warehouseDetails,
+  editItemDetails,
+}) => {
   const { item_name } = itemDataDetails;
   return (
     <nav className="inventories">
@@ -18,14 +22,19 @@ const InventoryDetails = ({ itemDataDetails, warehouseDetails }) => {
           </Link>
           <h1 className="inventories-container-title">{item_name}</h1>
         </div>
-        <button className="inventories-container-edit">
-          <img
-            className="inventories-container-edit-img"
-            src={edit}
-            alt="Edit logo"
-          />
-          <h3 className="inventories-container-edit-text">Edit</h3>
-        </button>
+        <Link
+          to={`/inventory/edit/${itemDataDetails.id}`}
+          state={{ itemDataDetails, editItemDetails }}
+        >
+          <div className="inventories-container-edit">
+            <img
+              className="inventories-container-edit-img"
+              src={edit}
+              alt="Edit logo"
+            />
+            <h3 className="inventories-container-edit-text">Edit</h3>
+          </div>
+        </Link>
       </section>
       <InventoryDetailsList
         itemDataDetails={itemDataDetails}

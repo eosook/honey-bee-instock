@@ -1,9 +1,46 @@
 import "./EditInventory.scss";
 import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 import drop from "../../assets/icons/arrow_drop_down-24px.svg";
+import { useLocation } from "react-router-dom";
+import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 const EditInventory = () => {
+  const location = useLocation();
+  const { itemDataDetails, editItemDetails } = location.state;
+  const { description, quantity, item_name } = itemDataDetails;
+  const [item, setitem] = useState("");
+  const [descript, setDescript] = useState("");
+  const [quantities, setQuantiities] = useState("");
+  const itemRef = useRef(null);
+  const descriptRef = useRef(null);
+  const quantityRef = useRef(null);
+  const handleitem = (com) => {
+    setitem(com.target.value);
+  };
+  const handledescript = (descript) => {
+    setDescript(descript.target.value);
+  };
+  const handlequantities = (quantity) => {
+    setQuantiities(quantity.target.value);
+  };
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (descript === "" || item === "" || quantities === "") {
+      if (descript === "") {
+        descriptRef.current.focus();
+      } else if (item === "") {
+        itemRef.current.focus();
+      } else if (quantities === "") {
+        descriptRef.current.focus();
+      }
+      return;
+    }
+    await editItemDetails(descript, item);
+    setDescript("");
+    setitem("");
+  };
   return (
-    <form className="editinventory ">
+    <form onSubmit={handleFormSubmit} className="editinventory ">
       <div className="editinventory-header">
         <img
           className="editinventory-header-img"
@@ -19,7 +56,10 @@ const EditInventory = () => {
           <input
             className="editinventory-container-itemname"
             type="text"
-            placeholder="Television"
+            placeholder={item_name}
+            onChange={handleitem}
+            ref={itemRef}
+            value={item}
           />
           <label className="editinventory-container-description ">
             Description
@@ -27,7 +67,10 @@ const EditInventory = () => {
           <textarea
             className="editinventory-container-text"
             name="description"
-            placeholder="Television infor"
+            placeholder={description}
+            onChange={handledescript}
+            ref={descriptRef}
+            value={descript}
           ></textarea>
           <div className="editinventory-container-one">
             <label className="editinventory-container-category">Category</label>
@@ -76,7 +119,10 @@ const EditInventory = () => {
                 className="editinventory-wrap-quantities"
                 type="text"
                 name="quantity"
-                placeholder="1"
+                placeholder={quantity}
+                onChange={handlequantities}
+                value={quantities}
+                ref={quantityRef}
               />
             </div>
             <div className="editinventory-wrap-four">
@@ -106,10 +152,13 @@ const EditInventory = () => {
           </div>
         </div>
       </div>
-      <div className="editinventory-btn">
-        <button className="editinventory-btn-cancel">Cancel</button>
-        <button className="editinventory-btn-save">Save</button>
-      </div>
+      <Link to={`/inventory/${itemDataDetails.id}`}>
+        <div className="editinventory-btn">
+          <button className="editinventory-btn-cancel">Cancel</button>
+
+          <button className="editinventory-btn-save">Save</button>
+        </div>
+      </Link>
     </form>
   );
 };
