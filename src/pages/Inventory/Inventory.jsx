@@ -9,30 +9,6 @@ const Inventory = () => {
   const [itemDataDetails, setItemDataDetails] = useState(null);
   const [warehouseDetails, setWarehouseDetails] = useState([]);
   const base_URL = import.meta.env.VITE_API_URL;
-  const editItemDetails = async (
-    id,
-    item_name,
-    description,
-    category,
-    status,
-    quantity,
-    warehouse_name
-  ) => {
-    try {
-      const response = await axios.get(`${base_URL}/inventory/edit/${id}`, {
-        id,
-        item_name: item_name,
-        description: description,
-        category: category,
-        status: status,
-        quantity: quantity,
-        warehouse_name: warehouse_name,
-      });
-      setItemDataDetails(response.data);
-    } catch (error) {
-      console.error("Error editing item details: 🚛🚛🚛", error);
-    }
-  };
   useEffect(() => {
     const getItem = async () => {
       try {
@@ -51,7 +27,6 @@ const Inventory = () => {
         console.error("Error fetching item details: 🚛🚛🚛", error);
       }
     };
-
     const getWarehouseDetails = async () => {
       try {
         const response = await axios.get(`${base_URL}/warehouse/${id}`);
@@ -60,7 +35,6 @@ const Inventory = () => {
         console.error("Error fetching item details: 🚛🚛🚛", error);
       }
     };
-
     if (id) {
       getItemDetails();
       getWarehouseDetails();

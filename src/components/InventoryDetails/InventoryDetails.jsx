@@ -3,11 +3,7 @@ import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 import edit from "../../assets/icons/edit-24px.svg";
 import InventoryDetailsList from "../InventoryDetailsList/InventoryDetailsList";
 import { Link } from "react-router-dom";
-const InventoryDetails = ({
-  itemDataDetails,
-  warehouseDetails,
-  editItemDetails,
-}) => {
+const InventoryDetails = ({ itemDataDetails, warehouseDetails }) => {
   const { item_name } = itemDataDetails;
   return (
     <nav className="inventories">
@@ -24,7 +20,7 @@ const InventoryDetails = ({
         </div>
         <Link
           to={`/inventory/edit/${itemDataDetails.id}`}
-          state={{ itemDataDetails, editItemDetails }}
+          state={{ itemDataDetails }}
         >
           <div className="inventories-container-edit">
             <img
