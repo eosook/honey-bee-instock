@@ -55,23 +55,23 @@ const Inventory = () => {
     }
   }, [id, base_URL]);
   return (
-    <EditInventory />
-    // <>
-    //   {id ? (
-    //     itemDataDetails && (
-    //       <InventoryDetails
-    //         itemDataDetails={itemDataDetails}
-    //         warehouseDetails={warehouseDetails}
-    //       />
-    //     )
-    //   ) : (
-    //     // <InventoryList
-    //     //   itemData={itemData}
-    //     //   warehouseData={warehouseData}
-    //     //   style={{ display: "none" }}
-    //     // />
-    //   )}
-    // </>
+    //  <EditInventory />
+    <>
+      {id ? (
+        itemDataDetails && (
+          <InventoryDetails
+            itemDataDetails={itemDataDetails}
+            warehouseDetails={warehouseDetails}
+          />
+        )
+      ) : (
+        <InventoryList
+          itemData={itemData}
+          warehouseData={warehouseData}
+          style={{ display: "none" }}
+        />
+      )}
+    </>
   );
 };
 
