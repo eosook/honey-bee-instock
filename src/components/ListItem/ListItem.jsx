@@ -4,10 +4,9 @@ import del from "../../assets/icons/delete_outline-24px.svg";
 import edit from "../../assets/icons/edit-24px.svg";
 import { Link } from "react-router-dom";
 import Labels from "../Labels/Labels";
-const ListItem = ({ itemData, warehouseData }) => {
+const ListItem = ({ itemData, warehouseData, isWarehouse }) => {
   return (
     <>
-      <Labels />
       {itemData.map((item) => {
         const warehouseName = warehouseData.find(
           (warehouse) => warehouse.id === item.warehouse_id
@@ -42,10 +41,14 @@ const ListItem = ({ itemData, warehouseData }) => {
                   {item.status}
                 </p>
               </div>
-              <div className="list-item-three">
+              <div className={` list-item-three ${
+                  isWarehouse ? "list-item-quantity-warehouse" : ""
+                }`}>
                 <p className="list-item-quantity">{item.quantity}</p>
               </div>
-              <div className="list-item-four">
+              <div className={`list-item-four ${
+                isWarehouse ? "list-item-remove" : ""
+              }`}>
                 <p className="list-item-location">
                   {warehouseName.warehouse_name}
                 </p>

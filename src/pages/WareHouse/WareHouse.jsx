@@ -36,7 +36,7 @@ export default function Warehouse() {
 
   useEffect(() => {
     const getWarehouseList = async () => {
-      const response = await axios.get(`http://localhost:8080/`);
+      const response = await axios.get(`http://localhost:8080/warehouse`);
       setWarehouses(response.data);
     };
     getWarehouseList();
