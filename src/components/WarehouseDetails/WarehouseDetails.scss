@@ -7,8 +7,10 @@
   border-radius: 0.25rem;
   max-width: 343px;
   margin: 0 auto;
+  margin-top: -4rem;
   @include tablet {
     max-width: 704px;
+    margin-top: -5.875rem;
   }
   @include desktop {
     max-width: 1020px;
@@ -21,23 +23,55 @@
   &__title-container {
     padding: 1.5rem 1rem 1rem 1rem;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     border-bottom: solid 1px $cloud;
     align-items: center;
+
+    @include tablet{
+      padding: 2rem 2rem 1.3125rem;
+    }
+  }
+
+  &__title-subcontainer{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   &__title {
     @include mobile-header;
     color: $instock-black;
+    @include tablet{
+      @include large-header;
+    }
   }
 
   &__edit {
-    width: 2rem;
-    height: 2rem;
     background-color: $instock-indigo;
-    border-radius: 50%;
     border: none;
+    color: white;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include tablet{
+      width: 81px;
+      height: 38px;
+      border-radius: 19px;
+      gap: 0.25rem;
+      @include large-labels;
+    }
+  }
+
+  &__text{
+    display: none;
+    @include tablet{
+      display: block;
+
+    }
   }
 
   &__icon {
@@ -79,15 +113,7 @@
 
     &__title-subcontainer {
       display: flex;
-      flex-direction: row;
-    }
-
-    &__back {
-      margin-left: 1.5rem;
-    }
-
-    &__title {
-      padding-left: 1rem;
+      align-items: center;
     }
 
     &__edit {

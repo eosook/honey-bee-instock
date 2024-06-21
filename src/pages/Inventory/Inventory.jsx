@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import InventoryList from "../../components/InventoryList/InventoryList";
-import EditInventory from "../../components/EditInventory/EditInventory";
 const Inventory = () => {
   const { id } = useParams();
   const [itemData, setItemData] = useState([]);
@@ -36,7 +35,6 @@ const Inventory = () => {
         console.error("Error fetching item details: 🚛🚛🚛", error);
       }
     };
-
     if (id) {
       getItemDetails();
       getWarehouseDetails();

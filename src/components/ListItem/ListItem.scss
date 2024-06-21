@@ -105,7 +105,6 @@
 }
 @include tablet {
   .list {
-    @include large-body-medium;
     display: inline;
     width: 80%;
     position: relative;
@@ -117,6 +116,7 @@
       justify-content: left;
 
       @include tablet{
+        @include large-body-medium;
         padding: 1.1875rem 2rem;
       }
 
@@ -151,9 +151,9 @@
         background-color: rgba($color: #158463, $alpha: 0.1);
         font-weight: 600;
         padding-top: 0.25rem;
-        margin-right: 4.5rem;
+        margin-right: 4rem;
         @include desktop{
-          margin-right: 7.75rem;
+          margin-right: 7.25rem;
         }
         
         &-notstock {
@@ -162,9 +162,9 @@
           justify-content: center;
           align-items: center;
           padding: 0 8px;
-          margin-right: 3.125rem;
+          margin-right: 2.375rem;
           @include desktop{
-            margin-right: 6.5rem;
+            margin-right: 5.625rem;
           }
         }
       }

@@ -1,15 +1,71 @@
 import "./EditInventory.scss";
 import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 import drop from "../../assets/icons/arrow_drop_down-24px.svg";
+import { Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 const EditInventory = () => {
+  const { id } = useParams();
+  const [itemDataDetails, setItemDataDetails] = useState({});
+  const [item, setItem] = useState("");
+  const [description, setDescription] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [category, setCategory] = useState("");
+  const [status, setStatus] = useState("");
+  const [warehouse, setWarehouse] = useState("");
+  const base_URL = import.meta.env.VITE_API_URL;
+  useEffect(() => {
+    const fetchItemDetails = async () => {
+      try {
+        const response = await axios.get(`${base_URL}/inventory/${id}`);
+        const {
+          item_name,
+          description,
+          quantity,
+          category,
+          status,
+          warehouse_id,
+        } = response.data;
+        setItemDataDetails(response.data);
+        setItem(item_name);
+        setDescription(description);
+        setQuantity(quantity);
+        setCategory(category);
+        setStatus(status);
+        setWarehouse(warehouse_id);
+      } catch (error) {
+        console.error("Error fetching item details:", error);
+      }
+    };
+    fetchItemDetails();
+  }, [id, base_URL]);
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    const data = {
+      warehouse_id: warehouse,
+      item_name: item,
+      description,
+      category,
+      status,
+      quantity,
+    };
+    try {
+      await axios.put(`${base_URL}/inventory/edit/${id}`, data);
+      window.location.href = `/inventory/${id}`;
+    } catch (error) {
+      console.error("Error updating item:", error.response.data);
+    }
+  };
   return (
-    <form className="editinventory ">
+    <form onSubmit={handleFormSubmit} className="editinventory">
       <div className="editinventory-header">
-        <img
-          className="editinventory-header-img"
-          src={arrowBack}
-          alt={`${arrowBack} image`}
-        />
+        <Link to={`/inventory/${id}`}>
+          <img
+            className="editinventory-header-img"
+            src={arrowBack}
+            alt="Back arrow"
+          />
+        </Link>
         <h1 className="editinventory-header-title">Edit Inventory Item</h1>
       </div>
       <div className="editinventory-containers">
@@ -19,45 +75,55 @@ const EditInventory = () => {
           <input
             className="editinventory-container-itemname"
             type="text"
-            placeholder="Television"
+            placeholder="Item Name"
+            onChange={(e) => setItem(e.target.value)}
+            value={item}
           />
-          <label className="editinventory-container-description ">
+          <label className="editinventory-container-description">
             Description
           </label>
           <textarea
             className="editinventory-container-text"
             name="description"
-            placeholder="Television infor"
+            placeholder="Description"
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
           ></textarea>
           <div className="editinventory-container-one">
             <label className="editinventory-container-category">Category</label>
             <select
               className="editinventory-container-dropdown"
               name="category"
+              onChange={(e) => setCategory(e.target.value)}
+              value={category}
             >
-              <option value="television">Electronics</option>
-              <option value="computer">Gear</option>
-              <option value="phone">Apparel</option>
-              <option value="laptop">Accessories</option>
-              <option value="other">Health</option>
+              <option value="electronics">Electronics</option>
+              <option value="gear">Gear</option>
+              <option value="apparel">Apparel</option>
+              <option value="accessories">Accessories</option>
+              <option value="health">Health</option>
             </select>
             <img
               className="editinventory-container-drop"
               src={drop}
-              alt={`${drop} image`}
+              alt="Drop down arrow"
             />
           </div>
         </div>
         <div className="editinventory-wrapper">
           <div className="editinventory-wrap">
-            <h3 className="editinventory-wrap-avaibility">Item Avaibility</h3>
+            <h3 className="editinventory-wrap-availability">
+              Item Availability
+            </h3>
             <label className="editinventory-wrap-status">Status</label>
             <div className="editinventory-wrap-stock">
               <div className="editinventory-wrap-stock-one">
                 <input
                   className="editinventory-wrap-stock--instock"
                   type="radio"
-                  name="inStock"
+                  name="status"
+                  value="In stock"
+                  onChange={(e) => setStatus(e.target.value)}
                 />
                 In stock
               </div>
@@ -65,7 +131,9 @@ const EditInventory = () => {
                 <input
                   className="editinventory-wrap-stock--nostock"
                   type="radio"
-                  name="outStock"
+                  name="status"
+                  value="Out of stock"
+                  onChange={(e) => setStatus(e.target.value)}
                 />
                 Out of stock
               </div>
@@ -76,41 +144,48 @@ const EditInventory = () => {
                 className="editinventory-wrap-quantities"
                 type="text"
                 name="quantity"
-                placeholder="1"
+                placeholder="Quantity"
+                onChange={(e) => setQuantity(e.target.value)}
               />
             </div>
             <div className="editinventory-wrap-four">
               <label className="editinventory-wrap-warehouse">Warehouse</label>
-              <select className="editinventory-wrap-dropdown" name="warehouse">
-                <option
-                  className="editinventory-wrap-dropdown-select"
-                  value="location"
-                >
-                  Please Select
-                </option>
-                <option value="location">Manhattan</option>
-                <option value="location">Washington</option>
-                <option value="location">Jersey</option>
-                <option value="location">SF</option>
-                <option value="location">Santa Monica</option>
-                <option value="location">Seattle</option>
-                <option value="location">Miami</option>
-                <option value="location">Boston</option>
+              <select
+                className="editinventory-wrap-dropdown"
+                name="warehouse"
+                onChange={(e) => setWarehouse(e.target.value)}
+              >
+                <option value="">Please Select</option>
+                <option value="1">Manhattan</option>
+                <option value="2">Washington</option>
+                <option value="3">Jersey</option>
+                <option value="4">SF</option>
+                <option value="5">Santa Monica</option>
+                <option value="6">Seattle</option>
+                <option value="7">Miami</option>
+                <option value="8">Boston</option>
               </select>
               <img
                 className="editinventory-wrap-drop"
                 src={drop}
-                alt={`${drop} image`}
+                alt="Drop down arrow"
               />
             </div>
           </div>
         </div>
       </div>
       <div className="editinventory-btn">
-        <button className="editinventory-btn-cancel">Cancel</button>
-        <button className="editinventory-btn-save">Save</button>
+        <Link to={`/inventory/${id}`}>
+          <button type="button" className="editinventory-btn-cancel">
+            Cancel
+          </button>
+        </Link>
+        <button type="submit" className="editinventory-btn-save">
+          Save
+        </button>
       </div>
     </form>
   );
 };
+
 export default EditInventory;

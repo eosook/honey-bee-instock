@@ -128,21 +128,6 @@
     &-mobile {
       display: none;
     }
-    &-sort-one {
-      margin-left: 5.5rem;
-    }
-    &-sort-two {
-      margin-left: 3.75rem;
-    }
-    &-sort-three {
-      margin-left: 2.5rem;
-    }
-    &-sort-four {
-      margin-left: 1.5rem;
-    }
-    &-sort-five {
-      margin-left: 4.5rem;
-    }
     &-logo {
       display: none;
     }
@@ -159,12 +144,12 @@
   @include tablet {
     display: flex;
     align-items: center;
-    padding: 1.1875rem 2rem;
+    padding: 0.75rem 2rem;
     background-color: $light-grey;
   }
 
   @include desktop {
-    padding: 1.1875rem 2.5rem;
+    padding: 0.75rem 2.5rem;
   }
   &-inv {
     display: flex;
@@ -180,34 +165,34 @@
     }
 
     &__inventory {
-      margin-right: 2.4375rem;
+      margin-right: 2.8rem;
 
-      @include desktop {
-        margin-right: 6.875rem;
-      }
-    }
-    &__category {
-      margin-right: 2.8125rem;
-      @include desktop {
-        margin-right: 6.125rem;
-      }
-    }
-    &__status {
-      margin-right: 3.875rem;
       @include desktop {
         margin-right: 7.125rem;
       }
     }
+    &__category {
+      margin-right: 3rem;
+      @include desktop {
+        margin-right: 6.5rem;
+      }
+    }
+    &__status {
+      margin-right: 4rem;
+      @include desktop {
+        margin-right: 7.375rem;
+      }
+    }
     &__status-warehouse{
-      margin-right: 7.625rem;
+      margin-right: 7.825rem;
       @include desktop{
         margin-right: 12.5625rem;
       }
     }
     &__quantity {
-      margin-right: 1.25rem;
+      margin-right: 1.625rem;
       @include desktop {
-        margin-right: 2.875rem;
+        margin-right: 3rem;
       }
     }
 
@@ -220,7 +205,7 @@
   }
 
   &__sort-logo {
-    width: 20px;
+    width: 16px;
     margin-left: 4px;
   }
 }
