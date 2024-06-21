@@ -17,7 +17,7 @@ export default function WarehouseDetails({ warehouse }) {
       setWarehouseInventory(response.data);
     };
     getInventory();
-  });
+  }, []); //added empty dependency array to terminate infinite loop
   return (
     <section className="warehouse-details">
       <div className="warehouse-details__title-container">
@@ -70,7 +70,7 @@ export default function WarehouseDetails({ warehouse }) {
         </div>
       </div>
       <div className="warehouse-details__list">
-        <Category itemData={warehouseInventory} isWarehouse={true}/>
+        <Category itemData={warehouseInventory} isWarehouse={true} />
       </div>
     </section>
   );

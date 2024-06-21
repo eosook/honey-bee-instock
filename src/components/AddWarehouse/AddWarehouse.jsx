@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "./AddWarehouse.scss";
 import FormInput from "../FormInput/FormInput";
+import backArrow from "../../assets/icons/arrow_back-24px.svg";
 
 function AddWarehouse() {
   const baseUrl = import.meta.env.VITE_API_URL;
@@ -97,7 +98,7 @@ function AddWarehouse() {
         <Link className="add-warehouse__link" to={"/"}>
           <img
             className="add-warehouse__icon"
-            src="src/assets/icons/arrow_back-24px.svg"
+            src={backArrow}
             alt="Blue back arrow"
           />
         </Link>
@@ -225,9 +226,11 @@ function AddWarehouse() {
           </div>
         </div>
         <div className="form__buttons">
-          <button className="button button--cancel" type="button">
-            Cancel
-          </button>
+          <Link to={"/"}>
+            <button className="button button--cancel" type="button">
+              Cancel
+            </button>
+          </Link>
           <button
             className="button button--add"
             type="submit"
