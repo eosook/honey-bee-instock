@@ -11,9 +11,8 @@
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding-top: 1rem;
-  padding-bottom: 2rem;
-  margin-bottom: 8rem;
-  height: 100%;
+  margin-bottom: 1.5rem;
+  margin-top: -4rem;
   @include tablet {
     width: 700px;
     margin: 0 auto;
@@ -38,14 +37,18 @@
     flex-direction: column;
     flex-wrap: wrap;
     font-size: 0.813rem;
-    padding: 1rem;
-    gap: 1rem;
+    position: relative;
+    padding: 1rem 0;
+    gap: 0.5rem;
   }
   &-container {
     display: flex;
     flex-direction: column;
     position: relative;
+    padding: 0 1rem;
+
     &-details {
+      font-size: 1.5rem;
       margin-bottom: 0.5rem;
     }
     &-item {
@@ -54,7 +57,7 @@
     &-itemname {
       border-radius: 20px;
       outline: none;
-      border: 1px solid #bdc5d5;
+      border: 1px solid $cloud;
       padding: 0 1rem;
       height: 36px;
       width: 100%;
@@ -66,7 +69,7 @@
     &-text {
       border-radius: 15px;
       outline: none;
-      border: 1px solid #bdc5d5;
+      border: 1px solid $cloud;
       padding: 0.5rem 1rem;
       height: 100px;
       width: 100%;
@@ -77,8 +80,7 @@
     }
     &-dropdown {
       border-radius: 20px;
-      outline: none;
-      border: 1px solid #bdc5d5;
+      border: 1px solid $cloud;
       padding: 0 1rem;
       height: 36px;
       width: 100%;
@@ -90,30 +92,86 @@
     }
     &-drop {
       position: absolute;
-      top: 17rem;
-      left: 14.5rem;
+      top: 17.75rem;
+      left: 15.5rem;
     }
   }
   &-wrapper {
+    border-top: 1px solid $cloud;
+    padding-top: 1rem;
   }
   &-wrap {
+    padding: 0 1rem;
     height: 20vh;
     &-avaibility {
       @include fontWeight;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
     }
     &-status {
       display: block;
       @include fontWeight;
     }
     &-stock {
-      @include border;
       display: flex;
       gap: 5rem;
+      font-size: 0.75rem;
+      margin-bottom: 1rem;
       &-one {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.25rem;
       }
+      &-two {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+      }
+    }
+    &-warehouse {
+      display: block;
+      @include fontWeight;
+    }
+    &-dropdown {
+      border-radius: 20px;
+      border: 1px solid $cloud;
+      padding: 0 1rem;
+      height: 36px;
+      width: 100%;
+      margin-bottom: 1rem;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background: transparent;
+    }
+    &-drop {
+      position: absolute;
+      top: 32rem;
+      right: 2rem;
+    }
+  }
+  &-btn {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    background-color: $light-grey;
+    height: 70px;
+    margin-top: 2rem;
+    &-cancel {
+      border-radius: 20px;
+      border: 1px solid $cloud;
+      height: 36px;
+      width: 40%;
+      background-color: $white;
+    }
+    &-save {
+      border-radius: 20px;
+      border: none;
+      height: 36px;
+      width: 40%;
+      color: $white;
+      background-color: $instock-indigo;
     }
   }
 }

@@ -65,12 +65,6 @@ const EditInventory = () => {
                 Out of stock
               </div>
             </div>
-            <label className="editinventory-wrap-quantity">Quantity</label>
-            <input
-              className="editinventory-wrap-input"
-              type="text"
-              name="quantity"
-            />
             <label className="editinventory-wrap-warehouse">Warehouse</label>
             <select className="editinventory-wrap-dropdown" name="warehouse">
               <option value="location">Manhattan</option>
@@ -82,6 +76,11 @@ const EditInventory = () => {
               <option value="location">Miami</option>
               <option value="location">Boston</option>
             </select>
+            <img
+              className="editinventory-wrap-drop"
+              src={drop}
+              alt={`${drop} image`}
+            />
           </div>
         </div>
       </div>
