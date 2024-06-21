@@ -24,6 +24,10 @@
 @mixin border {
   border: 1px solid black;
 }
+@mixin fontWeight {
+  font-weight: 550;
+  margin-bottom: 0.25rem;
+}
 @mixin mobile-subheader {
   font-family: $primary-font;
   font-size: 1.25rem;
