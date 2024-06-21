@@ -18,14 +18,14 @@ const InventoryDetails = ({ itemDataDetails, warehouseDetails }) => {
           </Link>
           <h1 className="inventories-container-title">{item_name}</h1>
         </div>
-        <div className="inventories-container-edit">
+        <button className="inventories-container-edit">
           <img
             className="inventories-container-edit-img"
             src={edit}
             alt="Edit logo"
           />
           <h3 className="inventories-container-edit-text">Edit</h3>
-        </div>
+        </button>
       </section>
       <InventoryDetailsList
         itemDataDetails={itemDataDetails}
