@@ -30,6 +30,12 @@
     @include tablet{
       padding: 2rem 2rem 1.3125rem;
     }
+    @include desktop{
+      padding: 2rem 2.5rem 1.13125rem;
+    }
+    a{
+      height: 24px;
+    }
   }
 
   &__title-subcontainer{

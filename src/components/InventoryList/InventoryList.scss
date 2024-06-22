@@ -39,7 +39,7 @@
       &--text {
         @include mobile-header;
         margin-bottom: 0;
-        @include desktop {
+        @include tablet {
           @include large-header;
         }
       }
@@ -86,12 +86,13 @@
     &-four {
       &--btn {
         @include mobile-buttons-form-fields;
+        @include mobile-labels;
         border: none;
         background-color: $instock-indigo;
         color: white;
-        @include mobile-body-medium;
         @include tablet {
           @include large-buttons-form-fields;
+          @include large-labels;
           width: 168px;
         }
       }
