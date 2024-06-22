@@ -110,7 +110,6 @@
     @include tablet{
       width: 65px;
     }
-
     &-notstock {
       @include mobile-tags-not-stocked;
       width: 86px;

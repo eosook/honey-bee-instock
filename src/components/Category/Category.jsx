@@ -28,7 +28,8 @@ export default function Category({ isWarehouse }) {
       }
     };
     getWarehouse();
-  }, []);
+  }, [base_URL]);
+
   return (
     <>
       <nav>
@@ -65,9 +66,13 @@ export default function Category({ isWarehouse }) {
         </div>
       </nav>
       {itemData.map((item, index) => {
-        const warehouseName = warehouseData.find(
+        const filteredWarehouses = warehouseData.filter(
           (warehouse) => warehouse.id === item.warehouse_id
         );
+        const warehouseName =
+          filteredWarehouses.length > 0
+            ? filteredWarehouses[0].warehouse_name
+            : "Warehouse not found";
         return (
           <ListItem
             key={index}

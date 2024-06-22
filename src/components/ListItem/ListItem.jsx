@@ -84,7 +84,9 @@ const ListItem = ({
           open={openDeleteModal}
           onClose={() => setOpenDeleteModal(false)}
         />
-        <img className="inventory-item__edit" src={edit} alt="Edit logo" />
+        <Link to={`/inventory/edit/${item.id}`}>
+          <img className="list-logo-edit" src={edit} alt="Edit logo" />
+        </Link>
       </div>
     </div>
   );
