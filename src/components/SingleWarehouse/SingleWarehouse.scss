@@ -121,6 +121,7 @@
   &-actions {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     @include tablet {
       gap: 1rem;
       padding-left: 4.25rem;
@@ -147,6 +148,7 @@
     display: flex;
     text-decoration: none;
     color: $instock-indigo;
+    font-weight: 600;
   }
 
   p {

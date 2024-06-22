@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import InventoryList from "../../components/InventoryList/InventoryList";
 const Inventory = () => {
   const { id } = useParams();
-  const [itemData, setItemData] = useState([]);
   const [itemDataDetails, setItemDataDetails] = useState(null);
   const [warehouseDetails, setWarehouseDetails] = useState([]);
   const base_URL = import.meta.env.VITE_API_URL;
@@ -38,8 +37,6 @@ const Inventory = () => {
     if (id) {
       getItemDetails();
       getWarehouseDetails();
-    } else {
-      getItem();
     }
   }, [id, base_URL]);
   return (
@@ -52,7 +49,7 @@ const Inventory = () => {
           />
         )
       ) : (
-        <InventoryList itemData={itemData} setItemData={setItemData} />
+        <InventoryList />
       )}
     </>
   );

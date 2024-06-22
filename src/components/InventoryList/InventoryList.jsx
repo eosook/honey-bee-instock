@@ -1,7 +1,7 @@
 import "./InventoryList.scss";
 import search from "../../assets/icons/search-24px.svg";
 import Category from "../../components/Category/Category";
-const InventoryList = ({ itemData, setItemData }) => {
+const InventoryList = () => {
   return (
     <main className="inventory">
       <section className="inventory-containers">
@@ -29,11 +29,7 @@ const InventoryList = ({ itemData, setItemData }) => {
             </div>
           </div>
         </div>
-        <Category
-          itemData={itemData}
-          setItemData={setItemData}
-          isWarehouse={false}
-        />
+        <Category isWarehouse={false}/>
       </section>
     </main>
   );

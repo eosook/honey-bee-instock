@@ -50,23 +50,25 @@ function SingleWarehouse({
           </div>
         </div>
       </div>
-      <div className="warehouse-actions">
+      <div className="single-warehouse-actions">
         <a href="#top">
           <img
             onClick={() => setOpenDeleteModal(true)}
             className="warehouse-actions__icon"
             src={deleteIcon}
           ></img>
+          <DeleteWarehouseModal
+            warehouses={warehouses}
+            setWarehouses={setWarehouses}
+            id={id}
+            warehouse={warehouse}
+            open={openDeleteModal}
+            onClose={() => setOpenDeleteModal(false)}
+          />
         </a>
-        <DeleteWarehouseModal
-          warehouses={warehouses}
-          setWarehouses={setWarehouses}
-          id={id}
-          warehouse={warehouse}
-          open={openDeleteModal}
-          onClose={() => setOpenDeleteModal(false)}
-        />
-        <img className="warehouse-actions__icon" src={editIcon}></img>
+        <a>
+          <img className="warehouse-actions__icon" src={editIcon}></img>
+        </a>
       </div>
     </div>
   );

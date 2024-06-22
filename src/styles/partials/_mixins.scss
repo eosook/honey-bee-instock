@@ -143,7 +143,7 @@
   padding: 0 0.5rem;
   border-radius: 20px;
   color: $green;
-  background-color: rgba($color: $green, $alpha: 0.7);
+  background-color: rgba($color: #158463, $alpha: 0.1);
 }
 
 @mixin mobile-tags-not-stocked {
@@ -152,7 +152,7 @@
   padding: 0 0.5rem;
   border-radius: 20px;
   color: $red;
-  background-color: rgba($color: $red, $alpha: 0.7);
+  background-color: rgba($color: #c94515, $alpha: 0.1);
 }
 
 @mixin large-tags-stocked {

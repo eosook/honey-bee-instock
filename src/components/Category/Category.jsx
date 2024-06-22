@@ -4,13 +4,21 @@ import ListItem from "../ListItem/ListItem";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function Category({ itemData, setItemData, isWarehouse }) {
+export default function Category({ isWarehouse }) {
   const [warehouseData, setWarehouseData] = useState([]);
-  const [openDeleteModal, setOpenDeleteModal] = useState(false);
-
+  const [itemData, setItemData] = useState([]);
   const base_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
+    const getItem = async () => {
+      try {
+        const response = await axios.get(`${base_URL}/inventory`);
+        setItemData(response.data);
+      } catch (error) {
+        console.error("Error fetching items: 🚛🚛🚛", error);
+      }
+    };
+    getItem();
     const getWarehouse = async () => {
       try {
         const res = await axios.get(`${base_URL}/warehouse`);
@@ -21,6 +29,7 @@ export default function Category({ itemData, setItemData, isWarehouse }) {
     };
     getWarehouse();
   }, [base_URL]);
+
   return (
     <>
       <nav>
