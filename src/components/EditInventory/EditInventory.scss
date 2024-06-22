@@ -47,7 +47,7 @@
     padding: 1rem 0;
     gap: 0.5rem;
     @include tablet {
-      height: 53vh;
+      height: 60vh;
       gap: 5rem;
     }
   }
@@ -94,6 +94,9 @@
       &::placeholder {
         font-size: 0.813rem;
       }
+      &:focus {
+        border: 1px solid $instock-indigo;
+      }
     }
     &-category {
       @include fontWeight;
@@ -133,11 +136,11 @@
     padding: 0 1rem;
     &-avaibility {
       @include fontWeight;
-      margin-bottom: 1.5rem;
       font-size: 1.25rem;
     }
     &-status {
       display: block;
+      margin-top: 1.5rem;
       @include fontWeight;
     }
     &-stock {
@@ -157,10 +160,10 @@
         display: flex;
         align-items: center;
         gap: 0.25rem;
+        &-active {
+          color: $cloud;
+        }
       }
-    }
-    &-three {
-      //   display: none;
     }
     &-quantity {
       display: block;
@@ -237,4 +240,8 @@
       }
     }
   }
+}
+.error-message {
+  color: red;
+  font-size: 0.65rem;
 }

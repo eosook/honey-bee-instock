@@ -50,7 +50,7 @@ function SingleWarehouse({
           </div>
         </div>
       </div>
-      <div className="warehouse-actions">
+      <div className="single-warehouse-actions">
         <a href="#top">
           <img
             onClick={() => setOpenDeleteModal(true)}
@@ -66,7 +66,7 @@ function SingleWarehouse({
             onClose={() => setOpenDeleteModal(false)}
           />
         </a>
-        <a href="">
+        <a>
           <img className="warehouse-actions__icon" src={editIcon}></img>
         </a>
       </div>
