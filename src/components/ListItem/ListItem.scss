@@ -11,6 +11,10 @@
     padding: 1.125rem 2rem;
   }
 
+  @include desktop{
+    padding: 1.1875rem 2.5rem;
+  }
+
   &__data-container{
     display: flex;
   }
@@ -35,7 +39,7 @@
       width: 156px;
     }
     @include desktop{
-      width: 230px;
+      width: 222px;
     }
   }
   &__category{
