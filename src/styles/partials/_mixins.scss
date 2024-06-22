@@ -124,6 +124,7 @@
 
 //call to actions
 @mixin mobile-buttons-form-fields {
+  @include mobile-body-medium;
   height: 36px;
   width: 100%;
   padding: 0 1rem;
@@ -131,6 +132,7 @@
 }
 
 @mixin large-buttons-form-fields {
+  @include large-body-medium;
   height: 38px;
   width: auto;
   padding: 0 1rem;
