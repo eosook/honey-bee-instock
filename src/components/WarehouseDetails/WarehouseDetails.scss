@@ -18,6 +18,10 @@
 
   &__details {
     padding: 1rem;
+    border-bottom: solid 1px $cloud;
+    @include tablet{
+      border-bottom: none;
+    }
   }
 
   &__title-container {
@@ -31,7 +35,7 @@
       padding: 2rem 2rem 1.3125rem;
     }
     @include desktop{
-      padding: 2rem 2.5rem 1.13125rem;
+      padding: 2rem 2.5rem 1.325rem;
     }
     a{
       height: 24px;
