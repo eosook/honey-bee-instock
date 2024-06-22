@@ -2,7 +2,6 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/mixins" as *;
 .list {
-
   &-logo {
     display: flex;
     justify-content: space-between;
@@ -24,7 +23,7 @@
     font-weight: 600;
     padding-top: 0.25rem;
   }
-      
+
   &-item-notstock {
     @include mobile-body-small;
     display: flex;
@@ -32,9 +31,6 @@
     align-items: center;
     padding: 0 8px;
   }
-
-
-
 
   &-container-item {
     color: $instock-indigo;
@@ -53,7 +49,6 @@
   &__sub-basement {
     display: flex;
     flex-direction: row;
-
   }
 
   &__ogitest-div1 {
@@ -79,7 +74,6 @@
     flex-direction: column;
     align-items: flex-start;
     padding-left: 60%;
-
   }
 
   &-containers {
@@ -95,10 +89,10 @@
     }
   }
 
-  &__title--mobile { 
+  &__title--mobile {
     @include mobile-body-small;
 
-    @include tablet{
+    @include tablet {
       display: none;
     }
   }
@@ -115,18 +109,18 @@
       align-items: baseline;
       justify-content: left;
 
-      @include tablet{
+      @include tablet {
         @include large-body-medium;
         padding: 1.1875rem 2rem;
       }
 
-      @include desktop{
+      @include desktop {
         padding: 1.1875rem 2.5rem;
       }
     }
     &-container {
       width: 155px;
-      @include desktop{
+      @include desktop {
         width: 225px;
       }
       &-link {
@@ -152,10 +146,10 @@
         font-weight: 600;
         padding-top: 0.25rem;
         margin-right: 4rem;
-        @include desktop{
+        @include desktop {
           margin-right: 7.25rem;
         }
-        
+
         &-notstock {
           @include large-tags-not-stocked;
           display: flex;
@@ -163,30 +157,30 @@
           align-items: center;
           padding: 0 8px;
           margin-right: 2.375rem;
-          @include desktop{
+          @include desktop {
             margin-right: 5.625rem;
           }
         }
       }
-      &-category{
+      &-category {
         width: 120px;
-        @include desktop{
+        @include desktop {
           width: 175px;
         }
       }
-      &-quantity{
+      &-quantity {
         width: 64px;
-        @include desktop{
+        @include desktop {
           width: 90px;
         }
-        &-warehouse{
+        &-warehouse {
           margin-left: 3.7rem;
-          @include desktop{
+          @include desktop {
             margin-left: 5.3rem;
           }
         }
       }
-      &-remove{
+      &-remove {
         display: none;
       }
     }
@@ -200,7 +194,3 @@
     }
   }
 }
-
-
-
-

@@ -6,13 +6,15 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 const EditInventory = () => {
   const { id } = useParams();
-  const [itemDataDetails, setItemDataDetails] = useState({});
   const [item, setItem] = useState("");
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState("");
   const [category, setCategory] = useState("");
+  const [warehouseName, setWarehouseName] = useState("");
   const [status, setStatus] = useState("");
   const [warehouse, setWarehouse] = useState("");
+  const [errors, setErrors] = useState({});
+  const [isFormValid, setIsFormValid] = useState(false);
   const base_URL = import.meta.env.VITE_API_URL;
   useEffect(() => {
     const fetchItemDetails = async () => {
@@ -26,7 +28,6 @@ const EditInventory = () => {
           status,
           warehouse_id,
         } = response.data;
-        setItemDataDetails(response.data);
         setItem(item_name);
         setDescription(description);
         setQuantity(quantity);
@@ -39,9 +40,28 @@ const EditInventory = () => {
     };
     fetchItemDetails();
   }, [id, base_URL]);
+  useEffect(() => {
+    if (status === "Out of stock") {
+      setQuantity(0);
+    }
+  }, [status]);
+  useEffect(() => {
+    validateForm();
+  }, [item, description, quantity, category, status, warehouse]);
+  const validateForm = () => {
+    const newErrors = {};
+    if (!item) newErrors.item = "This field is required!";
+    if (!description) newErrors.description = "This field is required!";
+    if (!category) newErrors.category = "This field is required!";
+    if (!warehouse) newErrors.warehouse = "This field is required!";
+    if (status === "In stock" && (!quantity || isNaN(quantity)))
+      newErrors.quantity = "This field is required!";
+    setErrors(newErrors);
+    setIsFormValid(Object.keys(newErrors).length === 0);
+  };
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    if (!isValid()) return;
+    if (!isFormValid) return;
     const data = {
       warehouse_id: warehouse,
       item_name: item,
@@ -56,11 +76,6 @@ const EditInventory = () => {
     } catch (error) {
       console.error("Error updating item:", error.response.data);
     }
-  };
-  const isValid = () => {
-    return (
-      item && description && category && status && quantity && !isNaN(quantity)
-    );
   };
   return (
     <form onSubmit={handleFormSubmit} className="editinventory">
@@ -81,20 +96,22 @@ const EditInventory = () => {
           <input
             className="editinventory-container-itemname"
             type="text"
-            placeholder="Item Name"
+            placeholder={item}
             onChange={(e) => setItem(e.target.value)}
-            value={item}
           />
+          {errors.item && <p className="error-message">{errors.item}</p>}
           <label className="editinventory-container-description">
             Description
           </label>
           <textarea
             className="editinventory-container-text"
             name="description"
-            placeholder="Description"
+            placeholder={description}
             onChange={(e) => setDescription(e.target.value)}
-            value={description}
           ></textarea>
+          {errors.description && (
+            <p className="error-message">{errors.description}</p>
+          )}
           <div className="editinventory-container-one">
             <label className="editinventory-container-category">Category</label>
             <select
@@ -110,6 +127,9 @@ const EditInventory = () => {
               <option value="Accessories">Accessories</option>
               <option value="Health">Health</option>
             </select>
+            {errors.category && (
+              <p className="error-message">{errors.category}</p>
+            )}
             <img
               className="editinventory-container-drop"
               src={drop}
@@ -124,7 +144,11 @@ const EditInventory = () => {
             </h3>
             <label className="editinventory-wrap-status">Status</label>
             <div className="editinventory-wrap-stock">
-              <div className="editinventory-wrap-stock-one">
+              <div
+                className={`editinventory-wrap-stock-one ${
+                  status === "In stock" ? "active" : ""
+                }`}
+              >
                 <input
                   className="editinventory-wrap-stock--instock"
                   type="radio"
@@ -135,7 +159,11 @@ const EditInventory = () => {
                 />
                 In stock
               </div>
-              <div className="editinventory-wrap-stock-two">
+              <div
+                className={`editinventory-wrap-stock-two ${
+                  status === "Out of stock" ? "active" : ""
+                }`}
+              >
                 <input
                   className="editinventory-wrap-stock--nostock"
                   type="radio"
@@ -147,17 +175,22 @@ const EditInventory = () => {
                 Out of stock
               </div>
             </div>
-            <div className="editinventory-wrap-three">
-              <label className="editinventory-wrap-quantity">Quantity</label>
-              <input
-                className="editinventory-wrap-quantities"
-                type="text"
-                name="quantity"
-                placeholder="Quantity"
-                onChange={(e) => setQuantity(e.target.value)}
-                value={quantity}
-              />
-            </div>
+            {status === "In stock" && (
+              <div className="editinventory-wrap-three">
+                <label className="editinventory-wrap-quantity">Quantity</label>
+                <input
+                  className="editinventory-wrap-quantities"
+                  type="text"
+                  name="quantity"
+                  placeholder="Quantity"
+                  onChange={(e) => setQuantity(e.target.value)}
+                  value={quantity}
+                />
+                {errors.quantity && (
+                  <p className="error-message">{errors.quantity}</p>
+                )}
+              </div>
+            )}
             <div className="editinventory-wrap-four">
               <label className="editinventory-wrap-warehouse">Warehouse</label>
               <select
@@ -176,6 +209,9 @@ const EditInventory = () => {
                 <option value="7">Miami</option>
                 <option value="8">Boston</option>
               </select>
+              {errors.warehouse && (
+                <p className="error-message">{errors.warehouse}</p>
+              )}
               <img
                 className="editinventory-wrap-drop"
                 src={drop}
@@ -192,7 +228,7 @@ const EditInventory = () => {
         <button
           type="submit"
           className="editinventory-btn-save"
-          disabled={!isValid()}
+          disabled={!isFormValid}
         >
           Save
         </button>
@@ -200,5 +236,4 @@ const EditInventory = () => {
     </form>
   );
 };
-
 export default EditInventory;
