@@ -41,6 +41,7 @@ const EditInventory = () => {
   }, [id, base_URL]);
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    if (!isValid()) return;
     const data = {
       warehouse_id: warehouse,
       item_name: item,
@@ -55,6 +56,11 @@ const EditInventory = () => {
     } catch (error) {
       console.error("Error updating item:", error.response.data);
     }
+  };
+  const isValid = () => {
+    return (
+      item && description && category && status && quantity && !isNaN(quantity)
+    );
   };
   return (
     <form onSubmit={handleFormSubmit} className="editinventory">
@@ -97,6 +103,7 @@ const EditInventory = () => {
               onChange={(e) => setCategory(e.target.value)}
               value={category}
             >
+              <option value="">Select Category</option>
               <option value="Electronics">Electronics</option>
               <option value="Gear">Gear</option>
               <option value="Apparel">Apparel</option>
@@ -124,6 +131,7 @@ const EditInventory = () => {
                   name="status"
                   value="In stock"
                   onChange={(e) => setStatus(e.target.value)}
+                  checked={status === "In stock"}
                 />
                 In stock
               </div>
@@ -134,6 +142,7 @@ const EditInventory = () => {
                   name="status"
                   value="Out of stock"
                   onChange={(e) => setStatus(e.target.value)}
+                  checked={status === "Out of stock"}
                 />
                 Out of stock
               </div>
@@ -146,6 +155,7 @@ const EditInventory = () => {
                 name="quantity"
                 placeholder="Quantity"
                 onChange={(e) => setQuantity(e.target.value)}
+                value={quantity}
               />
             </div>
             <div className="editinventory-wrap-four">
@@ -154,6 +164,7 @@ const EditInventory = () => {
                 className="editinventory-wrap-dropdown"
                 name="warehouse"
                 onChange={(e) => setWarehouse(e.target.value)}
+                value={warehouse}
               >
                 <option value="">Please Select</option>
                 <option value="1">Manhattan</option>
@@ -178,7 +189,11 @@ const EditInventory = () => {
         <button type="button" className="editinventory-btn-cancel">
           Cancel
         </button>
-        <button type="submit" className="editinventory-btn-save">
+        <button
+          type="submit"
+          className="editinventory-btn-save"
+          disabled={!isValid()}
+        >
           Save
         </button>
       </div>

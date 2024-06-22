@@ -43,7 +43,6 @@ const Inventory = () => {
     }
   }, [id, base_URL]);
   return (
-    //  <EditInventory />
     <>
       {id ? (
         itemDataDetails && (

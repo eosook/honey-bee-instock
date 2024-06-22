@@ -3,12 +3,17 @@ import chevron from "../../assets/icons/chevron_right-24px.svg";
 import del from "../../assets/icons/delete_outline-24px.svg";
 import edit from "../../assets/icons/edit-24px.svg";
 import { Link } from "react-router-dom";
-import Labels from "../Labels/Labels";
+// import Labels from "../Labels/Labels";
 import { useState } from "react";
 import DeleteInventoryModal from "../DeleteInventoryModal/DeleteInventoryModal";
 
-const ListItem = ({ item, itemData, warehouseName, setItemData, isWarehouse }) => {
-
+const ListItem = ({
+  item,
+  itemData,
+  warehouseName,
+  setItemData,
+  isWarehouse,
+}) => {
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
   return (
@@ -51,25 +56,34 @@ const ListItem = ({ item, itemData, warehouseName, setItemData, isWarehouse }) =
                   {item.status}
                 </p>
               </div>
-              <div className={` list-item-three ${
+              <div
+                className={` list-item-three ${
                   isWarehouse ? "list-item-quantity-warehouse" : ""
-                }`}>
+                }`}
+              >
                 <h3 className="list__title--mobile">QTY</h3>
                 <p className="list-item-quantity">{item.quantity}</p>
               </div>
             </div>
           </div>
 
-          <div className={`list__ogitest-3 ${
-            isWarehouse ? "list-item-remove" : ""
-          }`}>
+          <div
+            className={`list__ogitest-3 ${
+              isWarehouse ? "list-item-remove" : ""
+            }`}
+          >
             <h3 className="list__title--mobile">WAREHOUSE</h3>
-            <p className="list-item-location">
-              {warehouseName.warehouse_name}
-            </p>
+            <p className="list-item-location">{warehouseName.warehouse_name}</p>
           </div>
           <div className="list-logo">
-            <a href="#top" ><img onClick={() => setOpenDeleteModal(true)} className="list-logo-del" src={del} alt="Delete logo" /></a>
+            <a href="#top">
+              <img
+                onClick={() => setOpenDeleteModal(true)}
+                className="list-logo-del"
+                src={del}
+                alt="Delete logo"
+              />
+            </a>
             <DeleteInventoryModal
               itemData={itemData}
               setItemData={setItemData}
@@ -78,7 +92,9 @@ const ListItem = ({ item, itemData, warehouseName, setItemData, isWarehouse }) =
               open={openDeleteModal}
               onClose={() => setOpenDeleteModal(false)}
             />
-            <img className="list-logo-edit" src={edit} alt="Edit logo" />
+            <Link to={`/inventory/edit/${item.id}`}>
+              <img className="list-logo-edit" src={edit} alt="Edit logo" />
+            </Link>
           </div>
         </div>
       </div>

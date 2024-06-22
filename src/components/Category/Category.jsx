@@ -1,19 +1,15 @@
 import "./Category.scss";
 import sort from "../../assets/icons/sort-24px.svg";
-//import { Link } from "react-router-dom";
-//import chevron from "../../assets/icons/chevron_right-24px.svg";
-//import del from "../../assets/icons/delete_outline-24px.svg";
-//import edit from "../../assets/icons/edit-24px.svg";
 import ListItem from "../ListItem/ListItem";
 import { useState, useEffect } from "react";
 import axios from "axios";
-//import DeleteInventoryModal from "../DeleteInventoryModal/DeleteInventoryModal";
 
 export default function Category({ itemData, setItemData, isWarehouse }) {
   const [warehouseData, setWarehouseData] = useState([]);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
   const base_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const getWarehouse = async () => {
       try {
@@ -24,7 +20,7 @@ export default function Category({ itemData, setItemData, isWarehouse }) {
       }
     };
     getWarehouse();
-  });
+  }, [base_URL]);
   return (
     <>
       <nav>
@@ -61,9 +57,13 @@ export default function Category({ itemData, setItemData, isWarehouse }) {
         </div>
       </nav>
       {itemData.map((item, index) => {
-        const warehouseName = warehouseData.find(
+        const filteredWarehouses = warehouseData.filter(
           (warehouse) => warehouse.id === item.warehouse_id
         );
+        const warehouseName =
+          filteredWarehouses.length > 0
+            ? filteredWarehouses[0].warehouse_name
+            : "Warehouse not found";
         return (
           <ListItem
             key={index}
