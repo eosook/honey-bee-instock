@@ -1,5 +1,14 @@
+// import { useState } from "react";
 import "./WarehouseForm.scss";
 import FormInput from "../FormInput/FormInput";
+import {
+  handleChangeInput,
+  isEmailValid,
+  isPhoneValid,
+  isFormValid,
+  sendAddFormData,
+  handleAddFormSubmit,
+} from "../../helpers/formHelpers";
 
 export default function WarehouseForm() {
   return (
