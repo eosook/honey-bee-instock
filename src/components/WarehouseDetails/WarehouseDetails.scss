@@ -18,6 +18,10 @@
 
   &__details {
     padding: 1rem;
+    border-bottom: solid 1px $cloud;
+    @include tablet{
+      border-bottom: none;
+    }
   }
 
   &__title-container {
@@ -29,6 +33,12 @@
 
     @include tablet{
       padding: 2rem 2rem 1.3125rem;
+    }
+    @include desktop{
+      padding: 2rem 2.5rem 1.325rem;
+    }
+    a{
+      height: 24px;
     }
   }
 
@@ -93,13 +103,19 @@
   }
 
   &__address {
-    @include mobile-body-large;
+    @include mobile-body-medium;
     color: $instock-black;
+    @include tablet{
+      @include large-body-large;
+    }
   }
 
   &__contact {
     @include mobile-body-medium;
     color: $instock-black;
+    @include tablet{
+      @include large-body-medium;
+    }
   }
 
   @include tablet {
@@ -137,14 +153,6 @@
 
     &__label {
       @include large-table-header;
-    }
-
-    &__address {
-      @include large-body-large;
-    }
-
-    &__contact {
-      @include large-body-medium;
     }
 
     &__list {

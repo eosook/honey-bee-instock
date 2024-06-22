@@ -26,7 +26,7 @@
     padding: 2rem 1.5rem 1.5rem;
     @include tablet {
       display: flex;
-      gap: 11rem;
+      justify-content: space-between;
       align-items: center;
       padding: 2rem 2rem 1.375rem;
     }
@@ -39,7 +39,7 @@
       &--text {
         @include mobile-header;
         margin-bottom: 0;
-        @include desktop {
+        @include tablet {
           @include large-header;
         }
       }
@@ -86,13 +86,14 @@
     &-four {
       &--btn {
         @include mobile-buttons-form-fields;
+        @include mobile-labels;
         border: none;
         background-color: $instock-indigo;
         color: white;
-        @include mobile-body-medium;
         @include tablet {
           @include large-buttons-form-fields;
-          width: 168px;
+          @include large-labels;
+          width: 128px;
         }
       }
     }

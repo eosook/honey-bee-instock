@@ -6,7 +6,10 @@
   padding: 2rem 1.5rem 1.5rem;
 
   @include tablet {
-    padding: 2rem 2rem 1.5rem;
+    padding: 2rem 2rem 1.375rem;
+  }
+  @include desktop{
+    padding: 2rem 2.5rem 1.375rem;
   }
 }
 
@@ -34,20 +37,26 @@
       justify-content: space-between;
       align-items: center;
       height: 94px;
+      border-bottom: none;
     }
   }
   &__title {
     @include mobile-header;
     margin: 0;
+    @include tablet{
+      @include large-header;
+    }
   }
 
   &__search {
     @include mobile-buttons-form-fields;
-    background: url("../../assets/Icons/search-24px.svg") no-repeat 24px 24px;
+    background: url("../../assets/icons/search-24px.svg") no-repeat 24px 24px;
     background-position: right 5% bottom 50%;
     margin: 1rem 0;
     padding: 0 1rem;
+    border: 1px solid $cloud;
     @include tablet {
+      @include large-buttons-form-fields;
       width: 185px;
     }
     @include desktop {
@@ -74,6 +83,9 @@
       gap: 16px;
     }
   }
+  &__searchIcon{
+    position: absolute;
+  }
 }
 
 .warehouse-data {
@@ -86,6 +98,9 @@
       color: $slate;
       padding: 0 2rem;
       height: 40px;
+    }
+    @include desktop{
+      padding: 0 2.5rem;
     }
   }
 

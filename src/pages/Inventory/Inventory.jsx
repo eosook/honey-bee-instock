@@ -8,6 +8,7 @@ const Inventory = () => {
   const [itemDataDetails, setItemDataDetails] = useState(null);
   const [warehouseDetails, setWarehouseDetails] = useState([]);
   const base_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const getItem = async () => {
       try {
@@ -21,7 +22,6 @@ const Inventory = () => {
       try {
         const response = await axios.get(`${base_URL}/inventory/${id}`);
         setItemDataDetails(response.data);
-        console.log(`${base_URL}/inventory/${id}`);
       } catch (error) {
         console.error("Error fetching item details: 🚛🚛🚛", error);
       }
