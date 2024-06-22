@@ -11,6 +11,7 @@ export default function WarehouseDetails({ warehouse }) {
 
   useEffect(() => {
     const getInventory = async () => {
+      console.log(warehouse.id)
       const response = await axios.get(
         `http://localhost:8080/warehouse/${warehouse.id}/inventories`
       );
