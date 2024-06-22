@@ -62,7 +62,7 @@ const ListItem = ({
             }`}>
             <h3 className="inventory-item__label">WAREHOUSE</h3>
             <p className="inventory-item__body">
-              {warehouseName.warehouse_name}
+              {warehouseName}
             </p>
           </div>
         </div>
