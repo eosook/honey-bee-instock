@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import "./AddWarehouse.scss";
+import "./EditWarehouse.scss";
 import WarehouseForm from "../WarehouseForm/WarehouseForm";
 import backArrow from "../../assets/icons/arrow_back-24px.svg";
 
-export default function AddWarehouse() {
+export default function EditWarehouse() {
   const baseUrl = import.meta.env.VITE_API_URL;
+  const { id } = useParams();
   const initialValues = {
     warehouse_name: "",
     address: "",
@@ -17,31 +18,31 @@ export default function AddWarehouse() {
     contact_email: "",
   };
 
-  const addWarehouse = async (values) => {
+  const editWarehouse = async (values) => {
     try {
-      const sendResponse = await axios.post(`${baseUrl}/`, values);
-      return sendResponse;
+      const response = await axios.put(`${baseUrl}/warehouse/${id}`, values);
+      console.log(response);
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
-    <section className="add-warehouse">
-      <div className="add-warehouse__heading">
-        <Link className="add-warehouse__link" to={"/"}>
+    <section className="edit-warehouse">
+      <div className="edit-warehouse__heading">
+        <Link className="edit-warehouse__link" to={"/"}>
           <img
-            className="add-warehouse__icon"
+            className="edit-warehouse__icon"
             src={backArrow}
             alt="Blue back arrow"
           />
         </Link>
-        <h1 className="add-warehouse__title">Add New Warehouse</h1>
+        <h1 className="edit-warehouse__title">Edit Warehouse</h1>
       </div>
       <WarehouseForm
         initialValues={initialValues}
-        onSubmit={addWarehouse}
-        buttonAction="+ Add Warehouse"
+        onSubmit={editWarehouse}
+        buttonAction="Save"
       />
     </section>
   );
