@@ -5,10 +5,10 @@ import { useParams } from "react-router-dom";
 import InventoryList from "../../components/InventoryList/InventoryList";
 const Inventory = () => {
   const { id } = useParams();
-  const [itemData, setItemData] = useState([]);
   const [itemDataDetails, setItemDataDetails] = useState(null);
   const [warehouseDetails, setWarehouseDetails] = useState([]);
   const base_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const getItem = async () => {
       try {
@@ -22,7 +22,6 @@ const Inventory = () => {
       try {
         const response = await axios.get(`${base_URL}/inventory/${id}`);
         setItemDataDetails(response.data);
-        console.log(`${base_URL}/inventory/${id}`);
       } catch (error) {
         console.error("Error fetching item details: 🚛🚛🚛", error);
       }
@@ -38,12 +37,9 @@ const Inventory = () => {
     if (id) {
       getItemDetails();
       getWarehouseDetails();
-    } else {
-      getItem();
     }
   }, [id, base_URL]);
   return (
-    //  <EditInventory />
     <>
       {id ? (
         itemDataDetails && (
@@ -53,7 +49,7 @@ const Inventory = () => {
           />
         )
       ) : (
-        <InventoryList itemData={itemData} setItemData={setItemData} />
+        <InventoryList />
       )}
     </>
   );

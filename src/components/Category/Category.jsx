@@ -1,20 +1,24 @@
 import "./Category.scss";
 import sort from "../../assets/icons/sort-24px.svg";
-//import { Link } from "react-router-dom";
-//import chevron from "../../assets/icons/chevron_right-24px.svg";
-//import del from "../../assets/icons/delete_outline-24px.svg";
-//import edit from "../../assets/icons/edit-24px.svg";
 import ListItem from "../ListItem/ListItem";
 import { useState, useEffect } from "react";
 import axios from "axios";
-//import DeleteInventoryModal from "../DeleteInventoryModal/DeleteInventoryModal";
 
-export default function Category({ itemData, setItemData, isWarehouse }) {
+export default function Category({ isWarehouse }) {
   const [warehouseData, setWarehouseData] = useState([]);
-  const [openDeleteModal, setOpenDeleteModal] = useState(false);
-
+  const [itemData, setItemData] = useState([]);
   const base_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
+    const getItem = async () => {
+      try {
+        const response = await axios.get(`${base_URL}/inventory`);
+        setItemData(response.data);
+      } catch (error) {
+        console.error("Error fetching items: 🚛🚛🚛", error);
+      }
+    };
+    getItem();
     const getWarehouse = async () => {
       try {
         const res = await axios.get(`${base_URL}/warehouse`);
@@ -24,7 +28,8 @@ export default function Category({ itemData, setItemData, isWarehouse }) {
       }
     };
     getWarehouse();
-  });
+  }, [base_URL]);
+
   return (
     <>
       <nav>
@@ -60,19 +65,25 @@ export default function Category({ itemData, setItemData, isWarehouse }) {
           </div>
         </div>
       </nav>
-      {itemData.map((item, index)=> {
-        const warehouseName = warehouseData.find((warehouse)=>warehouse.id === item.warehouse_id)
+      {itemData.map((item, index) => {
+        const filteredWarehouses = warehouseData.filter(
+          (warehouse) => warehouse.id === item.warehouse_id
+        );
+        const warehouseName =
+          filteredWarehouses.length > 0
+            ? filteredWarehouses[0].warehouse_name
+            : "Warehouse not found";
         return (
           <ListItem
-          key={index}
-          item={item}
-          warehouseName={warehouseName}
-          itemData={itemData}
-          setItemData={setItemData}
-          isWarehouse={isWarehouse}          
+            key={index}
+            item={item}
+            warehouseName={warehouseName}
+            itemData={itemData}
+            setItemData={setItemData}
+            isWarehouse={isWarehouse}
           />
-        )
+        );
       })}
     </>
-  )
+  );
 }

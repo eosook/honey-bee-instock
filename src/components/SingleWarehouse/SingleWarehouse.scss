@@ -22,6 +22,10 @@
   @include tablet {
     padding: 1rem 2rem;
   }
+
+  @include desktop{
+    padding: 1rem 2.5rem;
+  }
 }
 
 .single-warehouse {
@@ -35,6 +39,7 @@
 
   @include tablet {
     display: flex;
+    align-items: center;
     height: 100%;
   }
 
@@ -121,6 +126,7 @@
   &-actions {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     @include tablet {
       gap: 1rem;
       padding-left: 4.25rem;
@@ -147,6 +153,7 @@
     display: flex;
     text-decoration: none;
     color: $instock-indigo;
+    font-weight: 600;
   }
 
   p {
@@ -155,5 +162,19 @@
 
   &__icon {
     width: 20px;
+  }
+}
+
+.warehouse-actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 24px;
+  @include tablet{
+    margin-left: 4.25rem;
+    gap: 1rem;
+  }
+  @include desktop{
+    margin-left: 9.5rem;
   }
 }

@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 1.5rem;
+    padding: 2.5rem 0;
 
     &__text {
         @include mobile-body-small;
@@ -17,5 +17,9 @@
 
     @include tablet {
         @include large-body-small;
+    }
+
+    @include desktop{
+        padding: 3rem 0;
     }
 }

@@ -50,7 +50,7 @@ function SingleWarehouse({
           </div>
         </div>
       </div>
-      <div className="warehouse-actions">
+      <div className="single-warehouse-actions">
         <a href="#top">
           <img
             onClick={() => setOpenDeleteModal(true)}

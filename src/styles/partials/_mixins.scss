@@ -41,6 +41,7 @@
   font-size: 0.813rem;
   line-height: 1.25rem;
   font-weight: 600;
+  height: 38px;
 }
 
 @mixin mobile-table-header {
@@ -123,6 +124,7 @@
 
 //call to actions
 @mixin mobile-buttons-form-fields {
+  @include mobile-body-medium;
   height: 36px;
   width: 100%;
   padding: 0 1rem;
@@ -130,6 +132,7 @@
 }
 
 @mixin large-buttons-form-fields {
+  @include large-body-medium;
   height: 38px;
   width: auto;
   padding: 0 1rem;
@@ -143,7 +146,7 @@
   padding: 0 0.5rem;
   border-radius: 20px;
   color: $green;
-  background-color: rgba($color: $green, $alpha: 0.7);
+  background-color: rgba($color: #158463, $alpha: 0.1);
 }
 
 @mixin mobile-tags-not-stocked {
@@ -152,7 +155,7 @@
   padding: 0 0.5rem;
   border-radius: 20px;
   color: $red;
-  background-color: rgba($color: $red, $alpha: 0.7);
+  background-color: rgba($color: #c94515, $alpha: 0.1);
 }
 
 @mixin large-tags-stocked {
