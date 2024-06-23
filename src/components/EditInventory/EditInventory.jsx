@@ -146,36 +146,36 @@ const EditInventory = () => {
             <div className="editinventory-wrap-stock">
               <div
                 className={`editinventory-wrap-stock-one ${
-                  status === "In stock" ? "active" : ""
+                  status === "In Stock" ? "active" : ""
                 }`}
               >
                 <input
                   className="editinventory-wrap-stock--instock"
                   type="radio"
                   name="status"
-                  value="In stock"
+                  value="In Stock"
                   onChange={(e) => setStatus(e.target.value)}
-                  checked={status === "In stock"}
+                  checked={status === "In Stock"}
                 />
-                In stock
+                In Stock
               </div>
               <div
                 className={`editinventory-wrap-stock-two ${
-                  status === "Out of stock" ? "active" : ""
+                  status === "Out of Stock" ? "active" : ""
                 }`}
               >
                 <input
                   className="editinventory-wrap-stock--nostock"
                   type="radio"
                   name="status"
-                  value="Out of stock"
+                  value="Out of Stock"
                   onChange={(e) => setStatus(e.target.value)}
-                  checked={status === "Out of stock"}
+                  checked={status === "Out of Stock"}
                 />
-                Out of stock
+                Out of Stock
               </div>
             </div>
-            {status === "In stock" && (
+            {status === "In Stock" && (
               <div className="editinventory-wrap-three">
                 <label className="editinventory-wrap-quantity">Quantity</label>
                 <input
