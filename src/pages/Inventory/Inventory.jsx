@@ -10,14 +10,6 @@ const Inventory = () => {
   const base_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    const getItem = async () => {
-      try {
-        const response = await axios.get(`${base_URL}/inventory`);
-        setItemData(response.data);
-      } catch (error) {
-        console.error("Error fetching items: 🚛🚛🚛", error);
-      }
-    };
     const getItemDetails = async () => {
       try {
         const response = await axios.get(`${base_URL}/inventory/${id}`);
