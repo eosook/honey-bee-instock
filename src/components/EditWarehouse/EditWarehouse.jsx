@@ -21,7 +21,7 @@ export default function EditWarehouse() {
   const editWarehouse = async (values) => {
     try {
       const response = await axios.put(`${baseUrl}/warehouse/${id}`, values);
-      console.log(response);
+      return response;
     } catch (error) {
       console.error(error);
     }
