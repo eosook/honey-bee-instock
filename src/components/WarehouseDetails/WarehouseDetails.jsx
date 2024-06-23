@@ -33,10 +33,12 @@ export default function WarehouseDetails({ warehouse }) {
             {warehouse.warehouse_name}
           </h1>
         </div>
-        <button className="warehouse-details__edit">
-          <img src={edit} alt="edit" className="warehouse-details__icon" />
-          <p className="warehouse-details__text">Edit</p>
-        </button>
+        <Link to={`/edit-warehouse/${warehouse.id}`}>
+          <button className="warehouse-details__edit">
+            <img src={edit} alt="edit" className="warehouse-details__icon" />
+            <p className="warehouse-details__text">Edit</p>
+          </button>
+        </Link>
       </div>
       <div className="warehouse-details__details">
         <div className="warehouse-details__location">

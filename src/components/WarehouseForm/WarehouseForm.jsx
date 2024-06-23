@@ -1,18 +1,92 @@
-// import { useState } from "react";
+import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "./WarehouseForm.scss";
 import FormInput from "../FormInput/FormInput";
-import {
-  handleChangeInput,
-  isEmailValid,
-  isPhoneValid,
-  isFormValid,
-  sendAddFormData,
-  handleAddFormSubmit,
-} from "../../helpers/formHelpers";
 
-export default function WarehouseForm() {
+export default function WarehouseForm({
+  initialValues,
+  onSubmit,
+  buttonAction,
+}) {
+  const [values, setValues] = useState(initialValues);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues({
+      ...values,
+      [name]: value,
+    });
+  };
+
+  const isPhoneValid = () => {
+    if (
+      values.contact_phone &&
+      !values.contact_phone.match(
+        /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/
+      )
+    ) {
+      return false;
+    }
+    return true;
+  };
+
+  const isEmailValid = () => {
+    if (
+      values.contact_email &&
+      !values.contact_email.match(
+        /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+      )
+    ) {
+      return false;
+    }
+    return true;
+  };
+
+  const isFormValid = () => {
+    if (
+      !values.warehouse_name ||
+      !values.address ||
+      !values.city ||
+      !values.country ||
+      !values.contact_name ||
+      !values.contact_position ||
+      !values.contact_phone ||
+      !values.contact_email
+    ) {
+      return false;
+    }
+    if (!isPhoneValid() || !isEmailValid()) {
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (isFormValid()) {
+      onSubmit(values);
+      if (location.pathname === "/add-warehouse") {
+        alert(
+          "Warehouse added successfully! You will now be redirected to the home page."
+        );
+      } else {
+        alert(
+          "Warehouse edited successfully! You will now be redirected to the home page."
+        );
+      }
+      setTimeout(() => {
+        navigate("/");
+      }, 200);
+    } else {
+      alert("Please fix errors in the form - all fields are required.");
+    }
+  };
+
   return (
-    <form className="form" onSubmit={handleFormSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <div className="form__inputs">
         <div className="form__details">
           <h2 className="form__subheading">Warehouse Details</h2>
@@ -24,7 +98,7 @@ export default function WarehouseForm() {
             name="warehouse_name"
             type="text"
             placeholder="Warehouse Name"
-            onChange={handleChangeInput}
+            onChange={handleChange}
             value={values.warehouse_name}
             errorClass="form__error"
             errorMessage="This field is required"
@@ -37,7 +111,7 @@ export default function WarehouseForm() {
             name="address"
             type="text"
             placeholder="Street Address"
-            onChange={handleChangeInput}
+            onChange={handleChange}
             value={values.address}
             errorClass="form__error"
             errorMessage="This field is required"
@@ -50,7 +124,7 @@ export default function WarehouseForm() {
             name="city"
             type="text"
             placeholder="City"
-            onChange={handleChangeInput}
+            onChange={handleChange}
             value={values.city}
             errorClass="form__error"
             errorMessage="This field is required"
@@ -63,7 +137,7 @@ export default function WarehouseForm() {
             name="country"
             type="text"
             placeholder="Country"
-            onChange={handleChangeInput}
+            onChange={handleChange}
             value={values.country}
             errorClass="form__error"
             errorMessage="This field is required"
@@ -79,7 +153,7 @@ export default function WarehouseForm() {
             name="contact_name"
             type="text"
             placeholder="Contact Name"
-            onChange={handleChangeInput}
+            onChange={handleChange}
             value={values.contact_name}
             errorClass="form__error"
             errorMessage="This field is required"
@@ -92,7 +166,7 @@ export default function WarehouseForm() {
             name="contact_position"
             type="text"
             placeholder="Position"
-            onChange={handleChangeInput}
+            onChange={handleChange}
             value={values.contact_position}
             errorClass="form__error"
             errorMessage="This field is required"
@@ -107,7 +181,7 @@ export default function WarehouseForm() {
             name="contact_phone"
             type="text"
             placeholder="Phone Number"
-            onChange={handleChangeInput}
+            onChange={handleChange}
             value={values.contact_phone}
             errorClass={`form__error ${
               isPhoneValid() ? "" : "form__error--show"
@@ -124,7 +198,7 @@ export default function WarehouseForm() {
             name="contact_email"
             type="text"
             placeholder="Email"
-            onChange={handleChangeInput}
+            onChange={handleChange}
             value={values.contact_email}
             errorClass={`form__error ${
               isEmailValid() ? "" : "form__error--show"
@@ -140,11 +214,11 @@ export default function WarehouseForm() {
           </button>
         </Link>
         <button
-          className="form__button form__button--add"
+          className="form__button form__button--action"
           type="submit"
           disabled={!isFormValid()}
         >
-          + Add Warehouse
+          {buttonAction}
         </button>
       </div>
     </form>

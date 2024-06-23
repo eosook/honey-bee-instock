@@ -66,7 +66,9 @@ function SingleWarehouse({
           open={openDeleteModal}
           onClose={() => setOpenDeleteModal(false)}
         />
-        <img className="warehouse-actions__icon" src={editIcon}></img>
+        <Link to={`/edit-warehouse/${id}`}>
+          <img className="warehouse-actions__icon" src={editIcon}></img>
+        </Link>
       </div>
     </div>
   );

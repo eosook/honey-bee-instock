@@ -1,6 +1,6 @@
 import "./FormInput.scss";
 
-function FormInput(props) {
+export default function FormInput(props) {
   const {
     htmlFor,
     label,
@@ -31,7 +31,7 @@ function FormInput(props) {
       <span className={errorClass}>
         <img
           className="form__error-icon"
-          src="src/assets/icons/error-24px.svg"
+          src="../../assets/icons/error-24px.svg"
           alt="White exclamation mark on red circle background"
         />
         {` ${errorMessage}`}
@@ -39,5 +39,3 @@ function FormInput(props) {
     </div>
   );
 }
-
-export default FormInput;
