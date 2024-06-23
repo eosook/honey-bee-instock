@@ -51,49 +51,19 @@ const ListItem = ({
               {item.status}
             </p>
           </div>
-          <div
-            className={`inventory-item__quantity ${
+          <div className={`inventory-item__quantity ${
               isWarehouse ? "inventory-item__quantity-warehouse" : ""
-            }`}
-          >
+            }`}>
             <h3 className="inventory-item__label">QTY</h3>
             <p className="inventory-item__body">{item.quantity}</p>
           </div>
-
-          <div
-            className={`list__ogitest-3 ${
-              isWarehouse ? "list-item-remove" : ""
-            }`}
-          >
-            <h3 className="list__title--mobile">WAREHOUSE</h3>
-            <p className="list-item-location">{warehouseName.warehouse_name}</p>
-            <div
-              className={`inventory-item__warehouse ${
-                isWarehouse ? "inventory-item__remove" : ""
-              }`}
-            >
-              <h3 className="inventory-item__label">WAREHOUSE</h3>
-              <p className="inventory-item__body">{warehouseName}</p>
-            </div>
-            <div className="list-logo">
-              <a href="#top">
-                <img
-                  onClick={() => setOpenDeleteModal(true)}
-                  className="list-logo-del"
-                  src={del}
-                  alt="Delete logo"
-                />
-              </a>
-              <DeleteInventoryModal
-                itemData={itemData}
-                setItemData={setItemData}
-                id={item.id}
-                item={item.item_name}
-                open={openDeleteModal}
-                onClose={() => setOpenDeleteModal(false)}
-              />
-              <img className="list-logo-edit" src={edit} alt="Edit logo" />
-            </div>
+          <div className={`inventory-item__warehouse ${
+              isWarehouse ? "inventory-item__remove" : ""
+            }`}>
+            <h3 className="inventory-item__label">WAREHOUSE</h3>
+            <p className="inventory-item__body">
+              {warehouseName}
+            </p>
           </div>
         </div>
       </div>
