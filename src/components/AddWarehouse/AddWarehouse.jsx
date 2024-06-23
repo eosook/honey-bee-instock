@@ -19,7 +19,7 @@ export default function AddWarehouse() {
 
   const addWarehouse = async (values) => {
     try {
-      const sendResponse = await axios.post(`${baseUrl}/`, values);
+      const sendResponse = await axios.post(`${baseUrl}/warehouse`, values);
       return sendResponse;
     } catch (error) {
       console.error(error);
