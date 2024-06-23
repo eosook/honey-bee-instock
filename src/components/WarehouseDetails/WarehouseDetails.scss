@@ -17,10 +17,14 @@
   }
 
   &__details {
-    padding: 1rem;
+    padding: 1rem 1.5rem;
     border-bottom: solid 1px $cloud;
     @include tablet{
       border-bottom: none;
+      padding: 2rem;
+    }
+    @include desktop{
+      padding: 2rem 2.5rem;
     }
   }
 
@@ -93,8 +97,17 @@
     margin-top: 1.5rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: flex-end;
+    @include tablet{
+      margin: 0;
+      width: 60%;
+      justify-content: space-evenly;
+      border-left: solid 1px $cloud;
+    }
+  }
+
+  &__contact-name{
+    width: 50%;
   }
 
   &__label {
@@ -141,14 +154,6 @@
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      padding: 2rem 2.5rem;
-    }
-
-    &__contact-container {
-      margin: 0;
-      width: 60%;
-      justify-content: space-evenly;
-      border-left: solid 1px $cloud;
     }
 
     &__label {

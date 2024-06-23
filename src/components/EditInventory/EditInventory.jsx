@@ -1,7 +1,7 @@
 import "./EditInventory.scss";
 import arrowBack from "../../assets/icons/arrow_back-24px.svg";
 import drop from "../../assets/icons/arrow_drop_down-24px.svg";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 const EditInventory = () => {
@@ -16,6 +16,7 @@ const EditInventory = () => {
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
   const base_URL = import.meta.env.VITE_API_URL;
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchItemDetails = async () => {
       try {
@@ -72,7 +73,7 @@ const EditInventory = () => {
     };
     try {
       await axios.put(`${base_URL}/inventory/edit/${id}`, data);
-      window.location.href = `/inventory/${id}`;
+      navigate(-1)
     } catch (error) {
       console.error("Error updating item:", error.response.data);
     }
@@ -80,7 +81,7 @@ const EditInventory = () => {
   return (
     <form onSubmit={handleFormSubmit} className="editinventory">
       <div className="editinventory-header">
-        <Link to={`/inventory/${id}`}>
+        <Link to={-1}>
           <img
             className="editinventory-header-img"
             src={arrowBack}

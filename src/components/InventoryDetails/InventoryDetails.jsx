@@ -9,7 +9,7 @@ const InventoryDetails = ({ itemDataDetails, warehouseDetails }) => {
     <nav className="inventories">
       <section className="inventories-container">
         <div className="inventories-container-header">
-          <Link to="/inventory">
+          <Link to={-1}>
             <img
               className="inventories-container-arrow"
               src={arrowBack}
