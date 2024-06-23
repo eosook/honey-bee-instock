@@ -1,7 +1,15 @@
 import "./InventoryList.scss";
 import search from "../../assets/icons/search-24px.svg";
 import Category from "../../components/Category/Category";
+import { useNavigate } from "react-router-dom";
+
 const InventoryList = () => {
+  const navigate = useNavigate();
+
+  function click() {
+    navigate("/add-inventory");
+  }
+
   return (
     <main className="inventory">
       <section className="inventory-containers">
@@ -23,7 +31,7 @@ const InventoryList = () => {
               />
             </div>
             <div className="inventory-container-four">
-              <button className="inventory-container-four--btn">
+              <button onClick={click} className="inventory-container-four--btn">
                 + Add New Item
               </button>
             </div>
