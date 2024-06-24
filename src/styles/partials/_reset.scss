@@ -1,0 +1,37 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-color: $light-grey;
+}
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+input:focus {
+  border: 1px solid $instock-indigo;
+}
+h6 {
+  margin-bottom: 0;
+  color: $slate;
+}
+a {
+  text-decoration: none;
+}
+address {
+  font-style: normal;
+}
+*:focus {
+  outline: none;
+}
+button:hover {
+  cursor: pointer;
+  background-color: #0065ad;
+}

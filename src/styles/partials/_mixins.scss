@@ -21,7 +21,14 @@
   line-height: 2.25rem;
   font-weight: 600;
 }
-
+@mixin border {
+  border: 1px solid black;
+}
+@mixin fontWeight {
+  font-weight: 550;
+  margin-bottom: 0.25rem;
+  font-size: 0.813rem;
+}
 @mixin mobile-subheader {
   font-family: $primary-font;
   font-size: 1.25rem;
@@ -34,6 +41,7 @@
   font-size: 0.813rem;
   line-height: 1.25rem;
   font-weight: 600;
+  height: 38px;
 }
 
 @mixin mobile-table-header {
@@ -116,15 +124,18 @@
 
 //call to actions
 @mixin mobile-buttons-form-fields {
+  @include mobile-body-medium;
   height: 36px;
   width: 100%;
+  padding: 0 1rem;
   border-radius: 20px;
 }
 
 @mixin large-buttons-form-fields {
+  @include large-body-medium;
   height: 38px;
   width: auto;
-  padding: 0 16px;
+  padding: 0 1rem;
   border-radius: 20px;
 }
 
@@ -132,34 +143,52 @@
 @mixin mobile-tags-stocked {
   height: 24px;
   width: auto;
-  padding: 0 8px;
+  padding: 0 0.5rem;
   border-radius: 20px;
   color: $green;
-  background-color: rgba($color: #158463, $alpha: 0.7);
+  background-color: rgba($color: #158463, $alpha: 0.1);
 }
 
 @mixin mobile-tags-not-stocked {
   height: 24px;
   width: auto;
-  padding: 0 8px;
+  padding: 0 0.5rem;
   border-radius: 20px;
   color: $red;
-  background-color: rgba($color: #c94515, $alpha: 0.7);
+  background-color: rgba($color: #c94515, $alpha: 0.1);
 }
 
 @mixin large-tags-stocked {
   height: 26px;
   width: auto;
-  padding: 0 8px;
+  padding: 0 0.5rem;
   border-radius: 20px;
   color: $green;
-  background-color: rgba($color: #158463, $alpha: 0.7);
+  background-color: rgba($color: #158463, $alpha: 0.1);
 }
 @mixin large-tags-not-stocked {
   height: 26px;
   width: auto;
-  padding: 0 8px;
+  padding: 0 0.5rem;
   border-radius: 20px;
   color: $red;
-  background-color: rgba($color: #c94515, $alpha: 0.7);
+  background-color: rgba($color: #c94515, $alpha: 0.1);
+}
+@mixin sort {
+  height: 15px;
+  position: absolute;
+  top: 0.35rem;
+}
+@mixin position {
+  position: absolute;
+  margin-top: 0.25rem;
+}
+
+//miscellaneous
+@mixin divider-horizontal {
+  border-bottom: 1px solid $cloud;
+}
+
+@mixin divider-vertical {
+  border-right: 1px solid $cloud;
 }

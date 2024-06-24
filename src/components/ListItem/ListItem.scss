@@ -1,0 +1,132 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.inventory-item {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid $cloud;
+
+  @include tablet{
+    display: flex;
+    padding: 1.125rem 2rem;
+  }
+
+  @include desktop{
+    padding: 1.1875rem 2.5rem;
+  }
+
+  &__data-container{
+    display: flex;
+  }
+  &__column {
+    width: 156px;
+    @include tablet{
+      display: flex;
+      width: auto;
+    }
+  }
+  &__label{
+    @include mobile-table-header;
+    color: $slate;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    @include tablet{
+      display: none;
+    }
+  }
+  &__name{
+    @include tablet{
+      width: 156px;
+    }
+    @include desktop{
+      width: 222px;
+    }
+  }
+  &__category{
+    @include tablet{
+      width: 120px;
+    }
+    @include desktop{
+      width: 178px;
+    }
+  }
+  &__status{
+    @include tablet{
+      width: 126px;
+    }
+    @include desktop{
+      width: 180px;
+    }
+  }
+  &__quantity{
+    @include tablet{
+      width: 68px;
+    }
+    @include desktop{
+      width: 90px;
+    }
+    &-warehouse{
+      @include tablet{
+        margin: 0 3.25rem 0 3.75rem ;
+      }
+      @include desktop{
+        margin: 0 8rem 0 5.25rem;
+      }
+    }
+  }
+  &__warehouse{
+    @include tablet{
+      width: 114px;
+    }
+    @include desktop{
+      width: 210px;
+    }
+  }
+  &__body{
+    @include mobile-body-medium;
+    margin-bottom: 1.25rem;
+    @include tablet{
+      @include large-body-medium;
+      margin: 0;
+    }
+  }
+  &__link{
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: $instock-indigo;
+  }
+  &__chevron{
+    width: 20px;
+    margin-left: 0.25rem;
+  }
+  &-status {
+    @include mobile-tags-stocked;
+    font-weight: 600;
+    width: 61px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include tablet{
+      width: 65px;
+    }
+    &-notstock {
+      @include mobile-tags-not-stocked;
+      width: 86px;
+      @include tablet{
+        width: 92px;
+      }
+    }
+  }
+  &__logo{
+    display: flex;
+    justify-content: space-between;
+    height: 24px;
+    @include tablet{
+      gap: 1rem;
+    }
+  }
+  &__remove{
+    display: none;
+  }
+}

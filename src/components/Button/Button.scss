@@ -1,0 +1,39 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.button {
+  @include mobile-labels;
+  color: $slate;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  @include tablet{
+    @include large-labels;
+    width: 107px;
+  }
+
+  &:hover {
+    color: $white;
+    text-decoration: underline 0.0625rem $white;
+  }
+
+  &.active {
+    background-color: $instock-black;
+    color: $white;
+    border-radius: 2rem;
+    padding: 0.5rem 2rem;
+    @include tablet{
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  &:not(.active) {
+    background-color: transparent;
+    border: none;
+    padding: 0.5rem 2rem;
+    @include tablet{
+      padding: 0.5rem 1rem;
+    }
+  }
+}

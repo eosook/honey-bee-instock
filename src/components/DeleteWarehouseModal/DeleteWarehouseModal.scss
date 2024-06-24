@@ -1,0 +1,98 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.delete-warehouse-modal {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  z-index: 1;
+  background-color: rgba($color: $graphite, $alpha: 0.6);
+  width: 100vw;
+  height: 100%;
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 0.25rem;
+
+    @include tablet {
+      width: 42rem;
+      height: 16.375rem;
+      margin: 185px auto
+    }
+  }
+
+  &__close-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__close {
+    padding: 1rem;
+  }
+
+  &__text-container {
+    padding: 1rem;
+    flex-grow: 1;
+    @include tablet {
+      padding: 0 4rem;
+      flex-grow: none;
+    }
+  }
+
+  &__header {
+    @include mobile-header;
+    color: $instock-black;
+    padding-bottom: 1rem;
+    @include tablet {
+      @include large-header;
+    }
+  }
+
+  &__text {
+    @include mobile-body-medium;
+    color: $instock-black;
+    @include tablet {
+      @include large-body-medium;
+    }
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    @include tablet {
+      justify-content: flex-end;
+      padding: 0 4rem 3rem 0;
+    }
+  }
+
+  &__button {
+    @include mobile-buttons-form-fields;
+    width: 8rem;
+    border-radius: 20px;
+    padding: 0.3rem 0;
+    background-color: $red;
+    color: $white;
+    border: none;
+    @include tablet {
+      @include large-buttons-form-fields;
+    }
+
+    &--cancel {
+      background-color: transparent;
+      color: $instock-black;
+      border: solid 1px $slate;
+      @include tablet {
+        margin-right: 1rem;
+      }
+    }
+  }
+}

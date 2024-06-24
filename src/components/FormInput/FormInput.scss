@@ -1,0 +1,57 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.form {
+  &__field {
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__label {
+    @include mobile-labels;
+    padding-bottom: 4px;
+
+    @include tablet {
+      @include large-labels;
+    }
+  }
+
+  &__input {
+    @include mobile-buttons-form-fields;
+    border: 1px solid $cloud;
+
+    &::placeholder {
+      color: $slate;
+    }
+
+    &:active {
+      border: 1px solid $instock-indigo;
+    }
+
+    &--invalid {
+      border: 1px solid $red;
+    }
+
+    @include tablet {
+      @include large-buttons-form-fields;
+    }
+  }
+
+  &__error {
+    @include mobile-body-small;
+    color: $red;
+    display: none;
+
+    &--show {
+      display: initial;
+    }
+  }
+
+  &__error-icon {
+    height: 0.875rem;
+    vertical-align: text-bottom;
+  }
+}

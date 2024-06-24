@@ -1,0 +1,154 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+@mixin table-header-padding {
+  padding: 2rem 1.5rem 1.5rem;
+
+  @include tablet {
+    padding: 2rem 2rem 1.375rem;
+  }
+  @include desktop{
+    padding: 2rem 2.5rem 1.375rem;
+  }
+}
+
+.warehouse-list {
+  max-width: 343px;
+  box-shadow: 0 2px 5px rgba($instock-black, 0.1);
+  border-radius: 4px;
+  margin: -4rem auto 0;
+  background-color: $white;
+  @include tablet {
+    max-width: 704px;
+    margin-top: -5.825rem;
+  }
+  @include desktop {
+    max-width: 1020px;
+  }
+  &__header {
+    @include table-header-padding;
+    height: 196px;
+    border-bottom: 1px solid $cloud;
+    box-sizing: border-box;
+
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 94px;
+      border-bottom: none;
+    }
+  }
+  &__title {
+    @include mobile-header;
+    margin: 0;
+    @include tablet{
+      @include large-header;
+    }
+  }
+
+  &__search {
+    @include mobile-buttons-form-fields;
+    background: url("../../assets/icons/search-24px.svg") no-repeat 24px 24px;
+    background-position: right 5% bottom 50%;
+    margin: 1rem 0;
+    padding: 0 1rem;
+    border: 1px solid $cloud;
+    @include tablet {
+      @include large-buttons-form-fields;
+      width: 185px;
+    }
+    @include desktop {
+      width: 274px;
+    }
+  }
+
+  &__button {
+    @include mobile-buttons-form-fields;
+    @include mobile-labels;
+    background-color: $instock-indigo;
+    color: $white;
+    border: none;
+
+    @include tablet {
+      width: 168px;
+    }
+  }
+
+  &__form {
+    @include tablet {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+  }
+  &__searchIcon{
+    position: absolute;
+  }
+}
+
+.warehouse-data {
+  &__labels {
+    display: none;
+    @include tablet {
+      display: flex;
+      align-items: center;
+      background-color: $light-grey;
+      color: $slate;
+      padding: 0 2rem;
+      height: 40px;
+    }
+    @include desktop{
+      padding: 0 2.5rem;
+    }
+  }
+
+  &__label {
+    @include large-table-header;
+    font-weight: 600;
+    display: flex;
+    text-transform: uppercase;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__warehouse {
+    @include tablet {
+      margin-right: 61px;
+    }
+    @include desktop {
+      margin-right: 132px;
+    }
+  }
+  &__address {
+    @include tablet {
+      margin-right: 51px;
+    }
+    @include desktop {
+      margin-right: 191px;
+    }
+  }
+  &__contact-name {
+    @include tablet {
+      margin-right: 17px;
+    }
+    @include desktop {
+      margin-right: 70px;
+    }
+  }
+  &__contact-info {
+    @include tablet {
+      margin-right: 55px;
+    }
+    @include desktop {
+      margin-right: 92px;
+    }
+  }
+
+  &__sortIcon {
+    height: 16px;
+  }
+}
