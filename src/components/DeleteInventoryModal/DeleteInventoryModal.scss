@@ -3,7 +3,7 @@
 @use "../../styles/partials/mixins" as *;
 
 
-.delete-warehouse-modal {
+.delete-inventory-modal {
     position: absolute;
     top: 60%;
     left: 50%;
@@ -15,6 +15,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @include tablet{
+        width: 672px;
+        height: 262px;
+        top: 0;
+        left: 0;
+    }
 
     &__container {
         width: 100%;
