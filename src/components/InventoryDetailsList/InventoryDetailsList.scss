@@ -71,7 +71,7 @@
         }
         &-stock {
           height: 24px;
-          width: 50%;
+          width: 65px;
           padding: 0 8px;
           border-radius: 20px;
           color: $green;
@@ -83,11 +83,9 @@
           align-items: center;
           @include tablet {
             @include large-tags-stocked;
-            width: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-weight: 550;
           }
           @include desktop {
             width: 30%;
@@ -95,13 +93,10 @@
         }
         &-notstock {
           @include mobile-tags-not-stocked;
-          width: 60%;
+          width: 92px;
           display: flex;
           justify-content: center;
           align-items: center;
-          @include desktop {
-            width: 38%;
-          }
         }
       }
       &-two {
