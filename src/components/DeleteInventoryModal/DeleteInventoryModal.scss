@@ -3,7 +3,7 @@
 @use "../../styles/partials/mixins" as *;
 
 
-.delete-warehouse-modal {
+.delete-inventory-modal {
     position: absolute;
     top: 60%;
     left: 50%;
@@ -11,110 +11,90 @@
     z-index: 1;
     background-color: rgba($color: $graphite, $alpha: 0.6);
     width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    height: 100%;
+  
     &__container {
-        width: 100%;
-        height: 100%;
-        background-color: $white;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border-radius: .25rem;
+      width: 100%;
+      height: 100%;
+      background-color: $white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 0.25rem;
+  
+      @include tablet {
+        width: 42rem;
+        height: 16.375rem;
+        margin: 185px auto
+      }
     }
-
+  
     &__close-container {
-        display: flex;
-        justify-content: flex-end;
+      display: flex;
+      justify-content: flex-end;
     }
-
+  
     &__close {
-        padding: 1rem;
-        @include mobile-subheader;
-        color: $instock-black;
+      padding: 1rem;
     }
-
+  
     &__text-container {
-        padding: 1rem;
-        flex-grow: 1;
+      padding: 1rem;
+      flex-grow: 1;
+      @include tablet {
+        padding: 0 4rem;
+        flex-grow: none;
+      }
     }
-
+  
     &__header {
-        @include mobile-header;
-        color: $instock-black;
-        padding-bottom: 1rem;
+      @include mobile-header;
+      color: $instock-black;
+      padding-bottom: 1rem;
+      @include tablet {
+        @include large-header;
+      }
     }
-
+  
     &__text {
-        @include mobile-body-medium;
-        color: $instock-black;
+      @include mobile-body-medium;
+      color: $instock-black;
+      @include tablet {
+        @include large-body-medium;
+      }
     }
-
+  
     &__button-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      @include tablet {
+        justify-content: flex-end;
+        padding: 0 4rem 3rem 0;
+      }
     }
-
+  
     &__button {
-        @include mobile-buttons-form-fields;
-        width: 8rem;
-        border-radius: 20px;
-        padding: 0.3rem 0;
-        background-color: $red;
-        color: $white;
-        border: none;
-
-        &--cancel {
-            background-color: transparent;
-            color: $instock-black;
-            border: solid 1px $slate;
+      @include mobile-buttons-form-fields;
+      width: 8rem;
+      border-radius: 20px;
+      padding: 0.3rem 0;
+      background-color: $red;
+      color: $white;
+      border: none;
+      @include tablet {
+        @include large-buttons-form-fields;
+      }
+  
+      &--cancel {
+        background-color: transparent;
+        color: $instock-black;
+        border: solid 1px $slate;
+        @include tablet {
+          margin-right: 1rem;
         }
+      }
     }
-
-    @include tablet {
-        top: 230%;
-        left: -154%;
-
-        &__container {
-            width: 42rem;
-            height: 16.375rem;
-        }
-
-        &__text-container {
-            padding: 0 4rem;
-            flex-grow: none;
-        }
-
-        &__header {
-            @include large-header;
-        }
-
-        &__text {
-            @include large-body-medium
-        }
-
-        &__button-container {
-            justify-content: flex-end;
-            padding: 0 4rem 3rem 0;
-        }
-
-        &__button {
-            @include large-buttons-form-fields
-        }
-
-        &__button--cancel {
-            margin-right: 1rem;
-        }
-    }
-
-    @include desktop {
-        top: 700%;
-        left: -278%;
-        height: 220vh;
-    }
-}
+  }
+  

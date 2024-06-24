@@ -227,9 +227,13 @@ const EditInventory = () => {
         </div>
       </div>
       <div className="editinventory-btn">
-        <button type="button" className="editinventory-btn-cancel">
-          Cancel
-        </button>
+        
+          <button type="button" className="editinventory-btn-cancel">
+            <Link to={"/inventory"} className="editinventory__cancel-link">
+              Cancel
+            </Link>
+          </button>
+        
         <button
           type="submit"
           className="editinventory-btn-save"

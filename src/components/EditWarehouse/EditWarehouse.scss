@@ -14,14 +14,13 @@
   top: -3.125rem;
 
   @include tablet {
-    margin: 0 2rem;
-    width: calc(100% - 4rem);
+    margin: 0 auto;
+    max-width: 704px;
     top: -5.6rem;
   }
 
   @include desktop {
     max-width: 1040px;
-    margin: 0 auto;
   }
 
   &__heading {

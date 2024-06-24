@@ -20,7 +20,7 @@ const Inventory = () => {
     };
     const getWarehouseDetails = async () => {
       try {
-        const response = await axios.get(`${base_URL}/warehouse/${id}`);
+        const response = await axios.get(`${base_URL}/warehouse`);
         setWarehouseDetails(response.data);
       } catch (error) {
         console.error("Error fetching item details: 🚛🚛🚛", error);
