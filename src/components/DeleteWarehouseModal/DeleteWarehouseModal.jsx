@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import '../DeleteWarehouseModal/DeleteWarehouseModal.scss'
 import axios from "axios"
-
+import closeIcon from '../../assets/icons/close-24px.svg'
 
 export default function DeleteWarehouseModal({open, onClose, warehouse, id, warehouses, setWarehouses }) {
     const navigate = useNavigate()
@@ -36,7 +36,7 @@ export default function DeleteWarehouseModal({open, onClose, warehouse, id, ware
         <div onClick={onClose} className='delete-warehouse-modal'>
             <div onClick={(e) => {e.stopPropagation()}} className="delete-warehouse-modal__container">
                 <div className='delete-warehouse-modal__close-container'>
-                    <p onClick={onClose} className="delete-warehouse-modal__close">X</p>
+                    <a onClick={onClose} className="delete-warehouse-modal__close"><img src={closeIcon}></img></a>
                 </div>
                 <div className='delete-warehouse-modal__text-container'>
                     <h2 className='delete-warehouse-modal__header'>Delete {warehouse} warehouse?</h2>

@@ -35,8 +35,6 @@
 
   &__close {
     padding: 1rem;
-    @include mobile-subheader;
-    color: $instock-black;
   }
 
   &__text-container {

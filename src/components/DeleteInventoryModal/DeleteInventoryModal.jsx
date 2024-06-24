@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import '../DeleteInventoryModal/DeleteInventoryModal.scss'
 import axios from "axios"
-
+import closeIcon from '../../assets/icons/close-24px.svg'
 
 export default function DeleteInventoryModal({open, onClose, item, id, itemData, setItemData }) {
     const navigate = useNavigate()
@@ -33,18 +33,18 @@ export default function DeleteInventoryModal({open, onClose, item, id, itemData,
 
 
     return(
-        <div onClick={onClose} className='delete-warehouse-modal'>
-            <div onClick={(e) => {e.stopPropagation()}} className="delete-warehouse-modal__container">
-                <div className='delete-warehouse-modal__close-container'>
-                    <p onClick={onClose} className="delete-warehouse-modal__close">X</p>
+        <div onClick={onClose} className='delete-inventory-modal'>
+            <div onClick={(e) => {e.stopPropagation()}} className="delete-inventory-modal__container">
+                <div className='delete-inventory-modal__close-container'>
+                    <a onClick={onClose} className="delete-inventory-modal__close"><img src={closeIcon}></img></a>
                 </div>
-                <div className='delete-warehouse-modal__text-container'>
-                    <h2 className='delete-warehouse-modal__header'>Delete {item} inventory?</h2>
-                    <p className="delete-warehouse-modal__text">Please confirm that you’d like to delete {item} from the inventory list. You won’t be able to undo this action.</p>
+                <div className='delete-inventory-modal__text-container'>
+                    <h2 className='delete-inventory-modal__header'>Delete {item} inventory?</h2>
+                    <p className="delete-inventory-modal__text">Please confirm that you’d like to delete {item} from the inventory list. You won’t be able to undo this action.</p>
                 </div>                
-                <div className='delete-warehouse-modal__button-container'>
-                    <button onClick={onClose} className='delete-warehouse-modal__button delete-warehouse-modal__button--cancel'>Cancel</button>
-                    <button onClick={handleClick} className='delete-warehouse-modal__button'>Delete</button>
+                <div className='delete-inventory-modal__button-container'>
+                    <button onClick={onClose} className='delete-inventory-modal__button delete-inventory-modal__button--cancel'>Cancel</button>
+                    <button onClick={handleClick} className='delete-inventory-modal__button'>Delete</button>
                 </div>
             </div>
         </div>
