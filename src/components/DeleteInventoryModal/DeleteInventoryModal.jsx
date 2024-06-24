@@ -25,7 +25,7 @@ export default function DeleteInventoryModal({open, onClose, item, id, itemData,
         
         await axios.delete(`http://localhost:8080/inventory/${id}`)
             .then(response => console.log('Delete successful'))
-            .then(navigate('/'))
+            .then(navigate(-1))
             .catch(error => {
                 console.error('There was an error!', error);
             });
