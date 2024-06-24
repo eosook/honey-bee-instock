@@ -73,7 +73,7 @@ const EditInventory = () => {
     };
     try {
       await axios.post(`${base_URL}/inventory`, data);
-      navigate(-1)
+      navigate(-1);
     } catch (error) {
       console.error("Error updating item:", error.response.data);
     }
@@ -224,7 +224,9 @@ const EditInventory = () => {
       </div>
       <div className="editinventory-btn">
         <button type="button" className="editinventory-btn-cancel">
-          Cancel
+          <Link to={"/inventory"} className="editinventory__cancel-link">
+            Cancel
+          </Link>
         </button>
         <button
           type="submit"

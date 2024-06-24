@@ -228,6 +228,10 @@
       @include tablet {
         width: 10%;
       }
+      &:hover{
+        color: $instock-indigo;
+        border: 1px solid $instock-indigo;
+      }
     }
     &-save {
       border-radius: 20px;
@@ -239,7 +243,13 @@
       @include tablet {
         width: 10%;
       }
+      &:hover{
+        background-color: $graphite;
+      }
     }
+  }
+  &__cancel-link{
+    color: $slate;
   }
 }
 .error-message {
