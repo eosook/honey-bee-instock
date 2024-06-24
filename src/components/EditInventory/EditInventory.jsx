@@ -10,7 +10,6 @@ const EditInventory = () => {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState("");
   const [category, setCategory] = useState("");
-  const [warehouseName, setWarehouseName] = useState("");
   const [status, setStatus] = useState("");
   const [warehouse, setWarehouse] = useState("");
   const [errors, setErrors] = useState({});
@@ -42,11 +41,6 @@ const EditInventory = () => {
     fetchItemDetails();
   }, [id, base_URL]);
   useEffect(() => {
-    if (status === "Out of stock") {
-      setQuantity(0);
-    }
-  }, [status]);
-  useEffect(() => {
     validateForm();
   }, [item, description, quantity, category, status, warehouse]);
   const validateForm = () => {
@@ -55,10 +49,20 @@ const EditInventory = () => {
     if (!description) newErrors.description = "This field is required!";
     if (!category) newErrors.category = "This field is required!";
     if (!warehouse) newErrors.warehouse = "This field is required!";
-    if (status === "In stock" && (!quantity || isNaN(quantity)))
-      newErrors.quantity = "This field is required!";
+    if (
+      status === "In Stock" &&
+      (!quantity || isNaN(quantity) || quantity <= 0)
+    )
+      newErrors.quantity = "Quantity must be greater than 0";
     setErrors(newErrors);
     setIsFormValid(Object.keys(newErrors).length === 0);
+  };
+  //new function to check if the status is out of stock
+  const handleStatusChange = (newStatus) => {
+    setStatus(newStatus);
+    if (newStatus === "Out of Stock") {
+      setQuantity(0);
+    }
   };
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -73,7 +77,7 @@ const EditInventory = () => {
     };
     try {
       await axios.put(`${base_URL}/inventory/edit/${id}`, data);
-      navigate(-1)
+      navigate(-1);
     } catch (error) {
       console.error("Error updating item:", error.response.data);
     }
@@ -155,7 +159,7 @@ const EditInventory = () => {
                   type="radio"
                   name="status"
                   value="In Stock"
-                  onChange={(e) => setStatus(e.target.value)}
+                  onChange={() => handleStatusChange("In Stock")}
                   checked={status === "In Stock"}
                 />
                 In Stock
@@ -170,7 +174,7 @@ const EditInventory = () => {
                   type="radio"
                   name="status"
                   value="Out of Stock"
-                  onChange={(e) => setStatus(e.target.value)}
+                  onChange={() => handleStatusChange("Out of Stock")}
                   checked={status === "Out of Stock"}
                 />
                 Out of Stock
