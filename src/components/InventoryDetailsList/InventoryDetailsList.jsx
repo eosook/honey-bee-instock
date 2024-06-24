@@ -10,17 +10,17 @@ const InventoryDetailsList = ({ itemDataDetails, warehouseDetails }) => {
     <div className="item">
       <div className="item-container">
         <div className="item-container-one">
-          <h6 className="item-container-one-title">ITEM DESCRIPTION:</h6>
-          <p className="item-container-one-description">{description}</p>
+          <h6 className="item-container-one-title item-container__label">ITEM DESCRIPTION:</h6>
+          <p className="item-container-one-description item-container__body">{description}</p>
         </div>
         <div className="item-container-two">
-          <h6 className="item-container-two-category">CATEGORY</h6>
-          <p className="item-container-two-item">{category}</p>
+          <h6 className="item-container-two-category item-container__label">CATEGORY</h6>
+          <p className="item-container-two-item item-container__body">{category}</p>
         </div>
       </div>
       <div className="item-container-right">
         <div className="item-container-right-one">
-          <h6 className="item-container-right-one-status">STATUS:</h6>
+          <h6 className="item-container-right-one-status item-container__label">STATUS:</h6>
           <p
             className={`item-container-right-one-stock ${
               status === "Out of Stock"
@@ -32,14 +32,14 @@ const InventoryDetailsList = ({ itemDataDetails, warehouseDetails }) => {
           </p>{" "}
         </div>
         <div className="item-container-right-two">
-          <h6 className="item-container-right-two-warehouse">WAREHOUSE</h6>
-          <p className="item-container-right-two-location">
+          <h6 className="item-container-right-two-warehouse item-container__label">WAREHOUSE</h6>
+          <p className="item-container-right-two-location item-container__body">
             {warehouseName.warehouse_name}
           </p>
         </div>
         <div className="item-container-right-three">
-          <h6 className="item-container-right-three-quantity">QUANTITY:</h6>
-          <p className="item-container-right-three-quans">{quantity}</p>
+          <h6 className="item-container-right-three-quantity item-container__label">QUANTITY:</h6>
+          <p className="item-container-right-three-quans item-container__body">{quantity}</p>
         </div>
       </div>
     </div>
