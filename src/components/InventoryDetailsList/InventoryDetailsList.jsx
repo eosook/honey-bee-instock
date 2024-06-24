@@ -1,8 +1,9 @@
 import "./InventoryDetailsList.scss";
 const InventoryDetailsList = ({ itemDataDetails, warehouseDetails }) => {
+  console.log(warehouseDetails);
   const { description, category, status, quantity } = itemDataDetails;
-  const filterWarehouse = warehouseDetails?.filter(
-    (warehouse) => warehouse.id === itemDataDetails.id
+  const filterWarehouse = warehouseDetails.filter(
+    (warehouse) => warehouse.id === itemDataDetails.warehouse_id
   );
   const warehouseName = filterWarehouse?.length > 0 ? filterWarehouse[0] : {};
   return (
